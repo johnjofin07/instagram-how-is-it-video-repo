@@ -10,8 +10,13 @@ Update this file whenever an episode ships or an idea is added/rejected.
 |---|------|-------|--------|--------|----------|-----------|-------|
 | 001 | `001-netflix` | How Netflix works (encoding ladder, adaptive streaming, Open Connect) | Tech system | ✅ Produced | 2026-08-17 | not yet | Voice: Brian v3 (sp92/s26/sb75) · 89s · final at `out/001-netflix/final.mp4` |
 | 002 | `002-google-maps-traffic` | Google Maps traffic (phones as speed probes, prediction, Berlin handcart hack) | Tech system | ✅ Produced | 2026-08-17 | not yet | Voice: Brian v3 (same settings) · 107s · first LIGHT skin (`maps` theme, cute cartoon cars) · final at `out/002-google-maps-traffic/final.mp4` |
+| 003 | `003-air-fryer` | Air fryer (convection, boundary-layer blanket, why the crisp, marketing history) | Everyday machine | ✅ Produced | 2026-08-17 | not yet | Voice: Brian v3 (same settings) · 85s · first machines-pillar episode · new `kitchen` skin (warm cream, heat-amber) · final at `out/003-air-fryer/final.mp4` |
 
 Status meanings: `💡 idea` → `✍️ scripted` → `🎙 voiced` → `✅ produced` → `🚀 published` (+ date).
+
+**Sign-off (channel constant):** every episode ends with the per-pillar CTA —
+"What **machine** should I break down next?" (machines pillar) / "What
+**system** should I break down next?" (tech pillar).
 
 ## Backlog (curiosity-ranked, hooks pre-written)
 
@@ -28,7 +33,6 @@ establishes its two-lane identity. Hooks are specific surprising claims — neve
 
 ### Everyday machines pillar
 
-6. **Air fryer** — "There is no frying in your air fryer. It's a small oven with a fan and excellent marketing." Convection + why the crisp happens.
 7. **Black box** — "The only part of a plane built to survive the crash... is a box designed to tell you why it happened." Orange, tail-mounted, survives 3,400g.
 8. **Microwave** — "Your microwave has dead zones — that's the real reason the plate spins." Standing waves; why metal sparks; the door mesh.
 9. **Noise-cancelling headphones** — "Your headphones don't block noise. They fight it — with anti-noise." Destructive interference; waves cancelling animates beautifully.

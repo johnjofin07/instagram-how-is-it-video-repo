@@ -3,8 +3,9 @@ import type { ThemeSpec } from "./types";
 import { galaxy } from "./galaxy";
 import { blueprint } from "./blueprint";
 import { maps } from "./maps";
+import { kitchen } from "./kitchen";
 
-export const THEMES = { galaxy, blueprint, maps } as const;
+export const THEMES = { galaxy, blueprint, maps, kitchen } as const;
 export type ThemeName = keyof typeof THEMES;
 
 const ThemeContext = createContext<ThemeSpec>(galaxy);
