@@ -47,11 +47,15 @@ export type ThemeSpec = {
   // edge vignette color (the darkening at the frame edges)
   vignette: string;
 
-  // karaoke caption colors (light skins need dark words + light halo)
+  // karaoke caption styling (light skins need dark words + light halo).
+  // The karaoke reveal itself is a channel constant; how the line is dressed
+  // (font, boxed pill vs floating text) is part of the skin.
   caption: {
     spoken: string;
     unspoken: string;
     halo: string; // base text-shadow behind every word
+    font: "mono" | "sans";
+    boxed: boolean; // true = line sits in a rounded card (chip-style skins)
   };
 
   // animation personality

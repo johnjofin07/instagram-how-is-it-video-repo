@@ -9,6 +9,7 @@ Update this file whenever an episode ships or an idea is added/rejected.
 | # | Slug | Topic | Pillar | Status | Produced | Published | Notes |
 |---|------|-------|--------|--------|----------|-----------|-------|
 | 001 | `001-netflix` | How Netflix works (encoding ladder, adaptive streaming, Open Connect) | Tech system | ✅ Produced | 2026-08-17 | not yet | Voice: Brian v3 (sp92/s26/sb75) · 89s · final at `out/001-netflix/final.mp4` |
+| 002 | `002-google-maps-traffic` | Google Maps traffic (phones as speed probes, prediction, Berlin handcart hack) | Tech system | ✅ Produced | 2026-08-17 | not yet | Voice: Brian v3 (same settings) · 107s · first LIGHT skin (`maps` theme, cute cartoon cars) · final at `out/002-google-maps-traffic/final.mp4` |
 
 Status meanings: `💡 idea` → `✍️ scripted` → `🎙 voiced` → `✅ produced` → `🚀 published` (+ date).
 
@@ -20,9 +21,8 @@ establishes its two-lane identity. Hooks are specific surprising claims — neve
 
 ### Tech systems pillar
 
-1. **UPI** — "When you pay the chai wala, no money actually moves. Not for hours." NPCI switch, banks settle in batches. Stepper: tap → NPCI → your bank → their bank → settlement. Strong India resonance + finance crossover. *Leading candidate for 002.*
-2. **Google Maps traffic** — "Google doesn't have cameras on the road. The traffic sensor... is you." Phones as anonymous speed probes; include the 99-phones-in-a-handcart fake-traffic-jam story.
-3. **WhatsApp delivery** — "WhatsApp delivers 100 billion messages a day... and can't open a single one." E2E encryption as lockboxes; blue-tick journey maps to stepper.
+1. **UPI** — "When you pay the chai wala, no money actually moves. Not for hours." NPCI switch, banks settle in batches. Stepper: tap → NPCI → your bank → their bank → settlement. Strong India resonance + finance crossover. *Leading candidate for 003.*
+2. **WhatsApp delivery** — "WhatsApp delivers 100 billion messages a day... and can't open a single one." E2E encryption as lockboxes; blue-tick journey maps to stepper.
 4. **Undersea cables** — "Your reel just traveled through a cable on the sea floor thinner than a garden hose." ~99% of international data. ⚠️ Don't schedule right after Netflix — both are content-through-infrastructure stories.
 5. **Spotify shuffle** — "Spotify made shuffle LESS random... because true randomness felt broken." Humans perceive real randomness as patterns.
 

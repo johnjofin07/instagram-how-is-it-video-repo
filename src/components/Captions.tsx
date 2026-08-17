@@ -22,6 +22,32 @@ export const Captions: React.FC<{ lines: TimedLine[] }> = ({ lines }) => {
     extrapolateRight: "clamp",
   });
 
+  const sans = theme.caption.font === "sans";
+  const words = line.words.map((w, i) => {
+    const spoken = ms >= w.s;
+    const speaking = ms >= w.s && ms < w.e + 80;
+    return (
+      <span
+        key={i}
+        style={{
+          display: "inline-block", // lets the current word pop without reflow
+          color: speaking
+            ? theme.accent
+            : spoken
+              ? theme.caption.spoken
+              : theme.caption.unspoken,
+          textShadow: speaking
+            ? `0 0 26px ${theme.accentGlow}, ${theme.caption.halo}`
+            : theme.caption.halo,
+          transform: speaking ? "scale(1.05)" : "scale(1)",
+          marginRight: sans ? 19 : 15,
+        }}
+      >
+        {w.t}
+      </span>
+    );
+  });
+
   return (
     <div
       style={{
@@ -30,37 +56,32 @@ export const Captions: React.FC<{ lines: TimedLine[] }> = ({ lines }) => {
         left: 60,
         right: 60,
         textAlign: "center",
-        fontFamily: FONTS.mono,
-        fontWeight: 600,
+        fontFamily: sans ? FONTS.sans : FONTS.mono,
+        fontWeight: sans ? 800 : 600,
         fontSize: 50,
         lineHeight: 1.45,
-        letterSpacing: "0.03em",
+        letterSpacing: sans ? "0.005em" : "0.03em",
         opacity: enter,
         transform: `translateY(${(1 - enter) * 14}px)`,
       }}
     >
-      {line.words.map((w, i) => {
-        const spoken = ms >= w.s;
-        const speaking = ms >= w.s && ms < w.e + 80;
-        return (
-          <span
-            key={i}
-            style={{
-              color: speaking
-                ? theme.accent
-                : spoken
-                  ? theme.caption.spoken
-                  : theme.caption.unspoken,
-              textShadow: speaking
-                ? `0 0 26px ${theme.accentGlow}, ${theme.caption.halo}`
-                : theme.caption.halo,
-              marginRight: 15,
-            }}
-          >
-            {w.t}
-          </span>
-        );
-      })}
+      {theme.caption.boxed ? (
+        <div
+          style={{
+            display: "inline-block",
+            background: theme.card,
+            border: `1.5px solid ${theme.cardBorder}`,
+            borderRadius: 999,
+            boxShadow: theme.cardShadow,
+            padding: "14px 42px 16px",
+            maxWidth: "100%",
+          }}
+        >
+          {words}
+        </div>
+      ) : (
+        words
+      )}
     </div>
   );
 };

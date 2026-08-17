@@ -1,0 +1,10 @@
+{
+  // Hide the whisper.cpp tool clone (.cache/whisper) from Source Control.
+  // Listed both relative and absolute — some VS Code versions only match one.
+  "git.ignoredRepositories": [
+    ".cache/whisper",
+    "/Users/jofin/How's it insta/.cache/whisper"
+  ],
+  // Only auto-open repos at workspace roots — never nested tool downloads.
+  "git.autoRepositoryDetection": "openEditors"
+}

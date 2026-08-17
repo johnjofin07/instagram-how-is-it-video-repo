@@ -43,8 +43,10 @@ export const maps: ThemeSpec = {
 
   caption: {
     spoken: "rgba(28, 42, 52, 0.97)",
-    unspoken: "rgba(28, 42, 52, 0.3)",
-    halo: "0 2px 14px rgba(255, 255, 255, 0.9)",
+    unspoken: "rgba(28, 42, 52, 0.28)",
+    halo: "none",
+    font: "sans",
+    boxed: true,
   },
 
   motion: { damping: 13, stiffness: 190, mass: 0.7 },

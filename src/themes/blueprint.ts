@@ -37,6 +37,8 @@ export const blueprint: ThemeSpec = {
     spoken: "rgba(238, 240, 247, 0.96)",
     unspoken: "rgba(238, 240, 247, 0.3)",
     halo: "0 2px 18px rgba(0, 0, 10, 0.9)",
+    font: "mono",
+    boxed: false,
   },
 
   motion: { damping: 20, stiffness: 220, mass: 0.6 },
