@@ -1,0 +1,8 @@
+node_modules/
+out/
+.env
+.DS_Store
+.cache/
+/*.mp4
+Insta-ready*/
+*.wav
