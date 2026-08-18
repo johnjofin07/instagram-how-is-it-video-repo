@@ -12,19 +12,15 @@ export const CAR_COLORS = ["#4E8FD9", "#4FAE8E", "#E2846B", "#C99441", "#9C88CE"
 export const INK = "#2A343C"; // wheels/outlines — hue-shifted, not black
 export const GLASS = "#E9F4FB";
 
-export type Face = "happy" | "grumpy" | "worried";
-
 // ---------------------------------------------------------------- side view
 export const Car: React.FC<{
   color: string;
   w?: number;
-  face?: Face;
   flip?: boolean; // faces left instead of right
   style?: React.CSSProperties;
-}> = ({ color, w = 160, face, flip = false, style }) => {
+}> = ({ color, w = 160, flip = false, style }) => {
   const frame = useCurrentFrame();
   const wheelSpin = frame * 14;
-  const eyeY = face === "worried" ? 30 : 31;
   return (
     <svg
       width={w}
@@ -39,24 +35,6 @@ export const Car: React.FC<{
       {/* window */}
       <rect x="46" y="19" width="56" height="26" rx="9" fill={GLASS} />
       <line x1="76" y1="19" x2="76" y2="45" stroke={color} strokeWidth="5" />
-      {/* face in the windshield */}
-      {face ? (
-        <g>
-          <circle cx="60" cy={eyeY} r="4.4" fill={INK} />
-          <circle cx="70" cy={eyeY} r="4.4" fill={INK} />
-          {face === "happy" ? (
-            <path d="M57 38 Q65 44 73 38" stroke={INK} strokeWidth="3" fill="none" strokeLinecap="round" />
-          ) : face === "grumpy" ? (
-            <>
-              <line x1="54" y1="22" x2="63" y2="26" stroke={INK} strokeWidth="3" strokeLinecap="round" />
-              <line x1="76" y1="26" x2="85" y2="22" stroke={INK} strokeWidth="3" strokeLinecap="round" />
-              <path d="M58 41 Q65 37 72 41" stroke={INK} strokeWidth="3" fill="none" strokeLinecap="round" />
-            </>
-          ) : (
-            <ellipse cx="65" cy="41" rx="4.5" ry="5.5" fill={INK} />
-          )}
-        </g>
-      ) : null}
       {/* headlight + taillight */}
       <circle cx="150" cy="50" r="5" fill="#FFE9A8" />
       <rect x="4" y="46" width="6" height="9" rx="3" fill="#E2846B" />
@@ -261,6 +239,42 @@ export const HandcartWalker: React.FC<{ style?: React.CSSProperties }> = ({ styl
           <Phone key={i} w={26} style={{ transform: `rotate(${(i - 1.5) * 5}deg)` }} />
         ))}
       </div>
+    </div>
+  );
+};
+
+// ------------------------------------------------------------ stamp headline
+// The episode's big-beat text. Deliberately NOT the caption language (captions
+// are bold-sans white pills): uppercase mono, accent border, slight tilt —
+// reads as a rubber stamp on the map.
+export const Stamp: React.FC<{
+  children: React.ReactNode;
+  color?: string;
+  fontSize?: number;
+  rotate?: number;
+  style?: React.CSSProperties;
+}> = ({ children, color, fontSize = 44, rotate = -2.5, style }) => {
+  const theme = useTheme();
+  return (
+    <div
+      style={{
+        display: "inline-block",
+        padding: "16px 34px",
+        border: `4px solid ${color ?? theme.accent}`,
+        borderRadius: 18,
+        background: "rgba(255, 255, 255, 0.72)",
+        fontFamily: "ui-monospace, 'SF Mono', Menlo, monospace",
+        fontWeight: 700,
+        fontSize,
+        letterSpacing: "0.14em",
+        textTransform: "uppercase",
+        color: theme.text,
+        whiteSpace: "nowrap",
+        transform: `rotate(${rotate}deg)`,
+        ...style,
+      }}
+    >
+      {children}
     </div>
   );
 };

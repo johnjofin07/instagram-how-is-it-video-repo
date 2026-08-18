@@ -29,7 +29,9 @@ console.log(`Producing episode: ${slug}`);
 run(`node scripts/transcribe.mjs ${slug}`, "1/4 Transcribing narration (whisper)");
 run(`node scripts/align.mjs ${slug}`, "2/4 Aligning scenes + captions to voice");
 run(
-  `npx remotion render src/index.ts ${slug} "out/${slug}/raw.mp4" --overwrite`,
+  // crf 15: high-bitrate upload master — platforms re-encode, so feed them a
+  // rich source (default crf starves dark gradients → banding after IG's pass)
+  `npx remotion render src/index.ts ${slug} "out/${slug}/raw.mp4" --crf 15 --color-space bt709 --overwrite`,
   "3/4 Rendering video"
 );
 run(

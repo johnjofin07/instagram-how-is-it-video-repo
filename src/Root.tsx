@@ -1,5 +1,7 @@
 import React from "react";
-import { AbsoluteFill, Audio, Composition, Sequence, staticFile } from "remotion";
+import { AbsoluteFill, Audio, Composition, Sequence, Still, staticFile } from "remotion";
+import { Avatar, Banner, Emblem } from "./brand/Avatar";
+import { Cover001, Cover002, Cover003 } from "./brand/Cover";
 import { Background } from "./components/Background";
 import { Captions } from "./components/Captions";
 import { SectionHeader, Stepper } from "./components/Chrome";
@@ -69,5 +71,11 @@ export const RemotionRoot: React.FC = () => (
         height={VIDEO.height}
       />
     ))}
+    <Still id="brand-avatar" component={Avatar} width={1080} height={1080} />
+    <Still id="brand-emblem" component={Emblem} width={1080} height={1080} />
+    <Still id="brand-banner" component={Banner} width={2048} height={1152} />
+    <Still id="cover-001" component={Cover001} width={1080} height={1920} />
+    <Still id="cover-002" component={Cover002} width={1080} height={1920} />
+    <Still id="cover-003" component={Cover003} width={1080} height={1920} />
   </>
 );

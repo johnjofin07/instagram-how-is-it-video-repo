@@ -1,9 +1,8 @@
 import React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
-import { FONTS } from "../../../theme";
 import { useTheme } from "../../../themes";
 import { MonoLabel, RiseIn } from "../../../components/ui";
-import { Chip } from "./carto";
+import { Chip, Stamp } from "./carto";
 
 // Scene 5 (~15.5s): zoom out from one glowing dot to a whole city of them —
 // then that one dot is YOU. Headline + comment CTA.
@@ -74,9 +73,9 @@ export const Payoff: React.FC = () => {
       ) : null}
 
       <RiseIn delay={250} style={{ position: "absolute", top: 1330, textAlign: "center" }}>
-        <div style={{ fontFamily: FONTS.sans, fontWeight: 800, fontSize: 66, color: theme.text }}>
+        <Stamp fontSize={44}>
           you <span style={{ color: theme.accent }}>are</span> the traffic.
-        </div>
+        </Stamp>
       </RiseIn>
 
       <RiseIn delay={352} style={{ position: "absolute", top: 1428, textAlign: "center" }}>

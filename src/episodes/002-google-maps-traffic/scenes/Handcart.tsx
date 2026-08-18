@@ -109,7 +109,7 @@ export const Handcart: React.FC = () => {
       {/* the rerouted driver */}
       {frame >= 500 ? (
         <div style={{ position: "absolute", left: carX, top: 1064 }}>
-          <Car color={CAR_COLORS[4]} w={180} face={fleeing ? "grumpy" : "worried"} flip={!fleeing} />
+          <Car color={CAR_COLORS[4]} w={180} flip={!fleeing} />
           {!fleeing && frame >= 566 ? (
             <div
               style={{

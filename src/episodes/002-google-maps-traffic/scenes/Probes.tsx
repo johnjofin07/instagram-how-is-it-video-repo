@@ -1,14 +1,13 @@
 import React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
-import { FONTS } from "../../../theme";
 import { useTheme } from "../../../themes";
 import { CountUp, MonoLabel, RiseIn } from "../../../components/ui";
-import { Car, CAR_COLORS, Chip, SignalRings, TopCar } from "./carto";
+import { Car, CAR_COLORS, Chip, SignalRings, Stamp, TopCar } from "./carto";
 
 // Scene 2 (~27s): top-down street grid. Every car pings its location+speed.
 // Beat 1: anonymous pings. Beat 2: one phone is noise, millions are a map.
-// Beat 3: fast road paints green, crawling road paints red — with the happy
-// 60 km/h car vs the grumpy 5 km/h car.
+// Beat 3: fast road paints green, crawling road paints red — the 60 km/h car
+// tagged on the green road, the 5 km/h car on the red one.
 
 const ROAD_TOP = 620; // eastbound, stays smooth
 const ROAD_BOT = 960; // westbound, jams up
@@ -135,24 +134,24 @@ export const Probes: React.FC = () => {
       ) : null}
       {frame >= SOLO.undim + 20 && frame < TRAFFIC + 40 ? (
         <RiseIn delay={SOLO.undim + 30} style={{ position: "absolute", top: 1270, left: 0, right: 0, textAlign: "center" }}>
-          <div style={{ fontFamily: FONTS.sans, fontWeight: 800, fontSize: 52, color: theme.text }}>
+          <Stamp fontSize={33} rotate={-2}>
             millions = <span style={{ color: theme.accent }}>a live speed map</span>
-          </div>
+          </Stamp>
           <MonoLabel style={{ marginTop: 14, fontSize: 24 }}>
             <CountUp to={2400000} delay={SOLO.undim + 40} durationFrames={70} /> probes / min
           </MonoLabel>
         </RiseIn>
       ) : null}
 
-      {/* the 60 vs 5 gag */}
+      {/* the 60 vs 5 gag — each pair sits on its own road */}
       {frame >= TRAFFIC + 20 ? (
         <>
-          <RiseIn delay={TRAFFIC + 24} style={{ position: "absolute", left: 96, top: 1250, textAlign: "center" }}>
-            <Car color={CAR_COLORS[1]} w={170} face="happy" />
+          <RiseIn delay={TRAFFIC + 24} style={{ position: "absolute", left: 96, top: ROAD_TOP - 160, textAlign: "center" }}>
+            <Car color={CAR_COLORS[1]} w={170} />
             <Chip color={theme.good} style={{ marginTop: 8 }}>60 · smooth</Chip>
           </RiseIn>
-          <RiseIn delay={TRAFFIC + 78} style={{ position: "absolute", right: 96, top: 1250, textAlign: "center" }}>
-            <Car color={CAR_COLORS[2]} w={170} face="grumpy" />
+          <RiseIn delay={TRAFFIC + 78} style={{ position: "absolute", right: 96, top: ROAD_BOT - 160, textAlign: "center" }}>
+            <Car color={CAR_COLORS[2]} w={170} />
             <Chip color={theme.brand} style={{ marginTop: 8 }}>5 · jam</Chip>
           </RiseIn>
         </>

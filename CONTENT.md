@@ -6,11 +6,11 @@ Update this file whenever an episode ships or an idea is added/rejected.
 
 ## Episode log
 
-| # | Slug | Topic | Pillar | Status | Produced | Published | Notes |
-|---|------|-------|--------|--------|----------|-----------|-------|
-| 001 | `001-netflix` | How Netflix works (encoding ladder, adaptive streaming, Open Connect) | Tech system | ✅ Produced | 2026-08-17 | not yet | Voice: Brian v3 (sp92/s26/sb75) · 89s · final at `out/001-netflix/final.mp4` |
-| 002 | `002-google-maps-traffic` | Google Maps traffic (phones as speed probes, prediction, Berlin handcart hack) | Tech system | ✅ Produced | 2026-08-17 | not yet | Voice: Brian v3 (same settings) · 107s · first LIGHT skin (`maps` theme, cute cartoon cars) · final at `out/002-google-maps-traffic/final.mp4` |
-| 003 | `003-air-fryer` | Air fryer (convection, boundary-layer blanket, why the crisp, marketing history) | Everyday machine | ✅ Produced | 2026-08-17 | not yet | Voice: Brian v3 (same settings) · 85s · first machines-pillar episode · new `kitchen` skin (warm cream, heat-amber) · final at `out/003-air-fryer/final.mp4` |
+| #   | Slug                      | Topic                                                                            | Pillar           | Status      | Produced   | Published | Notes                                                                                                                                                        |
+| --- | ------------------------- | -------------------------------------------------------------------------------- | ---------------- | ----------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 001 | `001-netflix`             | How Netflix works (encoding ladder, adaptive streaming, Open Connect)            | Tech system      | ✅ Produced | 2026-08-17 | not yet   | Voice: Brian v3 (sp92/s26/sb75) · 89s · final at `out/001-netflix/final.mp4`                                                                                 |
+| 002 | `002-google-maps-traffic` | Google Maps traffic (phones as speed probes, prediction, Berlin handcart hack)   | Tech system      | ✅ Produced | 2026-08-17 | not yet   | Voice: Brian v3 (same settings) · 107s · first LIGHT skin (`maps` theme, cute cartoon cars) · final at `out/002-google-maps-traffic/final.mp4`               |
+| 003 | `003-air-fryer`           | Air fryer (convection, boundary-layer blanket, why the crisp, marketing history) | Everyday machine | ✅ Produced | 2026-08-17 | not yet   | Voice: Brian v3 (same settings) · 85s · first machines-pillar episode · new `kitchen` skin (warm cream, heat-amber) · final at `out/003-air-fryer/final.mp4` |
 
 Status meanings: `💡 idea` → `✍️ scripted` → `🎙 voiced` → `✅ produced` → `🚀 published` (+ date).
 
@@ -26,10 +26,12 @@ establishes its two-lane identity. Hooks are specific surprising claims — neve
 
 ### Tech systems pillar
 
-1. **UPI** — "When you pay the chai wala, no money actually moves. Not for hours." NPCI switch, banks settle in batches. Stepper: tap → NPCI → your bank → their bank → settlement. Strong India resonance + finance crossover. *Leading candidate for 003.*
+1. **UPI** — "When you pay the chai wala, no money actually moves. Not for hours." NPCI switch, banks settle in batches. Stepper: tap → NPCI → your bank → their bank → settlement. Strong India resonance + finance crossover. _Leading candidate for 003._
 2. **WhatsApp delivery** — "WhatsApp delivers 100 billion messages a day... and can't open a single one." E2E encryption as lockboxes; blue-tick journey maps to stepper.
-4. **Undersea cables** — "Your reel just traveled through a cable on the sea floor thinner than a garden hose." ~99% of international data. ⚠️ Don't schedule right after Netflix — both are content-through-infrastructure stories.
-5. **Spotify shuffle** — "Spotify made shuffle LESS random... because true randomness felt broken." Humans perceive real randomness as patterns.
+3. **Undersea cables** — "Your reel just traveled through a cable on the sea floor thinner than a garden hose." ~99% of international data. ⚠️ Don't schedule right after Netflix — both are content-through-infrastructure stories.
+4. **Spotify shuffle** — "Spotify made shuffle LESS random... because true randomness felt broken." Humans perceive real randomness as patterns.
+5. **Telemetry** — _angle TBD, too abstract as-is; needs a concrete carrier system._ Options: (a) F1 — "An F1 car streams over a million data points a second — the pit wall often knows something broke before the driver feels it." (b) Your phone — "Your apps filed hundreds of reports about you today. Here's what's in them." F1 is the more visual/animatable pick; phone angle is more relatable + privacy comment-bait.
+6. **AI agent harness** ("Hermes and harness") — "The AI never touches your computer. It only writes text — something else does everything." Model as brain-in-a-jar; the harness is the messenger (Hermes) that carries its words out into the world as actions and carries results back. Loop maps perfectly to stepper: prompt → model writes → harness executes → result returns → repeat. Keep the word "harness" out of the hook — lead with the surprising claim, use Hermes as a mid-episode metaphor, not the title.
 
 ### Everyday machines pillar
 

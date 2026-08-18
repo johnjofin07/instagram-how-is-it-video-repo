@@ -2,6 +2,19 @@
 // skin: typography, video format, and the pipeline-stepper concept.
 // Colors/backgrounds/motion live in src/themes/* and are chosen per episode.
 
+// The channel brand. Deliberately NOT rendered inside episode videos yet —
+// keep published videos handle-free until the name is locked in (~ep 15),
+// so a rebrand stays a profile-settings change. When ready, pull from here.
+export const CHANNEL = {
+  name: "superhow",
+  tagline: "how things actually work",
+  handles: {
+    youtube: "@superhow",
+    instagram: "@superhow.show",
+  },
+  domain: "superhow.show",
+} as const;
+
 export const FONTS = {
   mono: 'ui-monospace, "SF Mono", Menlo, "Cascadia Code", monospace',
   sans: '-apple-system, "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif',
