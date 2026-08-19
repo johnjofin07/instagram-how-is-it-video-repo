@@ -110,12 +110,12 @@ export const Payoff: React.FC = () => {
         </div>
       ) : null}
 
-      <RiseIn delay={385} style={{ position: "absolute", left: 0, right: 0, top: 1256, textAlign: "center" }}>
+      <RiseIn delay={385} style={{ position: "absolute", left: 0, right: 0, top: 1180, textAlign: "center" }}>
         <Headline style={{ fontSize: 50 }}>
           what <span style={{ color: theme.accent }}>machine</span> should I break down next?
         </Headline>
       </RiseIn>
-      <RiseIn delay={430} style={{ position: "absolute", left: 0, right: 0, top: 1448, textAlign: "center" }}>
+      <RiseIn delay={430} style={{ position: "absolute", left: 0, right: 0, top: 1316, textAlign: "center" }}>
         <MonoLabel style={{ fontSize: 27, letterSpacing: "0.15em" }}>
           drop it in the comments ↓
         </MonoLabel>

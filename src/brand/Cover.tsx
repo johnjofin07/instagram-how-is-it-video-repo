@@ -2,8 +2,10 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import { FONTS } from "../theme";
 import { galaxy } from "../themes/galaxy";
+import { delivery } from "../themes/delivery";
 import { maps } from "../themes/maps";
 import { kitchen } from "../themes/kitchen";
+import { flightlab } from "../themes/flightlab";
 
 // Episode cover / reel thumbnail (1080×1920 still). Title-card layout: episode
 // tag up top, big two-line title centered, subject word in accent red.
@@ -249,5 +251,160 @@ export const Cover003: React.FC = () => (
         background: `radial-gradient(ellipse 92% 78% at 50% 46%, transparent 60%, ${kitchen.vignette} 100%)`,
       }}
     />
+  </AbsoluteFill>
+);
+
+// Small cover parcel: kraft box, red tape cross (matches ep-004's kit).
+const CoverParcel: React.FC<{ x: number; y: number; s: number; r: number }> = ({ x, y, s, r }) => (
+  <svg
+    width={s}
+    height={s}
+    viewBox="0 0 40 40"
+    style={{ position: "absolute", left: x, top: y, transform: `rotate(${r}deg)` }}
+  >
+    <rect x="3" y="6" width="34" height="31" rx="5" fill="#C9A876" stroke="#7C6237" strokeWidth="2.5" />
+    <rect x="16" y="6" width="8" height="31" fill={delivery.brand} opacity="0.92" />
+    <rect x="3" y="18" width="34" height="7" fill={delivery.brand} opacity="0.65" />
+  </svg>
+);
+
+export const Cover004: React.FC = () => (
+  <AbsoluteFill style={{ backgroundColor: delivery.bg }}>
+    {/* taped depot-floor lanes */}
+    <svg width="1080" height="1920" style={{ position: "absolute" }}>
+      {[190, 640, 1090, 1540].map((y) => (
+        <line
+          key={`h${y}`}
+          x1={0}
+          y1={y}
+          x2={1080}
+          y2={y}
+          stroke="rgba(37, 49, 58, 0.09)"
+          strokeWidth={5}
+          strokeDasharray="52 34"
+        />
+      ))}
+      {[120, 950].map((x) => (
+        <line
+          key={`v${x}`}
+          x1={x}
+          y1={0}
+          x2={x}
+          y2={1920}
+          stroke="rgba(37, 49, 58, 0.09)"
+          strokeWidth={5}
+          strokeDasharray="52 34"
+        />
+      ))}
+    </svg>
+    <AbsoluteFill
+      style={{
+        background: `radial-gradient(ellipse 720px 620px at 50% 46%, ${delivery.accentGlow}, transparent 72%)`,
+        opacity: 0.2,
+      }}
+    />
+    {/* stray parcels */}
+    <CoverParcel x={140} y={330} s={110} r={-10} />
+    <CoverParcel x={830} y={430} s={86} r={14} />
+    <CoverParcel x={200} y={1440} s={90} r={8} />
+    <CoverParcel x={800} y={1380} s={124} r={-7} />
+    <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", gap: 54 }}>
+      <div
+        style={{
+          fontFamily: FONTS.sans,
+          fontWeight: 800,
+          fontSize: 132,
+          lineHeight: 1.08,
+          textAlign: "center",
+          color: delivery.text,
+          letterSpacing: "-0.01em",
+        }}
+      >
+        NETFLIX
+        <br />
+        IS A{" "}
+        <span style={{ color: delivery.brand, textShadow: `0 0 70px ${delivery.brandGlow}` }}>
+          DELIVERY
+        </span>
+        <br />
+        COMPANY
+      </div>
+      <div
+        style={{
+          fontFamily: FONTS.mono,
+          fontSize: 30,
+          letterSpacing: "0.4em",
+          marginRight: "-0.4em",
+          color: delivery.textFaint,
+          textTransform: "uppercase",
+        }}
+      >
+        in 90 seconds
+      </div>
+    </AbsoluteFill>
+    <AbsoluteFill
+      style={{
+        background: `radial-gradient(ellipse 92% 78% at 50% 46%, transparent 55%, ${delivery.vignette} 100%)`,
+      }}
+    />
+  </AbsoluteFill>
+);
+
+const CoverRecorder: React.FC = () => (
+  <svg width="620" height="400" viewBox="0 0 620 400">
+    <defs>
+      <linearGradient id="cover-recorder" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stopColor="#FF9A3D" />
+        <stop offset="0.58" stopColor={flightlab.accent} />
+        <stop offset="1" stopColor="#A93C07" />
+      </linearGradient>
+    </defs>
+    <rect x="62" y="62" width="496" height="278" rx="34" fill="url(#cover-recorder)" stroke="#702B09" strokeWidth="10" />
+    <path d="M72 112 H548 M72 288 H548" stroke="#FFF3DE" strokeWidth="25" opacity="0.9" />
+    <path d="M72 112 H548 M72 288 H548" stroke="#59656E" strokeWidth="5" strokeDasharray="30 18" />
+    <rect x="155" y="145" width="280" height="110" rx="15" fill="rgba(94,29,4,.58)" stroke="rgba(255,255,255,.35)" strokeWidth="5" />
+    <text x="295" y="190" textAnchor="middle" fontFamily={FONTS.mono} fontSize="30" fontWeight="800" fill="#FFF7EC" letterSpacing="3">FLIGHT RECORDER</text>
+    <text x="295" y="229" textAnchor="middle" fontFamily={FONTS.mono} fontSize="21" fill="#FFE2C0" letterSpacing="2">DO NOT OPEN</text>
+    <rect x="493" y="122" width="86" height="160" rx="40" fill="#F07A1C" stroke="#6E2B0A" strokeWidth="8" />
+    <rect x="513" y="142" width="46" height="106" rx="22" fill={flightlab.second} opacity="0.75" />
+    {/* deterministic test damage */}
+    <path d="M108 70 L148 128 L124 172 M421 244 L384 286 L413 333" fill="none" stroke="#4A1C09" strokeWidth="9" strokeLinecap="round" />
+  </svg>
+);
+
+export const Cover006: React.FC = () => (
+  <AbsoluteFill style={{ backgroundColor: flightlab.bg }}>
+    {/* reuse the episode's technical blueprint language */}
+    <AbsoluteFill
+      style={{
+        backgroundImage: `linear-gradient(${flightlab.lineFaint} 1px, transparent 1px), linear-gradient(90deg, ${flightlab.lineFaint} 1px, transparent 1px)`,
+        backgroundSize: "44px 44px",
+      }}
+    />
+    <AbsoluteFill
+      style={{
+        background: `radial-gradient(ellipse 720px 620px at 50% 50%, ${flightlab.accentGlow}, transparent 72%)`,
+        opacity: 0.5,
+      }}
+    />
+    <div style={{ position: "absolute", left: 230, top: 300, transform: "rotate(-5deg)", filter: `drop-shadow(0 28px 40px rgba(0,0,0,.55))` }}>
+      <CoverRecorder />
+    </div>
+    <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", gap: 42, paddingTop: 250 }}>
+      <div style={{ fontFamily: FONTS.mono, fontSize: 31, fontWeight: 700, letterSpacing: "0.4em", marginRight: "-0.4em", color: flightlab.textDim, textTransform: "uppercase" }}>
+        EP.006 · Everyday machines
+      </div>
+      <div style={{ fontFamily: FONTS.sans, fontWeight: 900, fontSize: 124, lineHeight: 1.02, textAlign: "center", color: flightlab.text, letterSpacing: "-0.02em" }}>
+        FIRST,
+        <br />
+        THEY TRY TO
+        <br />
+        <span style={{ color: flightlab.accent, textShadow: `0 0 70px ${flightlab.accentGlow}` }}>DESTROY IT</span>
+      </div>
+      <div style={{ fontFamily: FONTS.mono, fontSize: 29, letterSpacing: "0.32em", marginRight: "-0.32em", color: flightlab.second, textTransform: "uppercase" }}>
+        inside the black box
+      </div>
+    </AbsoluteFill>
+    <AbsoluteFill style={{ background: `radial-gradient(ellipse 92% 78% at 50% 46%, transparent 55%, ${flightlab.vignette} 100%)` }} />
   </AbsoluteFill>
 );

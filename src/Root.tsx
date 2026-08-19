@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, Composition, Sequence, Still, staticFile } from "remotion";
 import { Avatar, Banner, Emblem } from "./brand/Avatar";
-import { Cover001, Cover002, Cover003 } from "./brand/Cover";
+import { Cover001, Cover002, Cover003, Cover004, Cover006 } from "./brand/Cover";
 import { Background } from "./components/Background";
 import { Captions } from "./components/Captions";
 import { SectionHeader, Stepper } from "./components/Chrome";
@@ -35,8 +35,9 @@ const EpisodeVideo: React.FC<{ episode: Episode }> = ({ episode }) => {
           <Sequence key={scene.id} from={from} durationInFrames={durationInFrames}>
             <Background />
             <SceneComp />
-            <SectionHeader label={scene.label} index={i} total={episode.scenes.length} />
+            <SectionHeader label={scene.label} index={i} total={episode.scenes.length} top={episode.chrome?.headerTop} />
             <Stepper
+              top={episode.chrome?.stepperTop}
               steps={episode.steps}
               activeIndex={scene.stepIndex}
               allDone={i === episode.scenes.length - 1}
@@ -77,5 +78,7 @@ export const RemotionRoot: React.FC = () => (
     <Still id="cover-001" component={Cover001} width={1080} height={1920} />
     <Still id="cover-002" component={Cover002} width={1080} height={1920} />
     <Still id="cover-003" component={Cover003} width={1080} height={1920} />
+    <Still id="cover-004" component={Cover004} width={1080} height={1920} />
+    <Still id="cover-006" component={Cover006} width={1080} height={1920} />
   </>
 );

@@ -10,7 +10,8 @@ export const SectionHeader: React.FC<{
   label: string;
   index: number;
   total: number;
-}> = ({ label, index, total }) => {
+  top?: number; // per-episode: IG/YT top chrome ends ~y269 (see CLAUDE.md)
+}> = ({ label, index, total, top = 96 }) => {
   const theme = useTheme();
   const frame = useCurrentFrame();
   const opacity = interpolate(frame, [0, 12], [0, 1], {
@@ -20,9 +21,9 @@ export const SectionHeader: React.FC<{
     <div
       style={{
         position: "absolute",
-        top: 96,
-        left: 64,
-        right: 64,
+        top,
+        left: 65,
+        right: 140,
         display: "flex",
         justifyContent: "space-between",
         fontFamily: FONTS.mono,
@@ -46,7 +47,8 @@ export const Stepper: React.FC<{
   activeIndex: number;
   allDone?: boolean;
   intro?: boolean;
-}> = ({ steps, activeIndex, allDone = false, intro = false }) => {
+  top?: number;
+}> = ({ steps, activeIndex, allDone = false, intro = false, top = 176 }) => {
   const theme = useTheme();
   const frame = useCurrentFrame();
   const enter = interpolate(frame, [4, 20], [0, 1], {
@@ -57,9 +59,9 @@ export const Stepper: React.FC<{
     <div
       style={{
         position: "absolute",
-        top: 176,
-        left: 64,
-        right: 64,
+        top,
+        left: 65,
+        right: 140,
         opacity: enter,
       }}
     >

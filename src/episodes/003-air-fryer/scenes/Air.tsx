@@ -65,7 +65,7 @@ export const Air: React.FC = () => {
         </RiseIn>
       ) : null}
 
-      <RiseIn delay={540} style={{ position: "absolute", left: 0, right: 0, top: 1390, textAlign: "center" }}>
+      <RiseIn delay={540} style={{ position: "absolute", left: 0, right: 0, top: 1296, textAlign: "center" }}>
         <Headline>
           a <span style={{ color: theme.accent }}>hurricane</span> in a bucket
         </Headline>

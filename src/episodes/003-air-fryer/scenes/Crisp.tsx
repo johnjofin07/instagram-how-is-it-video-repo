@@ -15,21 +15,23 @@ export const Crisp: React.FC = () => {
   const theme = useTheme();
   const frame = useCurrentFrame();
 
-  // beats snapped to narration: "blast the surface" ~f175, "steams off"
-  // ~f248-260, "outside browns" ~f338, "inside stays soft" ~f380, "teaspoon"
-  // ~f434, "the wind does the frying" ~f560-584
+  // beats snapped to narration (v2 audio: align.mjs moved this scene's
+  // boundary 19 frames closer to the speech, so all v1 beats shift -19):
+  // "blast the surface" ~f156, "steams off" ~f229-241, "outside browns"
+  // ~f319, "inside stays soft" ~f361, "teaspoon" ~f415, "the wind does the
+  // frying" ~f541-565
   const enter = useEnter(10);
-  const brown = interpolate(frame, [180, 345], [0, 1], clamp);
+  const brown = interpolate(frame, [161, 326], [0, 1], clamp);
   const crust = mixHex(FRY_PALE, FRY_GOLD, brown);
-  const cut = useEnter(375, { damping: 13 });
-  const spoon = useEnter(430, { damping: 10 });
+  const cut = useEnter(356, { damping: 13 });
+  const spoon = useEnter(411, { damping: 10 });
 
   return (
     <AbsoluteFill style={{ alignItems: "center" }}>
       {/* the giant fry */}
       <div style={{ position: "absolute", top: 470, opacity: enter, transform: `scale(${enter})`, transformOrigin: "center" }}>
         <svg width="420" height="640" viewBox="0 0 420 640">
-          <Steam x={210} y={80} start={175} count={8} rise={110} />
+          <Steam x={210} y={80} start={156} count={8} rise={110} />
           {/* crust */}
           <rect x="130" y="70" width="160" height="540" rx="46" fill={crust} stroke={INK} strokeWidth="5" />
           {/* browning speckles fade in with the crust */}
@@ -53,19 +55,19 @@ export const Crisp: React.FC = () => {
         </svg>
       </div>
 
-      {frame >= 240 && frame < 360 ? (
-        <RiseIn delay={240} style={{ position: "absolute", left: 620, top: 540 }}>
+      {frame >= 221 && frame < 341 ? (
+        <RiseIn delay={221} style={{ position: "absolute", left: 620, top: 540 }}>
           <Chip color={theme.second}>water steams off</Chip>
         </RiseIn>
       ) : null}
 
-      {frame >= 345 ? (
-        <RiseIn delay={345} style={{ position: "absolute", left: 96, top: 640 }}>
+      {frame >= 326 ? (
+        <RiseIn delay={326} style={{ position: "absolute", left: 96, top: 640 }}>
           <Chip color={theme.accent} style={{ fontWeight: 700 }}>crispy outside</Chip>
         </RiseIn>
       ) : null}
-      {frame >= 390 ? (
-        <RiseIn delay={390} style={{ position: "absolute", left: 660, top: 900 }}>
+      {frame >= 371 ? (
+        <RiseIn delay={371} style={{ position: "absolute", left: 660, top: 900 }}>
           <Chip>soft inside</Chip>
         </RiseIn>
       ) : null}
@@ -78,13 +80,13 @@ export const Crisp: React.FC = () => {
           <line x1="78" y1="56" x2="168" y2="34" stroke="#C8CDD4" strokeWidth="10" strokeLinecap="round" />
         </svg>
       </div>
-      {frame >= 445 ? (
-        <RiseIn delay={445} style={{ position: "absolute", left: 96, top: 1230 }}>
+      {frame >= 426 ? (
+        <RiseIn delay={426} style={{ position: "absolute", left: 96, top: 1230 }}>
           <Chip>1 tsp — heat + flavor</Chip>
         </RiseIn>
       ) : null}
 
-      <RiseIn delay={555} style={{ position: "absolute", left: 0, right: 0, top: 1390, textAlign: "center" }}>
+      <RiseIn delay={536} style={{ position: "absolute", left: 0, right: 0, top: 1296, textAlign: "center" }}>
         <Headline>
           the <span style={{ color: theme.accent }}>wind</span> does the frying
         </Headline>

@@ -4,8 +4,11 @@ import { galaxy } from "./galaxy";
 import { blueprint } from "./blueprint";
 import { maps } from "./maps";
 import { kitchen } from "./kitchen";
+import { delivery } from "./delivery";
+import { abyss } from "./abyss";
+import { flightlab } from "./flightlab";
 
-export const THEMES = { galaxy, blueprint, maps, kitchen } as const;
+export const THEMES = { galaxy, blueprint, maps, kitchen, delivery, abyss, flightlab } as const;
 export type ThemeName = keyof typeof THEMES;
 
 const ThemeContext = createContext<ThemeSpec>(galaxy);

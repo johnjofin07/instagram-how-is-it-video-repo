@@ -8,6 +8,8 @@ export type BackgroundVariant =
   | { kind: "galaxy" } // starfield + nebula
   | { kind: "blueprint" } // graph-paper grid
   | { kind: "map" } // light street-map canvas (parks, water, faint road grid)
+  | { kind: "depot" } // light warehouse floor (taped lanes, packing zones)
+  | { kind: "abyss" } // deep water column (caustics, marine snow, seabed)
   | { kind: "plain" }; // flat with glow only
 
 export type ThemeSpec = {

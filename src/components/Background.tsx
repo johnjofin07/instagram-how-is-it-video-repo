@@ -147,6 +147,151 @@ const MapCanvas: React.FC<{ glowY: number }> = ({ glowY }) => {
   );
 };
 
+// Light warehouse-floor canvas: taped work lanes, soft kraft "packing zones"
+// with corner tape marks — an out-of-focus depot floor. Low contrast so the
+// cargo (scene content) reads on top.
+const DepotFloor: React.FC<{ glowY: number }> = ({ glowY }) => {
+  const theme = useTheme();
+  const tape = "rgba(37, 49, 58, 0.09)";
+  const zones: Array<[number, number, number, number]> = [
+    [-80, 260, 400, 300],
+    [790, 700, 380, 320],
+    [90, 1470, 340, 300],
+  ];
+  return (
+    <>
+      <svg width="1080" height="1920" style={{ position: "absolute", top: 0, left: 0 }}>
+        {/* packing zones: soft kraft patches with corner tape "L" marks */}
+        {zones.map(([x, y, w, h], i) => (
+          <g key={i}>
+            <rect x={x} y={y} width={w} height={h} rx={30} fill="rgba(201, 168, 118, 0.14)" />
+            {(
+              [
+                [x + 18, y + 18, 1, 1],
+                [x + w - 18, y + 18, -1, 1],
+                [x + 18, y + h - 18, 1, -1],
+                [x + w - 18, y + h - 18, -1, -1],
+              ] as const
+            ).map(([cx, cy, sx, sy], k) => (
+              <path
+                key={k}
+                d={`M ${cx + sx * 46} ${cy} L ${cx} ${cy} L ${cx} ${cy + sy * 46}`}
+                fill="none"
+                stroke="rgba(148, 118, 70, 0.28)"
+                strokeWidth="7"
+              />
+            ))}
+          </g>
+        ))}
+        {/* taped floor lanes */}
+        {[140, 560, 1000, 1420, 1800].map((y) => (
+          <line
+            key={`h${y}`}
+            x1="0"
+            y1={y}
+            x2="1080"
+            y2={y}
+            stroke={tape}
+            strokeWidth="5"
+            strokeDasharray="52 34"
+          />
+        ))}
+        {[120, 950].map((x) => (
+          <line
+            key={`v${x}`}
+            x1={x}
+            y1="0"
+            x2={x}
+            y2="1920"
+            stroke={tape}
+            strokeWidth="5"
+            strokeDasharray="52 34"
+          />
+        ))}
+      </svg>
+      <AbsoluteFill
+        style={{
+          background: `radial-gradient(ellipse 640px 540px at 50% ${glowY * 100}%, ${theme.accentGlow}, transparent 72%)`,
+          opacity: 0.14,
+        }}
+      />
+    </>
+  );
+};
+
+// Deep water column: the canvas IS the depth cue. A vertical gradient from
+// dim surface light to black, soft caustic shafts near the top, slow-falling
+// marine snow, and a silt seabed behind the caption zone. Everything is low
+// contrast so the cable and its light read on top.
+const Abyss: React.FC<{ glowY: number }> = ({ glowY }) => {
+  const theme = useTheme();
+  const frame = useCurrentFrame();
+  const snow = useMemo(() => makeStars(60, 23), []);
+
+  return (
+    <>
+      <AbsoluteFill
+        style={{
+          background:
+            "linear-gradient(180deg, #12384A 0%, #0B2333 24%, #07131C 47%, #050E15 70%, #03090E 100%)",
+        }}
+      />
+      <svg width="1080" height="1920" style={{ position: "absolute", top: 0, left: 0 }}>
+        <defs>
+          <linearGradient id="caustic" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="rgba(143, 227, 240, 0.07)" />
+            <stop offset="100%" stopColor="rgba(143, 227, 240, 0)" />
+          </linearGradient>
+        </defs>
+        {/* surface caustics — light shafts fanning down from above the frame */}
+        {[-260, -120, 40, 190, 330].map((dx, i) => {
+          const sway = Math.sin(frame * 0.006 + i * 1.7) * 14;
+          const topX = 540 + dx * 0.25 + sway;
+          const botX = 540 + dx + sway * 2.2;
+          return (
+            <path
+              key={i}
+              d={`M ${topX - 26} -100 L ${topX + 26} -100 L ${botX + 92} 520 L ${botX - 92} 520 Z`}
+              fill="url(#caustic)"
+            />
+          );
+        })}
+        {/* marine snow — silt falling, deliberately slower than the starfield */}
+        {snow.map((p, i) => {
+          const y = (p.y + frame * 0.18 * (p.r > 1.8 ? 1.5 : 1)) % 1920;
+          return (
+            <circle
+              key={i}
+              cx={p.x}
+              cy={y}
+              r={p.r * 0.85}
+              fill="rgba(214, 234, 244, 0.34)"
+              opacity={0.25 + 0.5 * (0.5 + 0.5 * Math.sin(p.phase + frame * p.speed * 0.4))}
+            />
+          );
+        })}
+        {/* seabed — pure depth cueing, sits behind the caption zone */}
+        <path
+          d="M 0 1620 Q 240 1546, 520 1580 Q 800 1614, 1080 1552 L 1080 1920 L 0 1920 Z"
+          fill="#1A2A2E"
+        />
+        <path
+          d="M 0 1620 Q 240 1546, 520 1580 Q 800 1614, 1080 1552"
+          fill="none"
+          stroke="rgba(180, 214, 232, 0.12)"
+          strokeWidth="2"
+        />
+      </svg>
+      <AbsoluteFill
+        style={{
+          background: `radial-gradient(ellipse 640px 540px at 50% ${glowY * 100}%, ${theme.accentGlow}, transparent 72%)`,
+          opacity: 0.18,
+        }}
+      />
+    </>
+  );
+};
+
 export const Background: React.FC<{ glowY?: number }> = ({ glowY = 0.42 }) => {
   const theme = useTheme();
   return (
@@ -154,6 +299,8 @@ export const Background: React.FC<{ glowY?: number }> = ({ glowY = 0.42 }) => {
       {theme.background.kind === "galaxy" ? <Galaxy glowY={glowY} /> : null}
       {theme.background.kind === "blueprint" ? <Blueprint glowY={glowY} /> : null}
       {theme.background.kind === "map" ? <MapCanvas glowY={glowY} /> : null}
+      {theme.background.kind === "depot" ? <DepotFloor glowY={glowY} /> : null}
+      {theme.background.kind === "abyss" ? <Abyss glowY={glowY} /> : null}
       {theme.background.kind === "plain" ? (
         <AbsoluteFill
           style={{

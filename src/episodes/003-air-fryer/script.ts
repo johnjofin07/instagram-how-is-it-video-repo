@@ -1,6 +1,10 @@
-// Episode 003 — "There Is No Frying In Your Air Fryer".
+// Episode 003 — "Your Air Fryer Is a Hurricane in a Bucket".
 // First everyday-machines episode; first `kitchen` skin.
-// Narration recorded via ElevenLabs web UI (Brian v3, sp92/s26/sb75), 83s.
+// HOOK REWORKED 2026-08-19 per retention rules (see CONTENT.md): v1 opened
+// with a negation ("There is no frying...") — v2 leads with the positive
+// claim, debunk second. Scenes 2-5 are UNCHANGED from the v1 recording, so
+// only the hook needs re-voicing (Brian v3, sp92/s26/sb75) — splice it onto
+// the old narration.mp3 tail (scene 2 starts at 8.63s in the v1 audio).
 // Scene `seconds` are estimates; timing.json (align.mjs) is the truth.
 
 import type { SceneData } from "../types";
@@ -12,9 +16,9 @@ export const SCENES: SceneData[] = [
     id: "hook",
     label: "THE LIE",
     stepIndex: 0,
-    seconds: 10.5,
+    seconds: 11,
     narration:
-      "There is no frying in your air fryer. Not a single drop. It's a small oven with a fan... and some of the best marketing in kitchen history.",
+      "Your air fryer is a hurricane in a bucket. It has never fried anything — not one drop of oil. It's a small oven with a fan... and the best marketing in kitchen history.",
   },
   {
     id: "machine",

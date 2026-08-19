@@ -52,9 +52,13 @@ export const Captions: React.FC<{ lines: TimedLine[] }> = ({ lines }) => {
     <div
       style={{
         position: "absolute",
-        bottom: 226,
-        left: 60,
-        right: 60,
+        // lifted clear of the IG Reels bottom UI overlay (was 226 ≈ 12%; the
+        // full spec says no text in bottom 35% — captions are the deliberate
+        // exception, but give the platform chrome ~22% of breathing room).
+        // Scene-closing headlines must end above ~y1370 to clear the pill.
+        bottom: 420,
+        left: 65,
+        right: 140,
         textAlign: "center",
         fontFamily: sans ? FONTS.sans : FONTS.mono,
         fontWeight: sans ? 800 : 600,

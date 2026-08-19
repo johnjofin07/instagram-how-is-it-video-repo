@@ -36,5 +36,7 @@ export type Episode = {
   timing: EpisodeTiming;
   hasNarration: boolean;
   audioPath: string;
+  // optional lowered chrome position (new safe-margin rule: no text y<269)
+  chrome?: { headerTop: number; stepperTop: number };
   components: Record<string, React.FC>;
 };
