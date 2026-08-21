@@ -27,6 +27,52 @@ const narrations = [...src.matchAll(/narration:\s*\n?\s*"((?:[^"\\]|\\.)*)"/g)].
 const sceneWordCounts = narrations.map((n) => n.split(/\s+/).length);
 const totalNarrWords = sceneWordCounts.reduce((a, b) => a + b, 0);
 
+// Proper-noun casing: whisper lowercases names it doesn't know ("anthropic"),
+// and captions are built from the transcript, so the name would render wrong
+// on screen. script.ts is the source of truth for spelling, so restore casing
+// from it. A word only counts as a proper noun if EVERY occurrence in the
+// script is capitalized AND at least one of those is not sentence-initial —
+// otherwise ordinary words that merely start a sentence ("The", "So") would
+// get capitalized mid-line.
+const properNouns = (() => {
+  const capped = new Map(); // lower -> script casing
+  const everLower = new Set();
+  const midSentence = new Set();
+  for (const n of narrations) {
+    const toks = n.split(/\s+/);
+    let startsSentence = true;
+    for (const raw of toks) {
+      const w = raw.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, "");
+      if (w) {
+        const lower = w.toLowerCase();
+        if (/^\p{Lu}/u.test(w)) {
+          capped.set(lower, w);
+          if (!startsSentence) midSentence.add(lower);
+        } else {
+          everLower.add(lower);
+        }
+      }
+      startsSentence = /[.!?…]["”']?$/.test(raw);
+    }
+  }
+  const out = new Map();
+  for (const [lower, cased] of capped) {
+    if (!everLower.has(lower) && midSentence.has(lower)) out.set(lower, cased);
+  }
+  return out;
+})();
+
+let recased = 0;
+for (const w of words) {
+  const core = w.text.replace(/^[^\p{L}]+|[^\p{L}]+$/gu, "");
+  const fixed = properNouns.get(core.toLowerCase());
+  if (fixed && core !== fixed) {
+    w.text = w.text.replace(core, fixed);
+    recased++;
+  }
+}
+if (recased) console.log(`proper-noun casing restored on ${recased} word(s):`, [...properNouns.values()].join(", "));
+
 // Find where each scene starts by matching the scene's first words against
 // the whisper transcript (searching near the proportional estimate).
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");

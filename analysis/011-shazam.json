@@ -1,0 +1,167 @@
+{
+  "name": "011-shazam",
+  "source": "public/episodes/011-shazam/narration.mp3",
+  "kind": "our episode",
+  "model": "base.en",
+  "durationSec": 37.9,
+  "words": 113,
+  "wpm": 179,
+  "hook": {
+    "text3s": "The second you hit that button, your phone stops hearing",
+    "wordsIn3s": 10,
+    "wpm3s": 200,
+    "firstSentence": "The second you hit that button, your phone stops hearing music and starts drawing it.",
+    "openingType": "claim",
+    "timeToFirstPauseSec": 37.9
+  },
+  "sentences": {
+    "count": 6,
+    "meanWords": 18.8,
+    "medianWords": 17.5,
+    "p90Words": 28,
+    "shortest": 11,
+    "longest": 28,
+    "secondsPerSentence": 6.3,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 5,
+        "words": 15,
+        "text": "The second you hit that button, your phone stops hearing music and starts drawing it."
+      },
+      {
+        "startSec": 5.1,
+        "endSec": 11.1,
+        "words": 19,
+        "text": "Every sound in the room becomes a point on a map, and only the loudest points survive as stars."
+      },
+      {
+        "startSec": 11.3,
+        "endSec": 19.8,
+        "words": 24,
+        "text": "Those stars form a constellation no other song shares, and your phone hunts through millions of constellations until it finds the one that matches."
+      },
+      {
+        "startSec": 19.9,
+        "endSec": 29.4,
+        "words": 28,
+        "text": "Before the chorus even ends, a screaming crowd can't hide the song because the phone already threw everything quiet away, and the stars burn louder than any scream."
+      },
+      {
+        "startSec": 29.5,
+        "endSec": 33.1,
+        "words": 11,
+        "text": "But hum the tune yourself, and every star lands somewhere new."
+      },
+      {
+        "startSec": 33.3,
+        "endSec": 37.9,
+        "words": 16,
+        "text": "The map matches nothing, and the machine stares at a song no one has ever recorded."
+      }
+    ]
+  },
+  "pacing": {
+    "curve": [
+      {
+        "tSec": 0,
+        "wpm": 180
+      },
+      {
+        "tSec": 5,
+        "wpm": 204
+      },
+      {
+        "tSec": 10,
+        "wpm": 132
+      },
+      {
+        "tSec": 15,
+        "wpm": 192
+      },
+      {
+        "tSec": 20,
+        "wpm": 180
+      },
+      {
+        "tSec": 25,
+        "wpm": 180
+      },
+      {
+        "tSec": 30,
+        "wpm": 168
+      },
+      {
+        "tSec": 35,
+        "wpm": 205
+      }
+    ],
+    "fastest": {
+      "tSec": 35,
+      "wpm": 205
+    },
+    "slowest": {
+      "tSec": 10,
+      "wpm": 132
+    },
+    "swing": 73
+  },
+  "silence": {
+    "pauseCount": 0,
+    "totalPauseSec": 0,
+    "pausePctOfRuntime": 0,
+    "longest": null,
+    "list": []
+  },
+  "beats": {
+    "count": 1,
+    "meanSec": 37.9,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 37.9,
+        "words": 113,
+        "wpm": 179,
+        "text": "The second you hit that button, your phone stops hearing music and starts drawing it. Every sound in the room becomes a point on a map, and only the loudest points survive as stars. Those stars form a constellation no other song shares, and your phone hunts through millions of constellations until it finds the one that matches. Before the chorus even ends, a screaming crowd can't hide the song because the phone already threw everything quiet away, and the stars burn louder than any scream. But hum the tune yourself, and every star lands somewhere new. The map matches nothing, and the machine stares at a song no one has ever recorded."
+      }
+    ]
+  },
+  "density": {
+    "questionsPer100w": 0,
+    "youPer100w": 2.7,
+    "numbersPer100w": 1.8,
+    "pivotsPer100w": 1.8
+  },
+  "questions": [],
+  "pivots": [
+    {
+      "phrase": "until",
+      "atSec": 17.7,
+      "pos": 0.47
+    },
+    {
+      "phrase": "but",
+      "atSec": 29.5,
+      "pos": 0.78
+    }
+  ],
+  "claimsPer10s": [
+    {
+      "tSec": 0,
+      "sentences": 2
+    },
+    {
+      "tSec": 10,
+      "sentences": 2
+    },
+    {
+      "tSec": 20,
+      "sentences": 1
+    },
+    {
+      "tSec": 30,
+      "sentences": 1
+    }
+  ],
+  "transcript": "The second you hit that button, your phone stops hearing music and starts drawing it. Every sound in the room becomes a point on a map, and only the loudest points survive as stars. Those stars form a constellation no other song shares, and your phone hunts through millions of constellations until it finds the one that matches. Before the chorus even ends, a screaming crowd can't hide the song because the phone already threw everything quiet away, and the stars burn louder than any scream. But hum the tune yourself, and every star lands somewhere new. The map matches nothing, and the machine stares at a song no one has ever recorded."
+}

@@ -1,0 +1,545 @@
+{
+  "name": "video-by-zackdfilms-dbv0x2wguv",
+  "source": "/Users/jofin/superhow/.cache/refs/DbV0X2WguV_.m4a",
+  "kind": "reference clip",
+  "model": "small.en",
+  "durationSec": 143,
+  "words": 346,
+  "wpm": 145,
+  "hook": {
+    "text3s": "She would sit at her window and track when her neighbors left",
+    "wordsIn3s": 12,
+    "wpm3s": 240,
+    "firstSentence": "She would sit at her window and track when her neighbors left for work, when they ate their meals, and when they went to bed.",
+    "openingType": "claim",
+    "timeToFirstPauseSec": 26.3
+  },
+  "sentences": {
+    "count": 30,
+    "meanWords": 11.5,
+    "medianWords": 9.5,
+    "p90Words": 23,
+    "shortest": 3,
+    "longest": 25,
+    "secondsPerSentence": 4.8,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 7.3,
+        "words": 25,
+        "text": "She would sit at her window and track when her neighbors left for work, when they ate their meals, and when they went to bed."
+      },
+      {
+        "startSec": 7.3,
+        "endSec": 15.8,
+        "words": 23,
+        "text": "Now she just liked to keep tabs on the neighborhood, which is how she noticed the new neighbor moving in across the street."
+      },
+      {
+        "startSec": 15.8,
+        "endSec": 20.6,
+        "words": 11,
+        "text": "She quickly got a fresh new sheet and began taking notes."
+      },
+      {
+        "startSec": 20.7,
+        "endSec": 26.3,
+        "words": 14,
+        "text": "Now everything was normal for a while, until one night she heard something weird."
+      },
+      {
+        "startSec": 27.8,
+        "endSec": 32.8,
+        "words": 16,
+        "text": "She rushed to the window and saw the man driving away with something in his trunk."
+      },
+      {
+        "startSec": 32.8,
+        "endSec": 36.4,
+        "words": 7,
+        "text": "Hours later he returned, covered in dirt."
+      },
+      {
+        "startSec": 36.4,
+        "endSec": 38.8,
+        "words": 6,
+        "text": "He showered and went to bed."
+      },
+      {
+        "startSec": 38.8,
+        "endSec": 45.3,
+        "words": 20,
+        "text": "Now on its own this could have meant nothing, but she was convinced that he was up to no good."
+      },
+      {
+        "startSec": 45.3,
+        "endSec": 47.5,
+        "words": 6,
+        "text": "The next night she was ready."
+      },
+      {
+        "startSec": 47.5,
+        "endSec": 56.1,
+        "words": 23,
+        "text": "At the same time he plopped a big bag into the trunk, drove into the night, came back dirty, and took a shower."
+      },
+      {
+        "startSec": 57,
+        "endSec": 62.3,
+        "words": 17,
+        "text": "Weeks passed, her walls filling with guesses on where he was going and what he was doing."
+      },
+      {
+        "startSec": 62.3,
+        "endSec": 66.1,
+        "words": 9,
+        "text": "At this point she was convinced of two things."
+      },
+      {
+        "startSec": 66.1,
+        "endSec": 71.6,
+        "words": 14,
+        "text": "There were bodies in those bags, and no one was going to believe her."
+      },
+      {
+        "startSec": 71.6,
+        "endSec": 77.7,
+        "words": 16,
+        "text": "She finally called the police because she was just too convinced that he was a killer."
+      },
+      {
+        "startSec": 77.7,
+        "endSec": 84.2,
+        "words": 13,
+        "text": "The officer came and calmly explained that her neighbor wasn't doing anything illegal."
+      },
+      {
+        "startSec": 85,
+        "endSec": 87.2,
+        "words": 10,
+        "text": "And this is where she should have let it go."
+      },
+      {
+        "startSec": 87.2,
+        "endSec": 89.2,
+        "words": 3,
+        "text": "But she couldn't."
+      },
+      {
+        "startSec": 89.2,
+        "endSec": 92.7,
+        "words": 8,
+        "text": "She saw him doing even more strange things."
+      },
+      {
+        "startSec": 92.7,
+        "endSec": 96.3,
+        "words": 8,
+        "text": "So she called the officer again and again."
+      },
+      {
+        "startSec": 96.3,
+        "endSec": 103.5,
+        "words": 16,
+        "text": "Finally he suggested that they go over and introduce themselves to put her mind at ease."
+      },
+      {
+        "startSec": 103.7,
+        "endSec": 107.6,
+        "words": 15,
+        "text": "He was going to prove to her that this was all just a big misunderstanding."
+      },
+      {
+        "startSec": 107.6,
+        "endSec": 109.8,
+        "words": 6,
+        "text": "At least that's what she thought."
+      },
+      {
+        "startSec": 109.8,
+        "endSec": 112.9,
+        "words": 9,
+        "text": "He brought her over and knocked on the door."
+      },
+      {
+        "startSec": 112.9,
+        "endSec": 117.4,
+        "words": 6,
+        "text": "But inside she saw strange tools."
+      },
+      {
+        "startSec": 117.4,
+        "endSec": 121.8,
+        "words": 7,
+        "text": "Jars filled with things she couldn't identify."
+      },
+      {
+        "startSec": 121.8,
+        "endSec": 125,
+        "words": 7,
+        "text": "Grew some shapes hanging from the ceiling."
+      },
+      {
+        "startSec": 125,
+        "endSec": 126.9,
+        "words": 3,
+        "text": "It was him."
+      },
+      {
+        "startSec": 126.9,
+        "endSec": 131.7,
+        "words": 7,
+        "text": "Her notes had been right all along."
+      },
+      {
+        "startSec": 132,
+        "endSec": 133.2,
+        "words": 4,
+        "text": "He was a killer."
+      },
+      {
+        "startSec": 133.2,
+        "endSec": 143,
+        "words": 17,
+        "text": "But when she turned to the officer, it turns out he was in on it all along.BLANK_AUDIO]"
+      }
+    ]
+  },
+  "pacing": {
+    "curve": [
+      {
+        "tSec": 0,
+        "wpm": 204
+      },
+      {
+        "tSec": 5,
+        "wpm": 192
+      },
+      {
+        "tSec": 10,
+        "wpm": 156
+      },
+      {
+        "tSec": 15,
+        "wpm": 156
+      },
+      {
+        "tSec": 20,
+        "wpm": 156
+      },
+      {
+        "tSec": 25,
+        "wpm": 120
+      },
+      {
+        "tSec": 30,
+        "wpm": 132
+      },
+      {
+        "tSec": 35,
+        "wpm": 168
+      },
+      {
+        "tSec": 40,
+        "wpm": 180
+      },
+      {
+        "tSec": 45,
+        "wpm": 180
+      },
+      {
+        "tSec": 50,
+        "wpm": 120
+      },
+      {
+        "tSec": 55,
+        "wpm": 156
+      },
+      {
+        "tSec": 60,
+        "wpm": 192
+      },
+      {
+        "tSec": 65,
+        "wpm": 144
+      },
+      {
+        "tSec": 70,
+        "wpm": 144
+      },
+      {
+        "tSec": 75,
+        "wpm": 144
+      },
+      {
+        "tSec": 80,
+        "wpm": 96
+      },
+      {
+        "tSec": 85,
+        "wpm": 192
+      },
+      {
+        "tSec": 90,
+        "wpm": 132
+      },
+      {
+        "tSec": 95,
+        "wpm": 108
+      },
+      {
+        "tSec": 100,
+        "wpm": 192
+      },
+      {
+        "tSec": 105,
+        "wpm": 192
+      },
+      {
+        "tSec": 110,
+        "wpm": 132
+      },
+      {
+        "tSec": 115,
+        "wpm": 96
+      },
+      {
+        "tSec": 120,
+        "wpm": 96
+      },
+      {
+        "tSec": 125,
+        "wpm": 96
+      },
+      {
+        "tSec": 130,
+        "wpm": 144
+      },
+      {
+        "tSec": 135,
+        "wpm": 132
+      },
+      {
+        "tSec": 140,
+        "wpm": 0
+      }
+    ],
+    "fastest": {
+      "tSec": 0,
+      "wpm": 204
+    },
+    "slowest": {
+      "tSec": 140,
+      "wpm": 0
+    },
+    "swing": 204
+  },
+  "silence": {
+    "pauseCount": 8,
+    "totalPauseSec": 5.2,
+    "pausePctOfRuntime": 3.7,
+    "longest": {
+      "atSec": 26.3,
+      "ms": 1520
+    },
+    "list": [
+      {
+        "atSec": 26.3,
+        "ms": 1520
+      },
+      {
+        "atSec": 35.4,
+        "ms": 310
+      },
+      {
+        "atSec": 56.1,
+        "ms": 860
+      },
+      {
+        "atSec": 84.2,
+        "ms": 830
+      },
+      {
+        "atSec": 87.8,
+        "ms": 560
+      },
+      {
+        "atSec": 89.5,
+        "ms": 260
+      },
+      {
+        "atSec": 128.7,
+        "ms": 570
+      },
+      {
+        "atSec": 131.7,
+        "ms": 320
+      }
+    ]
+  },
+  "beats": {
+    "count": 6,
+    "meanSec": 23.8,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 26.3,
+        "words": 73,
+        "wpm": 167,
+        "text": "She would sit at her window and track when her neighbors left for work, when they ate their meals, and when they went to bed. Now she just liked to keep tabs on the neighborhood, which is how she noticed the new neighbor moving in across the street. She quickly got a fresh new sheet and began taking notes. Now everything was normal for a while, until one night she heard something weird."
+      },
+      {
+        "startSec": 27.8,
+        "endSec": 56.1,
+        "words": 78,
+        "wpm": 165,
+        "text": "She rushed to the window and saw the man driving away with something in his trunk. Hours later he returned, covered in dirt. He showered and went to bed. Now on its own this could have meant nothing, but she was convinced that he was up to no good. The next night she was ready. At the same time he plopped a big bag into the trunk, drove into the night, came back dirty, and took a shower."
+      },
+      {
+        "startSec": 57,
+        "endSec": 84.2,
+        "words": 69,
+        "wpm": 152,
+        "text": "Weeks passed, her walls filling with guesses on where he was going and what he was doing. At this point she was convinced of two things. There were bodies in those bags, and no one was going to believe her. She finally called the police because she was just too convinced that he was a killer. The officer came and calmly explained that her neighbor wasn't doing anything illegal."
+      },
+      {
+        "startSec": 85,
+        "endSec": 87.8,
+        "words": 12,
+        "wpm": 259,
+        "text": "And this is where she should have let it go. But she"
+      },
+      {
+        "startSec": 88.4,
+        "endSec": 128.7,
+        "words": 89,
+        "wpm": 132,
+        "text": "couldn't. She saw him doing even more strange things. So she called the officer again and again. Finally he suggested that they go over and introduce themselves to put her mind at ease. He was going to prove to her that this was all just a big misunderstanding. At least that's what she thought. He brought her over and knocked on the door. But inside she saw strange tools. Jars filled with things she couldn't identify. Grew some shapes hanging from the ceiling. It was him. Her notes had"
+      },
+      {
+        "startSec": 129.3,
+        "endSec": 143,
+        "words": 25,
+        "wpm": 109,
+        "text": "been right all along. He was a killer. But when she turned to the officer, it turns out he was in on it all along.BLANK_AUDIO]"
+      }
+    ]
+  },
+  "density": {
+    "questionsPer100w": 0,
+    "youPer100w": 0,
+    "numbersPer100w": 0.9,
+    "pivotsPer100w": 2.6
+  },
+  "questions": [],
+  "pivots": [
+    {
+      "phrase": "now",
+      "atSec": 7.3,
+      "pos": 0.05
+    },
+    {
+      "phrase": "now",
+      "atSec": 20.7,
+      "pos": 0.14
+    },
+    {
+      "phrase": "until",
+      "atSec": 22.9,
+      "pos": 0.16
+    },
+    {
+      "phrase": "now",
+      "atSec": 38.8,
+      "pos": 0.27
+    },
+    {
+      "phrase": "but",
+      "atSec": 42.3,
+      "pos": 0.3
+    },
+    {
+      "phrase": "but",
+      "atSec": 87.2,
+      "pos": 0.61
+    },
+    {
+      "phrase": "but",
+      "atSec": 112.9,
+      "pos": 0.79
+    },
+    {
+      "phrase": "but",
+      "atSec": 133.2,
+      "pos": 0.93
+    },
+    {
+      "phrase": "turns out",
+      "atSec": 136.2,
+      "pos": 0.95
+    }
+  ],
+  "claimsPer10s": [
+    {
+      "tSec": 0,
+      "sentences": 2
+    },
+    {
+      "tSec": 10,
+      "sentences": 1
+    },
+    {
+      "tSec": 20,
+      "sentences": 2
+    },
+    {
+      "tSec": 30,
+      "sentences": 3
+    },
+    {
+      "tSec": 40,
+      "sentences": 2
+    },
+    {
+      "tSec": 50,
+      "sentences": 1
+    },
+    {
+      "tSec": 60,
+      "sentences": 2
+    },
+    {
+      "tSec": 70,
+      "sentences": 2
+    },
+    {
+      "tSec": 80,
+      "sentences": 3
+    },
+    {
+      "tSec": 90,
+      "sentences": 2
+    },
+    {
+      "tSec": 100,
+      "sentences": 3
+    },
+    {
+      "tSec": 110,
+      "sentences": 2
+    },
+    {
+      "tSec": 120,
+      "sentences": 3
+    },
+    {
+      "tSec": 130,
+      "sentences": 2
+    },
+    {
+      "tSec": 140,
+      "sentences": 0
+    }
+  ],
+  "transcript": "She would sit at her window and track when her neighbors left for work, when they ate their meals, and when they went to bed. Now she just liked to keep tabs on the neighborhood, which is how she noticed the new neighbor moving in across the street. She quickly got a fresh new sheet and began taking notes. Now everything was normal for a while, until one night she heard something weird. She rushed to the window and saw the man driving away with something in his trunk. Hours later he returned, covered in dirt. He showered and went to bed. Now on its own this could have meant nothing, but she was convinced that he was up to no good. The next night she was ready. At the same time he plopped a big bag into the trunk, drove into the night, came back dirty, and took a shower. Weeks passed, her walls filling with guesses on where he was going and what he was doing. At this point she was convinced of two things. There were bodies in those bags, and no one was going to believe her. She finally called the police because she was just too convinced that he was a killer. The officer came and calmly explained that her neighbor wasn't doing anything illegal. And this is where she should have let it go. But she couldn't. She saw him doing even more strange things. So she called the officer again and again. Finally he suggested that they go over and introduce themselves to put her mind at ease. He was going to prove to her that this was all just a big misunderstanding. At least that's what she thought. He brought her over and knocked on the door. But inside she saw strange tools. Jars filled with things she couldn't identify. Grew some shapes hanging from the ceiling. It was him. Her notes had been right all along. He was a killer. But when she turned to the officer, it turns out he was in on it all along.BLANK_AUDIO]"
+}

@@ -1,0 +1,415 @@
+{
+  "name": "010-elevator",
+  "source": "public/episodes/010-elevator/narration.mp3",
+  "kind": "our episode",
+  "model": "base.en",
+  "durationSec": 65.5,
+  "words": 168,
+  "wpm": 154,
+  "hook": {
+    "text3s": "The close button in your elevator? It's a dummy!",
+    "wordsIn3s": 9,
+    "wpm3s": 180,
+    "firstSentence": "The close button in your elevator?",
+    "openingType": "question",
+    "timeToFirstPauseSec": 1.7
+  },
+  "sentences": {
+    "count": 23,
+    "meanWords": 7.3,
+    "medianWords": 6,
+    "p90Words": 12,
+    "shortest": 2,
+    "longest": 15,
+    "secondsPerSentence": 2.8,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 1.7,
+        "words": 6,
+        "text": "The close button in your elevator?"
+      },
+      {
+        "startSec": 2,
+        "endSec": 2.9,
+        "words": 3,
+        "text": "It's a dummy!"
+      },
+      {
+        "startSec": 3,
+        "endSec": 3.5,
+        "words": 2,
+        "text": "A fake!"
+      },
+      {
+        "startSec": 3.9,
+        "endSec": 5.1,
+        "words": 4,
+        "text": "Pressing it does nothing!"
+      },
+      {
+        "startSec": 5.4,
+        "endSec": 8.9,
+        "words": 10,
+        "text": "The elevator ignores you because it already has a plan."
+      },
+      {
+        "startSec": 9.2,
+        "endSec": 10.5,
+        "words": 5,
+        "text": "And you're part of it."
+      },
+      {
+        "startSec": 10.5,
+        "endSec": 15.4,
+        "words": 9,
+        "text": "The button does work, though, for exactly one person."
+      },
+      {
+        "startSec": 15.4,
+        "endSec": 17.3,
+        "words": 5,
+        "text": "Wait till you see who."
+      },
+      {
+        "startSec": 17.3,
+        "endSec": 20.3,
+        "words": 6,
+        "text": "An elevator follows one simple rule."
+      },
+      {
+        "startSec": 20.3,
+        "endSec": 22.9,
+        "words": 6,
+        "text": "Pick a direction and finish it."
+      },
+      {
+        "startSec": 23,
+        "endSec": 27.4,
+        "words": 12,
+        "text": "Collect everyone going up, then turn around and collect everyone going down."
+      },
+      {
+        "startSec": 27.6,
+        "endSec": 28.6,
+        "words": 2,
+        "text": "Never zigzag."
+      },
+      {
+        "startSec": 28.6,
+        "endSec": 31.2,
+        "words": 5,
+        "text": "Zig zagging leaves people stranded."
+      },
+      {
+        "startSec": 31.2,
+        "endSec": 33.7,
+        "words": 4,
+        "text": "Fancy buildings go further."
+      },
+      {
+        "startSec": 34,
+        "endSec": 37.2,
+        "words": 13,
+        "text": "You type your floor in the lobby and a computer sorts the people."
+      },
+      {
+        "startSec": 37.4,
+        "endSec": 40.6,
+        "words": 11,
+        "text": "Everyone heading to nearby floors gets packed into the same car."
+      },
+      {
+        "startSec": 40.6,
+        "endSec": 46.1,
+        "words": 12,
+        "text": "Which is why, look, some elevators have no buttons inside at all."
+      },
+      {
+        "startSec": 46.1,
+        "endSec": 49,
+        "words": 7,
+        "text": "So why does the close button exist?"
+      },
+      {
+        "startSec": 49,
+        "endSec": 53.1,
+        "words": 12,
+        "text": "By law, the doors must stay open long enough for a wheelchair."
+      },
+      {
+        "startSec": 53.3,
+        "endSec": 55,
+        "words": 6,
+        "text": "The button can't skip that timer."
+      },
+      {
+        "startSec": 55,
+        "endSec": 57.6,
+        "words": 8,
+        "text": "And the one person it truly works for?"
+      },
+      {
+        "startSec": 57.6,
+        "endSec": 59.8,
+        "words": 5,
+        "text": "A firefighter with a key."
+      },
+      {
+        "startSec": 59.8,
+        "endSec": 65.5,
+        "words": 15,
+        "text": "So next time the doors shut right after you press it, they were closing anyway."
+      }
+    ]
+  },
+  "pacing": {
+    "curve": [
+      {
+        "tSec": 0,
+        "wpm": 180
+      },
+      {
+        "tSec": 5,
+        "wpm": 168
+      },
+      {
+        "tSec": 10,
+        "wpm": 120
+      },
+      {
+        "tSec": 15,
+        "wpm": 132
+      },
+      {
+        "tSec": 20,
+        "wpm": 144
+      },
+      {
+        "tSec": 25,
+        "wpm": 144
+      },
+      {
+        "tSec": 30,
+        "wpm": 132
+      },
+      {
+        "tSec": 35,
+        "wpm": 204
+      },
+      {
+        "tSec": 40,
+        "wpm": 132
+      },
+      {
+        "tSec": 45,
+        "wpm": 132
+      },
+      {
+        "tSec": 50,
+        "wpm": 192
+      },
+      {
+        "tSec": 55,
+        "wpm": 180
+      },
+      {
+        "tSec": 60,
+        "wpm": 156
+      }
+    ],
+    "fastest": {
+      "tSec": 35,
+      "wpm": 204
+    },
+    "slowest": {
+      "tSec": 10,
+      "wpm": 120
+    },
+    "swing": 84
+  },
+  "silence": {
+    "pauseCount": 14,
+    "totalPauseSec": 6.1,
+    "pausePctOfRuntime": 9.3,
+    "longest": {
+      "atSec": 31.4,
+      "ms": 950
+    },
+    "list": [
+      {
+        "atSec": 1.7,
+        "ms": 360
+      },
+      {
+        "atSec": 3.5,
+        "ms": 340
+      },
+      {
+        "atSec": 5.1,
+        "ms": 310
+      },
+      {
+        "atSec": 6.6,
+        "ms": 290
+      },
+      {
+        "atSec": 8.9,
+        "ms": 300
+      },
+      {
+        "atSec": 11.5,
+        "ms": 430
+      },
+      {
+        "atSec": 15.5,
+        "ms": 610
+      },
+      {
+        "atSec": 17.4,
+        "ms": 820
+      },
+      {
+        "atSec": 20.5,
+        "ms": 340
+      },
+      {
+        "atSec": 31.4,
+        "ms": 950
+      },
+      {
+        "atSec": 33.7,
+        "ms": 320
+      },
+      {
+        "atSec": 46.9,
+        "ms": 260
+      },
+      {
+        "atSec": 49.1,
+        "ms": 520
+      },
+      {
+        "atSec": 63.5,
+        "ms": 250
+      }
+    ]
+  },
+  "beats": {
+    "count": 5,
+    "meanSec": 13.1,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 15.5,
+        "words": 40,
+        "wpm": 155,
+        "text": "The close button in your elevator? It's a dummy! A fake! Pressing it does nothing! The elevator ignores you because it already has a plan. And you're part of it. The button does work, though, for exactly one person. Wait"
+      },
+      {
+        "startSec": 16.1,
+        "endSec": 17.4,
+        "words": 5,
+        "wpm": 236,
+        "text": "till you see who. An"
+      },
+      {
+        "startSec": 18.2,
+        "endSec": 31.4,
+        "words": 31,
+        "wpm": 141,
+        "text": "elevator follows one simple rule. Pick a direction and finish it. Collect everyone going up, then turn around and collect everyone going down. Never zigzag. Zig zagging leaves people stranded. Fancy"
+      },
+      {
+        "startSec": 32.3,
+        "endSec": 49.1,
+        "words": 47,
+        "wpm": 168,
+        "text": "buildings go further. You type your floor in the lobby and a computer sorts the people. Everyone heading to nearby floors gets packed into the same car. Which is why, look, some elevators have no buttons inside at all. So why does the close button exist? By"
+      },
+      {
+        "startSec": 49.7,
+        "endSec": 65.5,
+        "words": 45,
+        "wpm": 171,
+        "text": "law, the doors must stay open long enough for a wheelchair. The button can't skip that timer. And the one person it truly works for? A firefighter with a key. So next time the doors shut right after you press it, they were closing anyway."
+      }
+    ]
+  },
+  "density": {
+    "questionsPer100w": 1.8,
+    "youPer100w": 4.2,
+    "numbersPer100w": 1.8,
+    "pivotsPer100w": 2.4
+  },
+  "questions": [
+    {
+      "atSec": 0,
+      "pos": 0,
+      "text": "The close button in your elevator?"
+    },
+    {
+      "atSec": 46.1,
+      "pos": 0.7,
+      "text": "So why does the close button exist?"
+    },
+    {
+      "atSec": 55,
+      "pos": 0.84,
+      "text": "And the one person it truly works for?"
+    }
+  ],
+  "pivots": [
+    {
+      "phrase": "wait",
+      "atSec": 15.4,
+      "pos": 0.23
+    },
+    {
+      "phrase": "which is why",
+      "atSec": 40.6,
+      "pos": 0.62
+    },
+    {
+      "phrase": "so why",
+      "atSec": 46.1,
+      "pos": 0.7
+    },
+    {
+      "phrase": "next time",
+      "atSec": 59.9,
+      "pos": 0.92
+    }
+  ],
+  "claimsPer10s": [
+    {
+      "tSec": 0,
+      "sentences": 6
+    },
+    {
+      "tSec": 10,
+      "sentences": 3
+    },
+    {
+      "tSec": 20,
+      "sentences": 4
+    },
+    {
+      "tSec": 30,
+      "sentences": 3
+    },
+    {
+      "tSec": 40,
+      "sentences": 3
+    },
+    {
+      "tSec": 50,
+      "sentences": 4
+    },
+    {
+      "tSec": 60,
+      "sentences": 0
+    }
+  ],
+  "transcript": "The close button in your elevator? It's a dummy! A fake! Pressing it does nothing! The elevator ignores you because it already has a plan. And you're part of it. The button does work, though, for exactly one person. Wait till you see who. An elevator follows one simple rule. Pick a direction and finish it. Collect everyone going up, then turn around and collect everyone going down. Never zigzag. Zig zagging leaves people stranded. Fancy buildings go further. You type your floor in the lobby and a computer sorts the people. Everyone heading to nearby floors gets packed into the same car. Which is why, look, some elevators have no buttons inside at all. So why does the close button exist? By law, the doors must stay open long enough for a wheelchair. The button can't skip that timer. And the one person it truly works for? A firefighter with a key. So next time the doors shut right after you press it, they were closing anyway."
+}

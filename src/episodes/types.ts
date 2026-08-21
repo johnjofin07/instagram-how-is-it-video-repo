@@ -16,6 +16,11 @@ export type SceneData = {
   stepIndex: number; // which pipeline step lights up
   seconds: number; // estimate until timing.json exists
   narration: string;
+  // Scene-local [from, to] frame window of deliberate TOTAL stillness, during
+  // which shared chrome suppresses its idle animation (see Stepper's
+  // quietFrames). Only set this for a beat whose whole point is that nothing
+  // moves — 009's silence interrupt.
+  stillFrames?: readonly [number, number];
   phrases?: CaptionPhrase[]; // legacy storyboard hints; captions come from timing.json
 };
 
@@ -36,7 +41,9 @@ export type Episode = {
   timing: EpisodeTiming;
   hasNarration: boolean;
   audioPath: string;
-  // optional lowered chrome position (new safe-margin rule: no text y<269)
-  chrome?: { headerTop: number; stepperTop: number };
+  // optional lowered chrome position (new safe-margin rule: no text y<269).
+  // instantEnter skips the chrome's fade-in — for episodes whose scenes cut
+  // hard, where a per-scene fade reads as the header blinking out.
+  chrome?: { headerTop: number; stepperTop: number; instantEnter?: boolean };
   components: Record<string, React.FC>;
 };

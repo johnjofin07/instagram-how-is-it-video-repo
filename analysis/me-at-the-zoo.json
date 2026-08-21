@@ -1,0 +1,102 @@
+{
+  "name": "me-at-the-zoo",
+  "source": "/Users/jofin/superhow/.cache/refs/jNQXAC9IVRw.webm",
+  "kind": "reference clip",
+  "model": "base.en",
+  "durationSec": 18.4,
+  "words": 37,
+  "wpm": 121,
+  "hook": {
+    "text3s": "All right, so here we are, one of the",
+    "wordsIn3s": 9,
+    "wpm3s": 180,
+    "firstSentence": "All right, so here we are, one of the elephants, a cool thing about these guys is that they have really, really, really long fums, and that's cool. And that's pretty much all I used to say.",
+    "openingType": "claim",
+    "timeToFirstPauseSec": 18.4
+  },
+  "sentences": {
+    "count": 1,
+    "meanWords": 37,
+    "medianWords": 37,
+    "p90Words": 37,
+    "shortest": 37,
+    "longest": 37,
+    "secondsPerSentence": 18.4,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 18.4,
+        "words": 37,
+        "text": "All right, so here we are, one of the elephants, a cool thing about these guys is that they have really, really, really long fums, and that's cool. And that's pretty much all I used to say."
+      }
+    ]
+  },
+  "pacing": {
+    "curve": [
+      {
+        "tSec": 0,
+        "wpm": 144
+      },
+      {
+        "tSec": 5,
+        "wpm": 132
+      },
+      {
+        "tSec": 10,
+        "wpm": 60
+      },
+      {
+        "tSec": 15,
+        "wpm": 159
+      }
+    ],
+    "fastest": {
+      "tSec": 15,
+      "wpm": 159
+    },
+    "slowest": {
+      "tSec": 10,
+      "wpm": 60
+    },
+    "swing": 99
+  },
+  "silence": {
+    "pauseCount": 0,
+    "totalPauseSec": 0,
+    "pausePctOfRuntime": 0,
+    "longest": null,
+    "list": []
+  },
+  "beats": {
+    "count": 1,
+    "meanSec": 18.4,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 18.4,
+        "words": 37,
+        "wpm": 121,
+        "text": "All right, so here we are, one of the elephants, a cool thing about these guys is that they have really, really, really long fums, and that's cool. And that's pretty much all I used to say."
+      }
+    ]
+  },
+  "density": {
+    "questionsPer100w": 0,
+    "youPer100w": 0,
+    "numbersPer100w": 2.7,
+    "pivotsPer100w": 0
+  },
+  "questions": [],
+  "pivots": [],
+  "claimsPer10s": [
+    {
+      "tSec": 0,
+      "sentences": 1
+    },
+    {
+      "tSec": 10,
+      "sentences": 0
+    }
+  ],
+  "transcript": "All right, so here we are, one of the elephants, a cool thing about these guys is that they have really, really, really long fums, and that's cool. And that's pretty much all I used to say."
+}

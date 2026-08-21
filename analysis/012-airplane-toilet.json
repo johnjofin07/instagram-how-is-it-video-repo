@@ -1,0 +1,197 @@
+{
+  "name": "012-airplane-toilet",
+  "source": "public/episodes/012-airplane-toilet/narration.mp3",
+  "kind": "our episode",
+  "model": "base.en",
+  "durationSec": 42.1,
+  "words": 114,
+  "wpm": 163,
+  "hook": {
+    "text3s": "The moment you press that flush button, a valve snaps",
+    "wordsIn3s": 10,
+    "wpm3s": 200,
+    "firstSentence": "The moment you press that flush button, a valve snaps open and behind it is the sky, with barely any air.",
+    "openingType": "claim",
+    "timeToFirstPauseSec": 14.4
+  },
+  "sentences": {
+    "count": 7,
+    "meanWords": 16.3,
+    "medianWords": 14,
+    "p90Words": 32,
+    "shortest": 6,
+    "longest": 32,
+    "secondsPerSentence": 6,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 7.3,
+        "words": 21,
+        "text": "The moment you press that flush button, a valve snaps open and behind it is the sky, with barely any air."
+      },
+      {
+        "startSec": 7.5,
+        "endSec": 14.4,
+        "words": 18,
+        "text": "The crowded cabin air rushes toward that emptiness, dragging everything down the pipe at 300 miles per hour."
+      },
+      {
+        "startSec": 14.6,
+        "endSec": 26.5,
+        "words": 32,
+        "text": "That rushing air scrubs a bowl slicker than a non-stick pan, so one cup of blue liquid replaces gallons of water, and everything slams into a sealed tank in the plane's belly."
+      },
+      {
+        "startSec": 26.7,
+        "endSec": 30.3,
+        "words": 14,
+        "text": "But on the ground, the outside air is just as thick as the inside."
+      },
+      {
+        "startSec": 30.4,
+        "endSec": 35.2,
+        "words": 11,
+        "text": "Nothing rushes, so a roaring pump fakes the sky until takeoff."
+      },
+      {
+        "startSec": 35.3,
+        "endSec": 37.4,
+        "words": 6,
+        "text": "That tank never opens in flight."
+      },
+      {
+        "startSec": 37.6,
+        "endSec": 42.1,
+        "words": 12,
+        "text": "Every flush rides beneath your feet, sloshing, and lands when you do."
+      }
+    ]
+  },
+  "pacing": {
+    "curve": [
+      {
+        "tSec": 0,
+        "wpm": 180
+      },
+      {
+        "tSec": 5,
+        "wpm": 168
+      },
+      {
+        "tSec": 10,
+        "wpm": 144
+      },
+      {
+        "tSec": 15,
+        "wpm": 168
+      },
+      {
+        "tSec": 20,
+        "wpm": 156
+      },
+      {
+        "tSec": 25,
+        "wpm": 204
+      },
+      {
+        "tSec": 30,
+        "wpm": 132
+      },
+      {
+        "tSec": 35,
+        "wpm": 156
+      },
+      {
+        "tSec": 40,
+        "wpm": 144
+      }
+    ],
+    "fastest": {
+      "tSec": 25,
+      "wpm": 204
+    },
+    "slowest": {
+      "tSec": 30,
+      "wpm": 132
+    },
+    "swing": 72
+  },
+  "silence": {
+    "pauseCount": 3,
+    "totalPauseSec": 0.9,
+    "pausePctOfRuntime": 2,
+    "longest": {
+      "atSec": 32.9,
+      "ms": 310
+    },
+    "list": [
+      {
+        "atSec": 14.4,
+        "ms": 260
+      },
+      {
+        "atSec": 32.9,
+        "ms": 310
+      },
+      {
+        "atSec": 40.6,
+        "ms": 280
+      }
+    ]
+  },
+  "beats": {
+    "count": 1,
+    "meanSec": 42.1,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 42.1,
+        "words": 114,
+        "wpm": 163,
+        "text": "The moment you press that flush button, a valve snaps open and behind it is the sky, with barely any air. The crowded cabin air rushes toward that emptiness, dragging everything down the pipe at 300 miles per hour. That rushing air scrubs a bowl slicker than a non-stick pan, so one cup of blue liquid replaces gallons of water, and everything slams into a sealed tank in the plane's belly. But on the ground, the outside air is just as thick as the inside. Nothing rushes, so a roaring pump fakes the sky until takeoff. That tank never opens in flight. Every flush rides beneath your feet, sloshing, and lands when you do."
+      }
+    ]
+  },
+  "density": {
+    "questionsPer100w": 0,
+    "youPer100w": 2.6,
+    "numbersPer100w": 1.8,
+    "pivotsPer100w": 1.8
+  },
+  "questions": [],
+  "pivots": [
+    {
+      "phrase": "but",
+      "atSec": 26.7,
+      "pos": 0.63
+    },
+    {
+      "phrase": "until",
+      "atSec": 34,
+      "pos": 0.81
+    }
+  ],
+  "claimsPer10s": [
+    {
+      "tSec": 0,
+      "sentences": 2
+    },
+    {
+      "tSec": 10,
+      "sentences": 1
+    },
+    {
+      "tSec": 20,
+      "sentences": 1
+    },
+    {
+      "tSec": 30,
+      "sentences": 3
+    },
+    {
+      "tSec": 40,
+      "sentences": 0
+    }
+  ],
+  "transcript": "The moment you press that flush button, a valve snaps open and behind it is the sky, with barely any air. The crowded cabin air rushes toward that emptiness, dragging everything down the pipe at 300 miles per hour. That rushing air scrubs a bowl slicker than a non-stick pan, so one cup of blue liquid replaces gallons of water, and everything slams into a sealed tank in the plane's belly. But on the ground, the outside air is just as thick as the inside. Nothing rushes, so a roaring pump fakes the sky until takeoff. That tank never opens in flight. Every flush rides beneath your feet, sloshing, and lands when you do."
+}

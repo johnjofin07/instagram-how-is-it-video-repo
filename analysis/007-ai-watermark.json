@@ -1,0 +1,387 @@
+{
+  "name": "007-ai-watermark",
+  "source": "public/episodes/007-ai-watermark/narration.mp3",
+  "kind": "our episode",
+  "model": "base.en",
+  "durationSec": 89.3,
+  "words": 224,
+  "wpm": 150,
+  "hook": {
+    "text3s": "Did you know anthropic has been watermarking",
+    "wordsIn3s": 7,
+    "wpm3s": 140,
+    "firstSentence": "Did you know anthropic has been watermarking your text?",
+    "openingType": "question",
+    "timeToFirstPauseSec": 2.7
+  },
+  "sentences": {
+    "count": 24,
+    "meanWords": 9.3,
+    "medianWords": 9,
+    "p90Words": 18,
+    "shortest": 3,
+    "longest": 21,
+    "secondsPerSentence": 3.7,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 3.7,
+        "words": 9,
+        "text": "Did you know anthropic has been watermarking your text?"
+      },
+      {
+        "startSec": 3.8,
+        "endSec": 7.9,
+        "words": 9,
+        "text": "Since August, everything Claude writes carries a hidden signature."
+      },
+      {
+        "startSec": 7.9,
+        "endSec": 9,
+        "words": 4,
+        "text": "You can't see it."
+      },
+      {
+        "startSec": 9.1,
+        "endSec": 10.9,
+        "words": 5,
+        "text": "Copy paste won't remove it."
+      },
+      {
+        "startSec": 11,
+        "endSec": 12.7,
+        "words": 4,
+        "text": "The trick is genius."
+      },
+      {
+        "startSec": 12.9,
+        "endSec": 15.7,
+        "words": 6,
+        "text": "But it has one embarrassing flaw."
+      },
+      {
+        "startSec": 15.8,
+        "endSec": 18.6,
+        "words": 5,
+        "text": "And it's already failing students."
+      },
+      {
+        "startSec": 18.7,
+        "endSec": 24.3,
+        "words": 18,
+        "text": "A new law in Europe says if a computer wrote something, people should be able to find out."
+      },
+      {
+        "startSec": 24.4,
+        "endSec": 34,
+        "words": 21,
+        "text": "So since August 2nd, every new Claude model leaves a secret mark inside its own writing, not just in Europe, everywhere."
+      },
+      {
+        "startSec": 34,
+        "endSec": 37.2,
+        "words": 9,
+        "text": "So how do you hide a mark inside words?"
+      },
+      {
+        "startSec": 37.2,
+        "endSec": 40.7,
+        "words": 11,
+        "text": "When Claude writes, it often has two words that both work."
+      },
+      {
+        "startSec": 40.9,
+        "endSec": 44.9,
+        "words": 11,
+        "text": "The cat sat on the mat, or the rug, both fine."
+      },
+      {
+        "startSec": 45,
+        "endSec": 47.8,
+        "words": 7,
+        "text": "So it flips a coin to pick."
+      },
+      {
+        "startSec": 47.8,
+        "endSec": 49.4,
+        "words": 3,
+        "text": "Wait, come closer."
+      },
+      {
+        "startSec": 49.4,
+        "endSec": 51.9,
+        "words": 4,
+        "text": "The coin is rigged."
+      },
+      {
+        "startSec": 51.9,
+        "endSec": 55,
+        "words": 10,
+        "text": "It lands on one side more often than it should."
+      },
+      {
+        "startSec": 55.1,
+        "endSec": 57.8,
+        "words": 6,
+        "text": "One rigged flip looks totally normal."
+      },
+      {
+        "startSec": 57.8,
+        "endSec": 63.2,
+        "words": 14,
+        "text": "But Claude writes hundreds of words, hundreds of rigged flips, and they add up."
+      },
+      {
+        "startSec": 63.3,
+        "endSec": 69.3,
+        "words": 18,
+        "text": "A detector that knows the trick counts them and goes, too many heads, no human writes like this."
+      },
+      {
+        "startSec": 69.4,
+        "endSec": 71.2,
+        "words": 3,
+        "text": "This was Claude."
+      },
+      {
+        "startSec": 71.3,
+        "endSec": 76.2,
+        "words": 14,
+        "text": "But the trick has weak spots, a short text, not enough flips to count."
+      },
+      {
+        "startSec": 76.3,
+        "endSec": 83.3,
+        "words": 19,
+        "text": "Rewrite it in your own words, the mark washes away, and the official counting tool isn't even out yet."
+      },
+      {
+        "startSec": 83.4,
+        "endSec": 88.2,
+        "words": 11,
+        "text": "So that AI checker that failed someone's essay, it was guessing."
+      },
+      {
+        "startSec": 88.2,
+        "endSec": 89.3,
+        "words": 3,
+        "text": "There's the flaw."
+      }
+    ]
+  },
+  "pacing": {
+    "curve": [
+      {
+        "tSec": 0,
+        "wpm": 144
+      },
+      {
+        "tSec": 5,
+        "wpm": 156
+      },
+      {
+        "tSec": 10,
+        "wpm": 132
+      },
+      {
+        "tSec": 15,
+        "wpm": 132
+      },
+      {
+        "tSec": 20,
+        "wpm": 180
+      },
+      {
+        "tSec": 25,
+        "wpm": 144
+      },
+      {
+        "tSec": 30,
+        "wpm": 144
+      },
+      {
+        "tSec": 35,
+        "wpm": 168
+      },
+      {
+        "tSec": 40,
+        "wpm": 144
+      },
+      {
+        "tSec": 45,
+        "wpm": 144
+      },
+      {
+        "tSec": 50,
+        "wpm": 144
+      },
+      {
+        "tSec": 55,
+        "wpm": 144
+      },
+      {
+        "tSec": 60,
+        "wpm": 180
+      },
+      {
+        "tSec": 65,
+        "wpm": 156
+      },
+      {
+        "tSec": 70,
+        "wpm": 144
+      },
+      {
+        "tSec": 75,
+        "wpm": 156
+      },
+      {
+        "tSec": 80,
+        "wpm": 192
+      },
+      {
+        "tSec": 85,
+        "wpm": 83
+      }
+    ],
+    "fastest": {
+      "tSec": 80,
+      "wpm": 192
+    },
+    "slowest": {
+      "tSec": 85,
+      "wpm": 83
+    },
+    "swing": 109
+  },
+  "silence": {
+    "pauseCount": 5,
+    "totalPauseSec": 1.9,
+    "pausePctOfRuntime": 2.1,
+    "longest": {
+      "atSec": 15,
+      "ms": 710
+    },
+    "list": [
+      {
+        "atSec": 2.7,
+        "ms": 400
+      },
+      {
+        "atSec": 15,
+        "ms": 710
+      },
+      {
+        "atSec": 20.2,
+        "ms": 250
+      },
+      {
+        "atSec": 86.3,
+        "ms": 280
+      },
+      {
+        "atSec": 89.1,
+        "ms": 250
+      }
+    ]
+  },
+  "beats": {
+    "count": 2,
+    "meanSec": 44.7,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 15,
+        "words": 36,
+        "wpm": 144,
+        "text": "Did you know anthropic has been watermarking your text? Since August, everything Claude writes carries a hidden signature. You can't see it. Copy paste won't remove it. The trick is genius. But it has one embarrassing"
+      },
+      {
+        "startSec": 15.7,
+        "endSec": 89.3,
+        "words": 188,
+        "wpm": 153,
+        "text": "flaw. And it's already failing students. A new law in Europe says if a computer wrote something, people should be able to find out. So since August 2nd, every new Claude model leaves a secret mark inside its own writing, not just in Europe, everywhere. So how do you hide a mark inside words? When Claude writes, it often has two words that both work. The cat sat on the mat, or the rug, both fine. So it flips a coin to pick. Wait, come closer. The coin is rigged. It lands on one side more often than it should. One rigged flip looks totally normal. But Claude writes hundreds of words, hundreds of rigged flips, and they add up. A detector that knows the trick counts them and goes, too many heads, no human writes like this. This was Claude. But the trick has weak spots, a short text, not enough flips to count. Rewrite it in your own words, the mark washes away, and the official counting tool isn't even out yet. So that AI checker that failed someone's essay, it was guessing. There's the flaw."
+      }
+    ]
+  },
+  "density": {
+    "questionsPer100w": 0.9,
+    "youPer100w": 2.2,
+    "numbersPer100w": 2.2,
+    "pivotsPer100w": 1.8
+  },
+  "questions": [
+    {
+      "atSec": 0,
+      "pos": 0,
+      "text": "Did you know anthropic has been watermarking your text?"
+    },
+    {
+      "atSec": 34,
+      "pos": 0.38,
+      "text": "So how do you hide a mark inside words?"
+    }
+  ],
+  "pivots": [
+    {
+      "phrase": "but",
+      "atSec": 12.9,
+      "pos": 0.14
+    },
+    {
+      "phrase": "wait",
+      "atSec": 47.8,
+      "pos": 0.54
+    },
+    {
+      "phrase": "but",
+      "atSec": 57.8,
+      "pos": 0.65
+    },
+    {
+      "phrase": "but",
+      "atSec": 71.3,
+      "pos": 0.8
+    }
+  ],
+  "claimsPer10s": [
+    {
+      "tSec": 0,
+      "sentences": 4
+    },
+    {
+      "tSec": 10,
+      "sentences": 4
+    },
+    {
+      "tSec": 20,
+      "sentences": 1
+    },
+    {
+      "tSec": 30,
+      "sentences": 2
+    },
+    {
+      "tSec": 40,
+      "sentences": 4
+    },
+    {
+      "tSec": 50,
+      "sentences": 3
+    },
+    {
+      "tSec": 60,
+      "sentences": 2
+    },
+    {
+      "tSec": 70,
+      "sentences": 2
+    },
+    {
+      "tSec": 80,
+      "sentences": 2
+    }
+  ],
+  "transcript": "Did you know anthropic has been watermarking your text? Since August, everything Claude writes carries a hidden signature. You can't see it. Copy paste won't remove it. The trick is genius. But it has one embarrassing flaw. And it's already failing students. A new law in Europe says if a computer wrote something, people should be able to find out. So since August 2nd, every new Claude model leaves a secret mark inside its own writing, not just in Europe, everywhere. So how do you hide a mark inside words? When Claude writes, it often has two words that both work. The cat sat on the mat, or the rug, both fine. So it flips a coin to pick. Wait, come closer. The coin is rigged. It lands on one side more often than it should. One rigged flip looks totally normal. But Claude writes hundreds of words, hundreds of rigged flips, and they add up. A detector that knows the trick counts them and goes, too many heads, no human writes like this. This was Claude. But the trick has weak spots, a short text, not enough flips to count. Rewrite it in your own words, the mark washes away, and the official counting tool isn't even out yet. So that AI checker that failed someone's essay, it was guessing. There's the flaw."
+}

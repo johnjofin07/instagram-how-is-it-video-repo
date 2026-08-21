@@ -1,0 +1,316 @@
+{
+  "name": "008-microwave",
+  "source": "public/episodes/008-microwave/narration.mp3",
+  "kind": "our episode",
+  "model": "base.en",
+  "durationSec": 66.7,
+  "words": 150,
+  "wpm": 135,
+  "hook": {
+    "text3s": "Your microwave has cold spots, places where your",
+    "wordsIn3s": 8,
+    "wpm3s": 160,
+    "firstSentence": "Your microwave has cold spots, places where your food stays ice-cold no matter how long you cook.",
+    "openingType": "second-person / imperative",
+    "timeToFirstPauseSec": 37.3
+  },
+  "sentences": {
+    "count": 20,
+    "meanWords": 7.5,
+    "medianWords": 6.5,
+    "p90Words": 15,
+    "shortest": 3,
+    "longest": 17,
+    "secondsPerSentence": 3.3,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 6.7,
+        "words": 17,
+        "text": "Your microwave has cold spots, places where your food stays ice-cold no matter how long you cook."
+      },
+      {
+        "startSec": 6.8,
+        "endSec": 9.9,
+        "words": 7,
+        "text": "That's the real reason the plate spins."
+      },
+      {
+        "startSec": 10,
+        "endSec": 13.8,
+        "words": 10,
+        "text": "It's also why a fork in there makes real lightning."
+      },
+      {
+        "startSec": 13.9,
+        "endSec": 15.5,
+        "words": 4,
+        "text": "We'll get to that."
+      },
+      {
+        "startSec": 15.6,
+        "endSec": 21.7,
+        "words": 15,
+        "text": "Inside, invisible waves bounce between the metal walls and get stuck in a fixed pattern."
+      },
+      {
+        "startSec": 21.8,
+        "endSec": 25.7,
+        "words": 6,
+        "text": "Hot spots here, cold spots there."
+      },
+      {
+        "startSec": 25.8,
+        "endSec": 28.6,
+        "words": 6,
+        "text": "Always in the exact same places."
+      },
+      {
+        "startSec": 28.7,
+        "endSec": 32.1,
+        "words": 9,
+        "text": "The hot spots can't move, so your food does."
+      },
+      {
+        "startSec": 32.2,
+        "endSec": 36.5,
+        "words": 8,
+        "text": "The plate slowly drags every bite through them."
+      },
+      {
+        "startSec": 36.6,
+        "endSec": 37.9,
+        "words": 3,
+        "text": "Don't believe me?"
+      },
+      {
+        "startSec": 37.9,
+        "endSec": 40.7,
+        "words": 10,
+        "text": "Take the plate out and microwave a tray of cheese."
+      },
+      {
+        "startSec": 40.8,
+        "endSec": 43.4,
+        "words": 4,
+        "text": "It melts in stripes."
+      },
+      {
+        "startSec": 43.5,
+        "endSec": 45.1,
+        "words": 6,
+        "text": "And that mesh on the door?"
+      },
+      {
+        "startSec": 45.2,
+        "endSec": 48.7,
+        "words": 10,
+        "text": "Light slips through the tiny holes, so you can watch."
+      },
+      {
+        "startSec": 48.8,
+        "endSec": 51,
+        "words": 7,
+        "text": "The waves are too big to fit."
+      },
+      {
+        "startSec": 51,
+        "endSec": 54.1,
+        "words": 6,
+        "text": "To them, it's a solid wall."
+      },
+      {
+        "startSec": 54.2,
+        "endSec": 57.8,
+        "words": 4,
+        "text": "Now, about that fork."
+      },
+      {
+        "startSec": 57.9,
+        "endSec": 62.2,
+        "words": 10,
+        "text": "It's sharp edges squeeze the waves into tiny lightning bolts."
+      },
+      {
+        "startSec": 62.4,
+        "endSec": 65,
+        "words": 3,
+        "text": "Real indoor lightning."
+      },
+      {
+        "startSec": 65.2,
+        "endSec": 66.7,
+        "words": 5,
+        "text": "Maybe don't test that one."
+      }
+    ]
+  },
+  "pacing": {
+    "curve": [
+      {
+        "tSec": 0,
+        "wpm": 156
+      },
+      {
+        "tSec": 5,
+        "wpm": 144
+      },
+      {
+        "tSec": 10,
+        "wpm": 156
+      },
+      {
+        "tSec": 15,
+        "wpm": 132
+      },
+      {
+        "tSec": 20,
+        "wpm": 120
+      },
+      {
+        "tSec": 25,
+        "wpm": 132
+      },
+      {
+        "tSec": 30,
+        "wpm": 132
+      },
+      {
+        "tSec": 35,
+        "wpm": 156
+      },
+      {
+        "tSec": 40,
+        "wpm": 120
+      },
+      {
+        "tSec": 45,
+        "wpm": 192
+      },
+      {
+        "tSec": 50,
+        "wpm": 108
+      },
+      {
+        "tSec": 55,
+        "wpm": 108
+      },
+      {
+        "tSec": 60,
+        "wpm": 84
+      },
+      {
+        "tSec": 65,
+        "wpm": 174
+      }
+    ],
+    "fastest": {
+      "tSec": 45,
+      "wpm": 192
+    },
+    "slowest": {
+      "tSec": 60,
+      "wpm": 84
+    },
+    "swing": 108
+  },
+  "silence": {
+    "pauseCount": 3,
+    "totalPauseSec": 1.5,
+    "pausePctOfRuntime": 2.2,
+    "longest": {
+      "atSec": 53,
+      "ms": 710
+    },
+    "list": [
+      {
+        "atSec": 37.3,
+        "ms": 310
+      },
+      {
+        "atSec": 44.7,
+        "ms": 440
+      },
+      {
+        "atSec": 53,
+        "ms": 710
+      }
+    ]
+  },
+  "beats": {
+    "count": 2,
+    "meanSec": 33.4,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 53,
+        "words": 127,
+        "wpm": 144,
+        "text": "Your microwave has cold spots, places where your food stays ice-cold no matter how long you cook. That's the real reason the plate spins. It's also why a fork in there makes real lightning. We'll get to that. Inside, invisible waves bounce between the metal walls and get stuck in a fixed pattern. Hot spots here, cold spots there. Always in the exact same places. The hot spots can't move, so your food does. The plate slowly drags every bite through them. Don't believe me? Take the plate out and microwave a tray of cheese. It melts in stripes. And that mesh on the door? Light slips through the tiny holes, so you can watch. The waves are too big to fit. To them, it's a solid"
+      },
+      {
+        "startSec": 53.7,
+        "endSec": 66.7,
+        "words": 23,
+        "wpm": 106,
+        "text": "wall. Now, about that fork. It's sharp edges squeeze the waves into tiny lightning bolts. Real indoor lightning. Maybe don't test that one."
+      }
+    ]
+  },
+  "density": {
+    "questionsPer100w": 1.3,
+    "youPer100w": 3.3,
+    "numbersPer100w": 0.7,
+    "pivotsPer100w": 0.7
+  },
+  "questions": [
+    {
+      "atSec": 36.6,
+      "pos": 0.55,
+      "text": "Don't believe me?"
+    },
+    {
+      "atSec": 43.5,
+      "pos": 0.65,
+      "text": "And that mesh on the door?"
+    }
+  ],
+  "pivots": [
+    {
+      "phrase": "now",
+      "atSec": 54.2,
+      "pos": 0.81
+    }
+  ],
+  "claimsPer10s": [
+    {
+      "tSec": 0,
+      "sentences": 2
+    },
+    {
+      "tSec": 10,
+      "sentences": 3
+    },
+    {
+      "tSec": 20,
+      "sentences": 3
+    },
+    {
+      "tSec": 30,
+      "sentences": 3
+    },
+    {
+      "tSec": 40,
+      "sentences": 4
+    },
+    {
+      "tSec": 50,
+      "sentences": 3
+    },
+    {
+      "tSec": 60,
+      "sentences": 2
+    }
+  ],
+  "transcript": "Your microwave has cold spots, places where your food stays ice-cold no matter how long you cook. That's the real reason the plate spins. It's also why a fork in there makes real lightning. We'll get to that. Inside, invisible waves bounce between the metal walls and get stuck in a fixed pattern. Hot spots here, cold spots there. Always in the exact same places. The hot spots can't move, so your food does. The plate slowly drags every bite through them. Don't believe me? Take the plate out and microwave a tray of cheese. It melts in stripes. And that mesh on the door? Light slips through the tiny holes, so you can watch. The waves are too big to fit. To them, it's a solid wall. Now, about that fork. It's sharp edges squeeze the waves into tiny lightning bolts. Real indoor lightning. Maybe don't test that one."
+}

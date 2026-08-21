@@ -32,12 +32,15 @@ export const galaxy: ThemeSpec = {
 
   vignette: "rgba(0, 0, 8, 0.68)",
 
+  // Bordered dark card + bold sans (user rule 2026-08-21: never the boxless
+  // mono caption style again — see memory/no-mono-captions).
   caption: {
-    spoken: "rgba(238, 240, 247, 0.96)",
-    unspoken: "rgba(238, 240, 247, 0.3)",
-    halo: "0 2px 18px rgba(0, 0, 10, 0.9)",
-    font: "mono",
-    boxed: false,
+    spoken: "rgba(238, 240, 247, 0.98)",
+    unspoken: "rgba(238, 240, 247, 0.32)",
+    halo: "0 2px 14px rgba(0, 0, 10, 0.8)",
+    font: "sans",
+    boxed: true,
+    radius: 14,
   },
 
   motion: { damping: 16, stiffness: 160, mass: 0.7 },

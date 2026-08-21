@@ -54,12 +54,16 @@ export const abyss: ThemeSpec = {
 
   vignette: "rgba(2, 8, 14, 0.72)",
 
+  // Captions: bordered dark card in bold sans (per user feedback on 005 —
+  // boxless mono read poorly on the busy water column). Squared corners to
+  // match the episode's chip/stepper geometry — not the pill look.
   caption: {
-    spoken: "rgba(234, 244, 249, 0.98)",
-    unspoken: "rgba(234, 244, 249, 0.3)",
-    halo: "0 2px 18px rgba(0, 10, 18, 0.9)",
-    font: "mono",
-    boxed: false,
+    spoken: "rgba(238, 246, 251, 0.99)",
+    unspoken: "rgba(238, 246, 251, 0.34)",
+    halo: "none",
+    font: "sans",
+    boxed: true,
+    radius: 14,
   },
 
   // Heavier than delivery's 12/200/0.7 — things move through WATER. Slower

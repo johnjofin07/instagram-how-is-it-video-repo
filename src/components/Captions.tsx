@@ -75,7 +75,7 @@ export const Captions: React.FC<{ lines: TimedLine[] }> = ({ lines }) => {
             display: "inline-block",
             background: theme.card,
             border: `1.5px solid ${theme.cardBorder}`,
-            borderRadius: 999,
+            borderRadius: theme.caption.radius ?? 999,
             boxShadow: theme.cardShadow,
             padding: "14px 42px 16px",
             maxWidth: "100%",

@@ -58,6 +58,7 @@ export type ThemeSpec = {
     halo: string; // base text-shadow behind every word
     font: "mono" | "sans";
     boxed: boolean; // true = line sits in a rounded card (chip-style skins)
+    radius?: number; // card corner radius; defaults to the classic 999 pill
   };
 
   // animation personality

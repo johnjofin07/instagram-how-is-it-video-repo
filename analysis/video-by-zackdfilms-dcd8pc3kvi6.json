@@ -1,0 +1,140 @@
+{
+  "name": "video-by-zackdfilms-dcd8pc3kvi6",
+  "source": "/Users/jofin/superhow/.cache/refs/DcD8pC3kVI6.m4a",
+  "kind": "reference clip",
+  "model": "small.en",
+  "durationSec": 32,
+  "words": 84,
+  "wpm": 158,
+  "hook": {
+    "text3s": "As you push down, it turns a large gear inside,",
+    "wordsIn3s": 10,
+    "wpm3s": 200,
+    "firstSentence": "As you push down, it turns a large gear inside, which causes a smaller gear to spin.",
+    "openingType": "claim",
+    "timeToFirstPauseSec": 32
+  },
+  "sentences": {
+    "count": 4,
+    "meanWords": 21,
+    "medianWords": 18,
+    "p90Words": 31,
+    "shortest": 17,
+    "longest": 31,
+    "secondsPerSentence": 8,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 6.2,
+        "words": 17,
+        "text": "As you push down, it turns a large gear inside, which causes a smaller gear to spin."
+      },
+      {
+        "startSec": 6.2,
+        "endSec": 13.3,
+        "words": 17,
+        "text": "That smaller gear drives a coil of wire between magnets, and that motion creates an electrical current."
+      },
+      {
+        "startSec": 13.3,
+        "endSec": 23.5,
+        "words": 31,
+        "text": "Turning just the motion of your hand into a quick burst of electricity, and when the lever reaches the bottom, it pushes a wedge into a metal plate, closing the circuit."
+      },
+      {
+        "startSec": 23.5,
+        "endSec": 32,
+        "words": 19,
+        "text": "The electricity suddenly rushes into two contact points and through the wire, letting you detonate a building without batteries."
+      }
+    ]
+  },
+  "pacing": {
+    "curve": [
+      {
+        "tSec": 0,
+        "wpm": 180
+      },
+      {
+        "tSec": 5,
+        "wpm": 144
+      },
+      {
+        "tSec": 10,
+        "wpm": 156
+      },
+      {
+        "tSec": 15,
+        "wpm": 192
+      },
+      {
+        "tSec": 20,
+        "wpm": 144
+      },
+      {
+        "tSec": 25,
+        "wpm": 168
+      },
+      {
+        "tSec": 30,
+        "wpm": 61
+      }
+    ],
+    "fastest": {
+      "tSec": 15,
+      "wpm": 192
+    },
+    "slowest": {
+      "tSec": 30,
+      "wpm": 61
+    },
+    "swing": 131
+  },
+  "silence": {
+    "pauseCount": 0,
+    "totalPauseSec": 0,
+    "pausePctOfRuntime": 0,
+    "longest": null,
+    "list": []
+  },
+  "beats": {
+    "count": 1,
+    "meanSec": 32,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 32,
+        "words": 84,
+        "wpm": 158,
+        "text": "As you push down, it turns a large gear inside, which causes a smaller gear to spin. That smaller gear drives a coil of wire between magnets, and that motion creates an electrical current. Turning just the motion of your hand into a quick burst of electricity, and when the lever reaches the bottom, it pushes a wedge into a metal plate, closing the circuit. The electricity suddenly rushes into two contact points and through the wire, letting you detonate a building without batteries."
+      }
+    ]
+  },
+  "density": {
+    "questionsPer100w": 0,
+    "youPer100w": 3.6,
+    "numbersPer100w": 1.2,
+    "pivotsPer100w": 0
+  },
+  "questions": [],
+  "pivots": [],
+  "claimsPer10s": [
+    {
+      "tSec": 0,
+      "sentences": 2
+    },
+    {
+      "tSec": 10,
+      "sentences": 1
+    },
+    {
+      "tSec": 20,
+      "sentences": 1
+    },
+    {
+      "tSec": 30,
+      "sentences": 0
+    }
+  ],
+  "transcript": "As you push down, it turns a large gear inside, which causes a smaller gear to spin. That smaller gear drives a coil of wire between magnets, and that motion creates an electrical current. Turning just the motion of your hand into a quick burst of electricity, and when the lever reaches the bottom, it pushes a wedge into a metal plate, closing the circuit. The electricity suddenly rushes into two contact points and through the wire, letting you detonate a building without batteries."
+}

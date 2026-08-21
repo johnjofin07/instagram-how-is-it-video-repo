@@ -1,0 +1,173 @@
+{
+  "name": "video-by-zackdfilms-dchds1ullua",
+  "source": "/Users/jofin/superhow/.cache/refs/DcHDs1ulluA.m4a",
+  "kind": "reference clip",
+  "model": "small.en",
+  "durationSec": 37.6,
+  "words": 104,
+  "wpm": 166,
+  "hook": {
+    "text3s": "If you spin a magnet under a cast-iron pan,",
+    "wordsIn3s": 9,
+    "wpm3s": 180,
+    "firstSentence": "If you spin a magnet under a cast-iron pan, it'll push tiny currents through the metal.",
+    "openingType": "claim",
+    "timeToFirstPauseSec": 37.6
+  },
+  "sentences": {
+    "count": 7,
+    "meanWords": 14.9,
+    "medianWords": 16,
+    "p90Words": 22,
+    "shortest": 7,
+    "longest": 22,
+    "secondsPerSentence": 5.4,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 5.9,
+        "words": 16,
+        "text": "If you spin a magnet under a cast-iron pan, it'll push tiny currents through the metal."
+      },
+      {
+        "startSec": 5.9,
+        "endSec": 9.3,
+        "words": 9,
+        "text": "And as those currents move, the pan resists them."
+      },
+      {
+        "startSec": 9.3,
+        "endSec": 12.5,
+        "words": 7,
+        "text": "That resistance turns the energy into heat."
+      },
+      {
+        "startSec": 12.5,
+        "endSec": 19.9,
+        "words": 20,
+        "text": "So engineers took this idea, but instead of physically spinning a magnet, they used a metal coil under the glass."
+      },
+      {
+        "startSec": 19.9,
+        "endSec": 28.8,
+        "words": 22,
+        "text": "When electricity runs through the coil, it flips back and forth more than 20,000 times per second, similar to the spinning magnet."
+      },
+      {
+        "startSec": 28.8,
+        "endSec": 33.8,
+        "words": 17,
+        "text": "And when you place a metal pan on top, it'll push those tiny currents through the metal."
+      },
+      {
+        "startSec": 33.8,
+        "endSec": 37.6,
+        "words": 13,
+        "text": "The pan resists them, which heats it up and allows you to cook."
+      }
+    ]
+  },
+  "pacing": {
+    "curve": [
+      {
+        "tSec": 0,
+        "wpm": 168
+      },
+      {
+        "tSec": 5,
+        "wpm": 156
+      },
+      {
+        "tSec": 10,
+        "wpm": 144
+      },
+      {
+        "tSec": 15,
+        "wpm": 168
+      },
+      {
+        "tSec": 20,
+        "wpm": 156
+      },
+      {
+        "tSec": 25,
+        "wpm": 168
+      },
+      {
+        "tSec": 30,
+        "wpm": 180
+      },
+      {
+        "tSec": 35,
+        "wpm": 205
+      }
+    ],
+    "fastest": {
+      "tSec": 35,
+      "wpm": 205
+    },
+    "slowest": {
+      "tSec": 10,
+      "wpm": 144
+    },
+    "swing": 61
+  },
+  "silence": {
+    "pauseCount": 0,
+    "totalPauseSec": 0,
+    "pausePctOfRuntime": 0,
+    "longest": null,
+    "list": []
+  },
+  "beats": {
+    "count": 1,
+    "meanSec": 37.6,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 37.6,
+        "words": 104,
+        "wpm": 166,
+        "text": "If you spin a magnet under a cast-iron pan, it'll push tiny currents through the metal. And as those currents move, the pan resists them. That resistance turns the energy into heat. So engineers took this idea, but instead of physically spinning a magnet, they used a metal coil under the glass. When electricity runs through the coil, it flips back and forth more than 20,000 times per second, similar to the spinning magnet. And when you place a metal pan on top, it'll push those tiny currents through the metal. The pan resists them, which heats it up and allows you to cook."
+      }
+    ]
+  },
+  "density": {
+    "questionsPer100w": 0,
+    "youPer100w": 2.9,
+    "numbersPer100w": 1,
+    "pivotsPer100w": 1.9
+  },
+  "questions": [],
+  "pivots": [
+    {
+      "phrase": "but",
+      "atSec": 14.3,
+      "pos": 0.38
+    },
+    {
+      "phrase": "instead",
+      "atSec": 14.4,
+      "pos": 0.38
+    }
+  ],
+  "claimsPer10s": [
+    {
+      "tSec": 0,
+      "sentences": 3
+    },
+    {
+      "tSec": 10,
+      "sentences": 2
+    },
+    {
+      "tSec": 20,
+      "sentences": 1
+    },
+    {
+      "tSec": 30,
+      "sentences": 1
+    }
+  ],
+  "transcript": "If you spin a magnet under a cast-iron pan, it'll push tiny currents through the metal. And as those currents move, the pan resists them. That resistance turns the energy into heat. So engineers took this idea, but instead of physically spinning a magnet, they used a metal coil under the glass. When electricity runs through the coil, it flips back and forth more than 20,000 times per second, similar to the spinning magnet. And when you place a metal pan on top, it'll push those tiny currents through the metal. The pan resists them, which heats it up and allows you to cook."
+}

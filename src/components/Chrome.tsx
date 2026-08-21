@@ -5,24 +5,34 @@ import { useTheme } from "../themes";
 
 // Top chrome (v1 style, kept): mono uppercase section label + counter, and the
 // pipeline stepper with red squares. Intro mode shows just the active stage.
+//
+// Both rows span x140–940 (symmetric 140 margins = centred on x=540). This
+// replaced the old asymmetric left:65/right:140 container, which read
+// left-aligned. Margins still clear every safe-zone rule: x≥65, and the right
+// edge sits on the x940 line the YT 140px reserve drives. Changing it here
+// changes the look of any episode that is re-rendered — that is intended.
 
 export const SectionHeader: React.FC<{
   label: string;
   index: number;
   total: number;
   top?: number; // per-episode: IG/YT top chrome ends ~y269 (see CLAUDE.md)
-}> = ({ label, index, total, top = 96 }) => {
+  // Skip the entrance fade. Scenes that cut HARD (zack mode) re-mount this
+  // component every cut, and a 0.4s fade-in there reads as the header blinking
+  // out. Opt-in per episode; the default keeps the original fade.
+  instant?: boolean;
+}> = ({ label, index, total, top = 96, instant = false }) => {
   const theme = useTheme();
   const frame = useCurrentFrame();
-  const opacity = interpolate(frame, [0, 12], [0, 1], {
-    extrapolateRight: "clamp",
-  });
+  const opacity = instant
+    ? 1
+    : interpolate(frame, [0, 12], [0, 1], { extrapolateRight: "clamp" });
   return (
     <div
       style={{
         position: "absolute",
         top,
-        left: 65,
+        left: 140,
         right: 140,
         display: "flex",
         justifyContent: "space-between",
@@ -48,19 +58,34 @@ export const Stepper: React.FC<{
   allDone?: boolean;
   intro?: boolean;
   top?: number;
-}> = ({ steps, activeIndex, allDone = false, intro = false, top = 176 }) => {
+  // Scene-local [from, to] frame window in which the active square must NOT
+  // pulse. For "total stillness" beats (009's silence pattern interrupt): the
+  // pulse is the only thing on screen still moving, and a 2px breathing
+  // square is enough to break the illusion the beat is built on. Optional and
+  // absent by default — every other episode keeps the pulse.
+  quietFrames?: readonly [number, number];
+  instant?: boolean; // see SectionHeader.instant
+}> = ({
+  steps,
+  activeIndex,
+  allDone = false,
+  intro = false,
+  top = 176,
+  quietFrames,
+  instant = false,
+}) => {
   const theme = useTheme();
   const frame = useCurrentFrame();
-  const enter = interpolate(frame, [4, 20], [0, 1], {
-    extrapolateRight: "clamp",
-  });
+  const enter = instant
+    ? 1
+    : interpolate(frame, [4, 20], [0, 1], { extrapolateRight: "clamp" });
 
   return (
     <div
       style={{
         position: "absolute",
         top,
-        left: 65,
+        left: 140,
         right: 140,
         opacity: enter,
       }}
@@ -99,7 +124,11 @@ export const Stepper: React.FC<{
           {steps.map((step, i) => {
             const done = !intro && (allDone || i < activeIndex);
             const active = !allDone && i === activeIndex;
-            const pulse = active ? 1 + 0.12 * Math.sin(frame / 7) : 1;
+            const quiet =
+              quietFrames !== undefined &&
+              frame >= quietFrames[0] &&
+              frame <= quietFrames[1];
+            const pulse = active && !quiet ? 1 + 0.12 * Math.sin(frame / 7) : 1;
             return (
               <div
                 key={step}

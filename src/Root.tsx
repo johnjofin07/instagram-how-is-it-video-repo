@@ -1,7 +1,20 @@
 import React from "react";
 import { AbsoluteFill, Audio, Composition, Sequence, Still, staticFile } from "remotion";
 import { Avatar, Banner, Emblem } from "./brand/Avatar";
-import { Cover001, Cover002, Cover003, Cover004, Cover006 } from "./brand/Cover";
+import {
+  Cover001,
+  Cover002,
+  Cover003,
+  Cover004,
+  Cover005,
+  Cover006,
+  Cover007,
+  Cover008,
+  Cover009,
+  Cover010,
+  Cover011,
+  Cover012,
+} from "./brand/Cover";
 import { Background } from "./components/Background";
 import { Captions } from "./components/Captions";
 import { SectionHeader, Stepper } from "./components/Chrome";
@@ -34,15 +47,26 @@ const EpisodeVideo: React.FC<{ episode: Episode }> = ({ episode }) => {
         return (
           <Sequence key={scene.id} from={from} durationInFrames={durationInFrames}>
             <Background />
-            <SceneComp />
-            <SectionHeader label={scene.label} index={i} total={episode.scenes.length} top={episode.chrome?.headerTop} />
+            {/* Chrome sits UNDER the scene art: when a zoom or oversized prop
+                crosses the header/stepper band, the object wins (channel rule,
+                2026-08-21). Captions still render above everything. */}
+            <SectionHeader
+              label={scene.label}
+              index={i}
+              total={episode.scenes.length}
+              top={episode.chrome?.headerTop}
+              instant={episode.chrome?.instantEnter}
+            />
             <Stepper
               top={episode.chrome?.stepperTop}
               steps={episode.steps}
               activeIndex={scene.stepIndex}
               allDone={i === episode.scenes.length - 1}
               intro={i === 0}
+              quietFrames={scene.stillFrames}
+              instant={episode.chrome?.instantEnter}
             />
+            <SceneComp />
             <Captions lines={episode.timing.sceneCaptions[i] ?? []} />
           </Sequence>
         );
@@ -79,6 +103,13 @@ export const RemotionRoot: React.FC = () => (
     <Still id="cover-002" component={Cover002} width={1080} height={1920} />
     <Still id="cover-003" component={Cover003} width={1080} height={1920} />
     <Still id="cover-004" component={Cover004} width={1080} height={1920} />
+    <Still id="cover-005" component={Cover005} width={1080} height={1920} />
     <Still id="cover-006" component={Cover006} width={1080} height={1920} />
+    <Still id="cover-007" component={Cover007} width={1080} height={1920} />
+    <Still id="cover-008" component={Cover008} width={1080} height={1920} />
+    <Still id="cover-009" component={Cover009} width={1080} height={1920} />
+    <Still id="cover-010" component={Cover010} width={1080} height={1920} />
+    <Still id="cover-011" component={Cover011} width={1080} height={1920} />
+    <Still id="cover-012" component={Cover012} width={1080} height={1920} />
   </>
 );

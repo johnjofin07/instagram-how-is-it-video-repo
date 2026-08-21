@@ -1,0 +1,350 @@
+{
+  "name": "009-noise-cancel",
+  "source": "public/episodes/009-noise-cancel/narration.mp3",
+  "kind": "our episode",
+  "model": "base.en",
+  "durationSec": 61.4,
+  "words": 133,
+  "wpm": 130,
+  "hook": {
+    "text3s": "How does your headphones' noise canceling",
+    "wordsIn3s": 6,
+    "wpm3s": 120,
+    "firstSentence": "How does your headphones' noise canceling actually work?",
+    "openingType": "question",
+    "timeToFirstPauseSec": 6.3
+  },
+  "sentences": {
+    "count": 22,
+    "meanWords": 6,
+    "medianWords": 5,
+    "p90Words": 11,
+    "shortest": 1,
+    "longest": 14,
+    "secondsPerSentence": 2.8,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 5.2,
+        "words": 8,
+        "text": "How does your headphones' noise canceling actually work?"
+      },
+      {
+        "startSec": 5.3,
+        "endSec": 8.4,
+        "words": 6,
+        "text": "They fight noise with more noise."
+      },
+      {
+        "startSec": 8.5,
+        "endSec": 14.2,
+        "words": 10,
+        "text": "They shout back at the world, and that makes silence."
+      },
+      {
+        "startSec": 14.3,
+        "endSec": 19,
+        "words": 14,
+        "text": "By the end of this, you'll know the one sound they can never erase."
+      },
+      {
+        "startSec": 19.1,
+        "endSec": 23.2,
+        "words": 11,
+        "text": "Tiny microphones on the outside hear the noise before you do."
+      },
+      {
+        "startSec": 23.2,
+        "endSec": 27.6,
+        "words": 11,
+        "text": "A chip copies the sound wave, then flips it upside down."
+      },
+      {
+        "startSec": 27.7,
+        "endSec": 30.7,
+        "words": 8,
+        "text": "It plays that flipped wave into your ear."
+      },
+      {
+        "startSec": 30.9,
+        "endSec": 32.6,
+        "words": 3,
+        "text": "Peak meets dip."
+      },
+      {
+        "startSec": 32.7,
+        "endSec": 35.1,
+        "words": 5,
+        "text": "Plus one meets minus one."
+      },
+      {
+        "startSec": 35.1,
+        "endSec": 36.5,
+        "words": 1,
+        "text": "Listen."
+      },
+      {
+        "startSec": 36.5,
+        "endSec": 38,
+        "words": 1,
+        "text": "Zero."
+      },
+      {
+        "startSec": 38,
+        "endSec": 41.2,
+        "words": 8,
+        "text": "The air at your eardrum just stops moving."
+      },
+      {
+        "startSec": 41.4,
+        "endSec": 42.7,
+        "words": 4,
+        "text": "The noise wasn't blocked."
+      },
+      {
+        "startSec": 43,
+        "endSec": 44.7,
+        "words": 3,
+        "text": "It was erased."
+      },
+      {
+        "startSec": 44.8,
+        "endSec": 47.8,
+        "words": 10,
+        "text": "But the chip can only fight noise it can predict."
+      },
+      {
+        "startSec": 47.9,
+        "endSec": 49,
+        "words": 2,
+        "text": "Engine hum?"
+      },
+      {
+        "startSec": 49,
+        "endSec": 49.3,
+        "words": 1,
+        "text": "Easy."
+      },
+      {
+        "startSec": 49.6,
+        "endSec": 51.1,
+        "words": 3,
+        "text": "It never changes."
+      },
+      {
+        "startSec": 51.2,
+        "endSec": 52.6,
+        "words": 3,
+        "text": "A crying baby?"
+      },
+      {
+        "startSec": 52.6,
+        "endSec": 53.5,
+        "words": 2,
+        "text": "Two sudden."
+      },
+      {
+        "startSec": 53.6,
+        "endSec": 56.2,
+        "words": 5,
+        "text": "Gone before the anti-noise fires."
+      },
+      {
+        "startSec": 56.3,
+        "endSec": 61.4,
+        "words": 14,
+        "text": "That's why headphones can silence the whole plane, but never the baby on it."
+      }
+    ]
+  },
+  "pacing": {
+    "curve": [
+      {
+        "tSec": 0,
+        "wpm": 96
+      },
+      {
+        "tSec": 5,
+        "wpm": 144
+      },
+      {
+        "tSec": 10,
+        "wpm": 108
+      },
+      {
+        "tSec": 15,
+        "wpm": 132
+      },
+      {
+        "tSec": 20,
+        "wpm": 180
+      },
+      {
+        "tSec": 25,
+        "wpm": 144
+      },
+      {
+        "tSec": 30,
+        "wpm": 108
+      },
+      {
+        "tSec": 35,
+        "wpm": 96
+      },
+      {
+        "tSec": 40,
+        "wpm": 132
+      },
+      {
+        "tSec": 45,
+        "wpm": 156
+      },
+      {
+        "tSec": 50,
+        "wpm": 120
+      },
+      {
+        "tSec": 55,
+        "wpm": 120
+      }
+    ],
+    "fastest": {
+      "tSec": 20,
+      "wpm": 180
+    },
+    "slowest": {
+      "tSec": 0,
+      "wpm": 96
+    },
+    "swing": 84
+  },
+  "silence": {
+    "pauseCount": 5,
+    "totalPauseSec": 2.5,
+    "pausePctOfRuntime": 4.1,
+    "longest": {
+      "atSec": 12.6,
+      "ms": 1110
+    },
+    "list": [
+      {
+        "atSec": 6.3,
+        "ms": 520
+      },
+      {
+        "atSec": 11.3,
+        "ms": 270
+      },
+      {
+        "atSec": 12.6,
+        "ms": 1110
+      },
+      {
+        "atSec": 42.7,
+        "ms": 300
+      },
+      {
+        "atSec": 49.3,
+        "ms": 290
+      }
+    ]
+  },
+  "beats": {
+    "count": 3,
+    "meanSec": 20.5,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 6.3,
+        "words": 11,
+        "wpm": 104,
+        "text": "How does your headphones' noise canceling actually work? They fight noise"
+      },
+      {
+        "startSec": 6.8,
+        "endSec": 12.6,
+        "words": 12,
+        "wpm": 125,
+        "text": "with more noise. They shout back at the world, and that makes"
+      },
+      {
+        "startSec": 13.7,
+        "endSec": 61.4,
+        "words": 110,
+        "wpm": 138,
+        "text": "silence. By the end of this, you'll know the one sound they can never erase. Tiny microphones on the outside hear the noise before you do. A chip copies the sound wave, then flips it upside down. It plays that flipped wave into your ear. Peak meets dip. Plus one meets minus one. Listen. Zero. The air at your eardrum just stops moving. The noise wasn't blocked. It was erased. But the chip can only fight noise it can predict. Engine hum? Easy. It never changes. A crying baby? Two sudden. Gone before the anti-noise fires. That's why headphones can silence the whole plane, but never the baby on it."
+      }
+    ]
+  },
+  "density": {
+    "questionsPer100w": 2.3,
+    "youPer100w": 3,
+    "numbersPer100w": 3.8,
+    "pivotsPer100w": 2.3
+  },
+  "questions": [
+    {
+      "atSec": 0,
+      "pos": 0,
+      "text": "How does your headphones' noise canceling actually work?"
+    },
+    {
+      "atSec": 47.9,
+      "pos": 0.78,
+      "text": "Engine hum?"
+    },
+    {
+      "atSec": 51.2,
+      "pos": 0.83,
+      "text": "A crying baby?"
+    }
+  ],
+  "pivots": [
+    {
+      "phrase": "actually",
+      "atSec": 3.3,
+      "pos": 0.05
+    },
+    {
+      "phrase": "but",
+      "atSec": 44.8,
+      "pos": 0.73
+    },
+    {
+      "phrase": "but",
+      "atSec": 59.9,
+      "pos": 0.98
+    }
+  ],
+  "claimsPer10s": [
+    {
+      "tSec": 0,
+      "sentences": 3
+    },
+    {
+      "tSec": 10,
+      "sentences": 2
+    },
+    {
+      "tSec": 20,
+      "sentences": 2
+    },
+    {
+      "tSec": 30,
+      "sentences": 5
+    },
+    {
+      "tSec": 40,
+      "sentences": 6
+    },
+    {
+      "tSec": 50,
+      "sentences": 4
+    },
+    {
+      "tSec": 60,
+      "sentences": 0
+    }
+  ],
+  "transcript": "How does your headphones' noise canceling actually work? They fight noise with more noise. They shout back at the world, and that makes silence. By the end of this, you'll know the one sound they can never erase. Tiny microphones on the outside hear the noise before you do. A chip copies the sound wave, then flips it upside down. It plays that flipped wave into your ear. Peak meets dip. Plus one meets minus one. Listen. Zero. The air at your eardrum just stops moving. The noise wasn't blocked. It was erased. But the chip can only fight noise it can predict. Engine hum? Easy. It never changes. A crying baby? Two sudden. Gone before the anti-noise fires. That's why headphones can silence the whole plane, but never the baby on it."
+}

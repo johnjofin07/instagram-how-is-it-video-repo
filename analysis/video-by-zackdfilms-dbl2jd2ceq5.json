@@ -1,0 +1,152 @@
+{
+  "name": "video-by-zackdfilms-dbl2jd2ceq5",
+  "source": "/Users/jofin/superhow/.cache/refs/Dbl2jd2CEQ5.m4a",
+  "kind": "reference clip",
+  "model": "small.en",
+  "durationSec": 32.2,
+  "words": 97,
+  "wpm": 181,
+  "hook": {
+    "text3s": "When the ant falls into the sand pit, a hidden",
+    "wordsIn3s": 10,
+    "wpm3s": 200,
+    "firstSentence": "When the ant falls into the sand pit, a hidden ant lion is usually waiting underneath the loose sand.",
+    "openingType": "claim",
+    "timeToFirstPauseSec": 32.2
+  },
+  "sentences": {
+    "count": 5,
+    "meanWords": 19.4,
+    "medianWords": 19,
+    "p90Words": 31,
+    "shortest": 11,
+    "longest": 31,
+    "secondsPerSentence": 6.4,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 6.7,
+        "words": 19,
+        "text": "When the ant falls into the sand pit, a hidden ant lion is usually waiting underneath the loose sand."
+      },
+      {
+        "startSec": 6.9,
+        "endSec": 13.9,
+        "words": 22,
+        "text": "And as the ant tries to climb out, the walls collapse beneath its feet, sliding it closer and closer to the predator."
+      },
+      {
+        "startSec": 13.9,
+        "endSec": 17.5,
+        "words": 11,
+        "text": "But then the ant lowers its giant jaws against the ground."
+      },
+      {
+        "startSec": 17.5,
+        "endSec": 23,
+        "words": 14,
+        "text": "The jaws tense up like loaded springs before snapping shut at an incredible speed."
+      },
+      {
+        "startSec": 23,
+        "endSec": 32.2,
+        "words": 31,
+        "text": "The impact is so powerful that it launches the ant straight into the air, and if the jump sends it high enough, the ant can blast completely out of the pit."
+      }
+    ]
+  },
+  "pacing": {
+    "curve": [
+      {
+        "tSec": 0,
+        "wpm": 192
+      },
+      {
+        "tSec": 5,
+        "wpm": 180
+      },
+      {
+        "tSec": 10,
+        "wpm": 180
+      },
+      {
+        "tSec": 15,
+        "wpm": 156
+      },
+      {
+        "tSec": 20,
+        "wpm": 180
+      },
+      {
+        "tSec": 25,
+        "wpm": 216
+      },
+      {
+        "tSec": 30,
+        "wpm": 139
+      }
+    ],
+    "fastest": {
+      "tSec": 25,
+      "wpm": 216
+    },
+    "slowest": {
+      "tSec": 30,
+      "wpm": 139
+    },
+    "swing": 77
+  },
+  "silence": {
+    "pauseCount": 0,
+    "totalPauseSec": 0,
+    "pausePctOfRuntime": 0,
+    "longest": null,
+    "list": []
+  },
+  "beats": {
+    "count": 1,
+    "meanSec": 32.2,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 32.2,
+        "words": 97,
+        "wpm": 181,
+        "text": "When the ant falls into the sand pit, a hidden ant lion is usually waiting underneath the loose sand. And as the ant tries to climb out, the walls collapse beneath its feet, sliding it closer and closer to the predator. But then the ant lowers its giant jaws against the ground. The jaws tense up like loaded springs before snapping shut at an incredible speed. The impact is so powerful that it launches the ant straight into the air, and if the jump sends it high enough, the ant can blast completely out of the pit."
+      }
+    ]
+  },
+  "density": {
+    "questionsPer100w": 0,
+    "youPer100w": 0,
+    "numbersPer100w": 0,
+    "pivotsPer100w": 1
+  },
+  "questions": [],
+  "pivots": [
+    {
+      "phrase": "but",
+      "atSec": 13.9,
+      "pos": 0.43
+    }
+  ],
+  "claimsPer10s": [
+    {
+      "tSec": 0,
+      "sentences": 2
+    },
+    {
+      "tSec": 10,
+      "sentences": 2
+    },
+    {
+      "tSec": 20,
+      "sentences": 1
+    },
+    {
+      "tSec": 30,
+      "sentences": 0
+    }
+  ],
+  "transcript": "When the ant falls into the sand pit, a hidden ant lion is usually waiting underneath the loose sand. And as the ant tries to climb out, the walls collapse beneath its feet, sliding it closer and closer to the predator. But then the ant lowers its giant jaws against the ground. The jaws tense up like loaded springs before snapping shut at an incredible speed. The impact is so powerful that it launches the ant straight into the air, and if the jump sends it high enough, the ant can blast completely out of the pit."
+}

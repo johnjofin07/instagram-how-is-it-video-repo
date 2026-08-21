@@ -1,0 +1,151 @@
+{
+  "name": "video-by-zackdfilms-dbav5bdjqsp",
+  "source": "/Users/jofin/superhow/.cache/refs/Dbav5bdjqSp.m4a",
+  "kind": "reference clip",
+  "model": "small.en",
+  "durationSec": 34.2,
+  "words": 88,
+  "wpm": 154,
+  "hook": {
+    "text3s": "The strip would cover every little bump on your tongue,",
+    "wordsIn3s": 10,
+    "wpm3s": 200,
+    "firstSentence": "The strip would cover every little bump on your tongue, then it pairs with an app, and you pick a flavor.",
+    "openingType": "claim",
+    "timeToFirstPauseSec": 34.2
+  },
+  "sentences": {
+    "count": 4,
+    "meanWords": 22,
+    "medianWords": 21,
+    "p90Words": 29,
+    "shortest": 17,
+    "longest": 29,
+    "secondsPerSentence": 8.5,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 7,
+        "words": 21,
+        "text": "The strip would cover every little bump on your tongue, then it pairs with an app, and you pick a flavor."
+      },
+      {
+        "startSec": 7.1,
+        "endSec": 18.8,
+        "words": 29,
+        "text": "Now you can eat steamed broccoli, and the cover will block the taste signals, replacing them with your selected flavors, meaning your broccoli will taste like a bacon cheeseburger."
+      },
+      {
+        "startSec": 18.8,
+        "endSec": 26.8,
+        "words": 21,
+        "text": "A glass of water tastes like an ice-cold soda, and a sad bowl of boiled chicken tastes like movie theater nachos."
+      },
+      {
+        "startSec": 26.8,
+        "endSec": 34.2,
+        "words": 17,
+        "text": "But if you bite your tongue, the cover could glitch, and suddenly every flavor loads at once."
+      }
+    ]
+  },
+  "pacing": {
+    "curve": [
+      {
+        "tSec": 0,
+        "wpm": 192
+      },
+      {
+        "tSec": 5,
+        "wpm": 168
+      },
+      {
+        "tSec": 10,
+        "wpm": 132
+      },
+      {
+        "tSec": 15,
+        "wpm": 168
+      },
+      {
+        "tSec": 20,
+        "wpm": 156
+      },
+      {
+        "tSec": 25,
+        "wpm": 156
+      },
+      {
+        "tSec": 30,
+        "wpm": 100
+      }
+    ],
+    "fastest": {
+      "tSec": 0,
+      "wpm": 192
+    },
+    "slowest": {
+      "tSec": 30,
+      "wpm": 100
+    },
+    "swing": 92
+  },
+  "silence": {
+    "pauseCount": 0,
+    "totalPauseSec": 0,
+    "pausePctOfRuntime": 0,
+    "longest": null,
+    "list": []
+  },
+  "beats": {
+    "count": 1,
+    "meanSec": 34.2,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 34.2,
+        "words": 88,
+        "wpm": 154,
+        "text": "The strip would cover every little bump on your tongue, then it pairs with an app, and you pick a flavor. Now you can eat steamed broccoli, and the cover will block the taste signals, replacing them with your selected flavors, meaning your broccoli will taste like a bacon cheeseburger. A glass of water tastes like an ice-cold soda, and a sad bowl of boiled chicken tastes like movie theater nachos. But if you bite your tongue, the cover could glitch, and suddenly every flavor loads at once."
+      }
+    ]
+  },
+  "density": {
+    "questionsPer100w": 0,
+    "youPer100w": 8,
+    "numbersPer100w": 0,
+    "pivotsPer100w": 2.3
+  },
+  "questions": [],
+  "pivots": [
+    {
+      "phrase": "now",
+      "atSec": 7.1,
+      "pos": 0.21
+    },
+    {
+      "phrase": "but",
+      "atSec": 26.8,
+      "pos": 0.78
+    }
+  ],
+  "claimsPer10s": [
+    {
+      "tSec": 0,
+      "sentences": 2
+    },
+    {
+      "tSec": 10,
+      "sentences": 1
+    },
+    {
+      "tSec": 20,
+      "sentences": 1
+    },
+    {
+      "tSec": 30,
+      "sentences": 0
+    }
+  ],
+  "transcript": "The strip would cover every little bump on your tongue, then it pairs with an app, and you pick a flavor. Now you can eat steamed broccoli, and the cover will block the taste signals, replacing them with your selected flavors, meaning your broccoli will taste like a bacon cheeseburger. A glass of water tastes like an ice-cold soda, and a sad bowl of boiled chicken tastes like movie theater nachos. But if you bite your tongue, the cover could glitch, and suddenly every flavor loads at once."
+}
