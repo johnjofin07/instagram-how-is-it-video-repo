@@ -1,0 +1,156 @@
+{
+  "name": "013-netflix-papersky",
+  "source": "public/episodes/013-netflix-papersky/narration.mp3",
+  "kind": "our episode",
+  "model": "base.en",
+  "durationSec": 39.5,
+  "words": 111,
+  "wpm": 168,
+  "hook": {
+    "text3s": "Netflix runs a warehouse at the end of your",
+    "wordsIn3s": 9,
+    "wpm3s": 180,
+    "firstSentence": "Netflix runs a warehouse at the end of your street, and tonight's show is already on its shelf.",
+    "openingType": "claim",
+    "timeToFirstPauseSec": 39.5
+  },
+  "sentences": {
+    "count": 5,
+    "meanWords": 22.2,
+    "medianWords": 21,
+    "p90Words": 30,
+    "shortest": 16,
+    "longest": 30,
+    "secondsPerSentence": 7.9,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 5.9,
+        "words": 18,
+        "text": "Netflix runs a warehouse at the end of your street, and tonight's show is already on its shelf."
+      },
+      {
+        "startSec": 6.2,
+        "endSec": 15.6,
+        "words": 21,
+        "text": "That shelf gets stocked like any parcel, one enormous file, repacked into every box size, from glorious 4K down to potato."
+      },
+      {
+        "startSec": 15.8,
+        "endSec": 23.9,
+        "words": 26,
+        "text": "Each box is chopped into four second parcels, and your TV orders them one at a time, picking a smaller box whenever your Wi-Fi gets busy."
+      },
+      {
+        "startSec": 24.2,
+        "endSec": 35.1,
+        "words": 30,
+        "text": "But those parcels never travel far, because Netflix hands that warehouse to your internet provider for free, and every night, it fills up with what your neighborhood will watch tomorrow."
+      },
+      {
+        "startSec": 35.2,
+        "endSec": 39.5,
+        "words": 16,
+        "text": "So the show you pressed play on was stocked before you even knew you wanted it."
+      }
+    ]
+  },
+  "pacing": {
+    "curve": [
+      {
+        "tSec": 0,
+        "wpm": 180
+      },
+      {
+        "tSec": 5,
+        "wpm": 156
+      },
+      {
+        "tSec": 10,
+        "wpm": 132
+      },
+      {
+        "tSec": 15,
+        "wpm": 156
+      },
+      {
+        "tSec": 20,
+        "wpm": 192
+      },
+      {
+        "tSec": 25,
+        "wpm": 168
+      },
+      {
+        "tSec": 30,
+        "wpm": 156
+      },
+      {
+        "tSec": 35,
+        "wpm": 211
+      }
+    ],
+    "fastest": {
+      "tSec": 35,
+      "wpm": 211
+    },
+    "slowest": {
+      "tSec": 10,
+      "wpm": 132
+    },
+    "swing": 79
+  },
+  "silence": {
+    "pauseCount": 0,
+    "totalPauseSec": 0,
+    "pausePctOfRuntime": 0,
+    "longest": null,
+    "list": []
+  },
+  "beats": {
+    "count": 1,
+    "meanSec": 39.5,
+    "list": [
+      {
+        "startSec": 0,
+        "endSec": 39.5,
+        "words": 111,
+        "wpm": 168,
+        "text": "Netflix runs a warehouse at the end of your street, and tonight's show is already on its shelf. That shelf gets stocked like any parcel, one enormous file, repacked into every box size, from glorious 4K down to potato. Each box is chopped into four second parcels, and your TV orders them one at a time, picking a smaller box whenever your Wi-Fi gets busy. But those parcels never travel far, because Netflix hands that warehouse to your internet provider for free, and every night, it fills up with what your neighborhood will watch tomorrow. So the show you pressed play on was stocked before you even knew you wanted it."
+      }
+    ]
+  },
+  "density": {
+    "questionsPer100w": 0,
+    "youPer100w": 7.2,
+    "numbersPer100w": 3.6,
+    "pivotsPer100w": 0.9
+  },
+  "questions": [],
+  "pivots": [
+    {
+      "phrase": "but",
+      "atSec": 24.2,
+      "pos": 0.61
+    }
+  ],
+  "claimsPer10s": [
+    {
+      "tSec": 0,
+      "sentences": 2
+    },
+    {
+      "tSec": 10,
+      "sentences": 1
+    },
+    {
+      "tSec": 20,
+      "sentences": 1
+    },
+    {
+      "tSec": 30,
+      "sentences": 1
+    }
+  ],
+  "transcript": "Netflix runs a warehouse at the end of your street, and tonight's show is already on its shelf. That shelf gets stocked like any parcel, one enormous file, repacked into every box size, from glorious 4K down to potato. Each box is chopped into four second parcels, and your TV orders them one at a time, picking a smaller box whenever your Wi-Fi gets busy. But those parcels never travel far, because Netflix hands that warehouse to your internet provider for free, and every night, it fills up with what your neighborhood will watch tomorrow. So the show you pressed play on was stocked before you even knew you wanted it."
+}

@@ -3,145 +3,181 @@ import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { useTheme } from "../../../themes";
 import {
   BLUE,
-  BOWL_PATH,
-  BellyTank,
-  CupVsGallons,
-  LavCutaway,
+  BLUE_DEEP,
+  PaperCloud,
+  PlaneCutaway,
+  SkyStage,
+  Buckets,
+  Chip,
+  Droplet,
+  INTERIOR,
+  LAV,
+  Lavatory,
   METAL,
-  RUSH,
+  PaperCup,
   SetPanel,
 } from "./kit";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
 
-// The bowl starts filling the stage (match cut: the river from scene 1 keeps
-// running as these wall sweeps), then pulls back to make room for the cup.
-const BOWL_C = { x: 232, y: 207 }; // bowl-interior centre in the 520×448 viewBox
+// bowl — THE BOWL · 399f (v4 take)
+//   f3–87    "The bowl is coated so slick that nothing sticks" — gleam chasing
+//            the bowl wall; three drops hit the wall and slide straight off
+//   f108–152 "instead of gallons of water" — six buckets stack up, then fall
+//   f168–199 "one cup of blue disinfectant" — the cup, which tips and pours
+//   f227–249 "rinses it clean" — BLUE ribbon around the wall
+//   f272–399 "the waste slams into a sealed tank in the plane's belly" — hard
+//            cut to the WHOLE plane from outside (half-cut), a RUSH pulse runs
+//            from the lavatory down its pipe, and the camera zooms into the
+//            belly tank; slam at f335, hatch seals f348
+const UNIT = 17;
+const LAVPOS = { x: 110, y: 600 };
+const lavPt = (p: { x: number; y: number }) => ({ x: LAVPOS.x + p.x * UNIT, y: LAVPOS.y + p.y * UNIT });
+const BOWL = lavPt(LAV.bowl);
+const DRAIN = lavPt(LAV.drain);
 
-// bowl — THE BOWL · 362f
-// "…scrubs a bowl slicker than a nonstick pan" (f36–116) is carried by RUSH
-// sweeps chasing a white gleam around the exact bowl profile; "one cup…replaces
-// gallons" (f136–225) is the cup vs the collapsing jug tower; then the camera
-// rides the pipe down into the belly and everything slams into the tank.
 export const BowlScene: React.FC = () => {
   const theme = useTheme();
   const frame = useCurrentFrame();
 
-  // zoom state → pull-back state
-  const pull = interpolate(frame, [108, 158], [0, 1], { ...clamp, easing: easeOut });
-  const s = interpolate(pull, [0, 1], [1.9, 1.35]);
-  const cx = interpolate(pull, [0, 1], [540, 370]);
-  const cy = interpolate(pull, [0, 1], [880, 850]);
-  const lavLeft = cx - BOWL_C.x * s;
-  const lavTop = cy - BOWL_C.y * s;
+  const gleam = frame / 40;
 
-  const pipeIn = interpolate(frame, [196, 232], [0, 1], clamp);
-  const sweep = frame / 46; // continuous — the wall never stops being scrubbed
-  const cupIn = interpolate(frame, [132, 158], [0, 1], clamp);
-  const ribbon = interpolate(frame, [156, 214], [0, 1], clamp);
-  const collapse = interpolate(frame, [202, 252], [0, 1], clamp);
+  // buckets vs cup
+  const bucketsIn = interpolate(frame, [108, 140], [0, 1], clamp);
+  const collapse = interpolate(frame, [131, 170], [0, 1], clamp);
+  const gallonsLabel = interpolate(frame, [112, 120, 140, 160], [0, 1, 1, 0], clamp);
+  const cupIn = interpolate(frame, [168, 178], [0, 1], { ...clamp, easing: easeOut });
+  const cupLabel = interpolate(frame, [170, 178, 210, 222], [0, 1, 1, 0], clamp);
+  const cupMove = interpolate(frame, [186, 214], [0, 1], { ...clamp, easing: easeOut });
+  const tilt = interpolate(frame, [205, 232], [0, -62], { ...clamp, easing: easeOut });
+  const level = interpolate(frame, [210, 248], [1, 0.08], clamp);
+  const stream = interpolate(frame, [212, 222, 244, 254], [0, 1, 1, 0], clamp);
+  const ribbon = interpolate(frame, [224, 262], [0, 1], { ...clamp, easing: easeOut });
+  const cupOut = interpolate(frame, [256, 272], [1, 0], clamp);
+  const cupPos = { x: 700 + (300 - 700) * cupMove, y: 700 + (690 - 700) * cupMove };
 
-  // the camera rides the pipe down into the belly
-  // One camera: the bowl group rides up by `cam`, and the tank starts a full
-  // frame-height below its landing spot so it is genuinely offscreen until then.
-  const cam = interpolate(frame, [228, 274], [0, -1260], { ...clamp, easing: easeOut });
-  const flash = interpolate(frame, [269, 274, 288], [0, 1, 0], clamp);
-  const pulse = interpolate(frame, [244, 276, 300, 336], [0, 1, 1, 0], clamp);
-  const sealed = interpolate(frame, [292, 300, 306], [0, 1, 0.7], clamp);
-  const fill = interpolate(frame, [270, 320], [0, 0.55], clamp);
-  const slosh = interpolate(frame, [276, 362], [0, 1], clamp) * 3.2 * Math.sin((frame - 276) / 13);
+  // the belly: whole plane, then zoom in on the tank
+  const ext = frame >= 272;
+  const PLANE_W = 880;
+  const PS = PLANE_W / 640;
+  const PLANE_POS = { x: 100, y: 720 };
+  const tankPt = { x: PLANE_POS.x + 300 * PS, y: PLANE_POS.y + 145 * PS };
+  const zoom = interpolate(frame, [284, 336], [1, 3.6], { ...clamp, easing: easeOut });
+  const pulse = interpolate(frame, [276, 286, 336, 350], [0, 1, 1, 0], clamp);
+  const flash = interpolate(frame, [333, 338, 352], [0, 1, 0], clamp);
+  const sealed = interpolate(frame, [348, 356], [0, 1], clamp);
+  const fill = interpolate(frame, [334, 372], [0, 0.55], clamp);
+  const slosh = interpolate(frame, [338, 399], [0, 1], clamp) * 3.2 * Math.sin((frame - 338) / 13);
 
   return (
     <AbsoluteFill>
-      {/* everything above the belly rides the camera up and out */}
-      <div style={{ position: "absolute", inset: 0, transform: `translateY(${cam}px)` }}>
-        {/* the diorama box this close-up sits in */}
-        <SetPanel x={70} y={520} w={940} h={760} fill="#F4F9FC" />
-        {/* the pipe the camera follows down — hidden during the zoom state */}
-        <svg
-          width={1080}
-          height={2300}
-          style={{ position: "absolute", left: 0, top: 0, overflow: "visible", opacity: pipeIn }}
-        >
-          <path d={`M${lavLeft + 196 * s} ${lavTop + 372 * s} V2010`} stroke={METAL} strokeWidth={52} strokeLinecap="round" opacity={0.5} />
-          <path d={`M${lavLeft + 196 * s} ${lavTop + 372 * s} V2010`} stroke={theme.bgLifted} strokeWidth={38} strokeLinecap="round" />
-          {pulse > 0 ? (
-            <path
-              d={`M${lavLeft + 196 * s} ${lavTop + 372 * s} V2010`}
-              stroke={RUSH}
-              strokeWidth={28}
-              strokeLinecap="round"
-              strokeDasharray="60 92"
-              strokeDashoffset={-frame * 14}
-              opacity={0.85}
-            />
-          ) : null}
+      {ext ? (
+        <>
+          <SkyStage />
+          <div style={{ position: "absolute", left: 120, top: 560 }}>
+            <PaperCloud w={220} />
+          </div>
+          <div style={{ position: "absolute", left: 700, top: 1120 }}>
+            <PaperCloud w={260} drift={6} />
+          </div>
+          <div style={{ position: "absolute", inset: 0, transformOrigin: `${tankPt.x}px ${tankPt.y}px`, transform: `scale(${zoom})` }}>
+            <div style={{ position: "absolute", left: PLANE_POS.x, top: PLANE_POS.y }}>
+              <PlaneCutaway w={PLANE_W} fill={fill} slosh={slosh} flash={flash} sealed={sealed} pulse={pulse} />
+            </div>
+          </div>
+        </>
+      ) : (
+      <div style={{ position: "absolute", inset: 0 }}>
+        <SetPanel x={70} y={520} w={940} h={760} fill={INTERIOR} />
+        {/* the pipe leaving the toilet, behind it */}
+        <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0 }}>
+          <path d={`M${DRAIN.x} ${DRAIN.y} V1320`} stroke={METAL} strokeWidth={52} strokeLinecap="round" opacity={0.5} />
+          <path d={`M${DRAIN.x} ${DRAIN.y} V1320`} stroke={theme.bgLifted} strokeWidth={38} strokeLinecap="round" />
         </svg>
 
-        <div style={{ position: "absolute", left: lavLeft, top: lavTop }}>
-          <LavCutaway w={520 * s} valveOpen={1} press={0.2} scrub={sweep} stub={false} />
+        <div style={{ position: "absolute", left: LAVPOS.x, top: LAVPOS.y }}>
+          <Lavatory unit={UNIT} valveOpen={1} press={0.2} gleam={gleam} />
         </div>
 
-        {/* RUSH sweeps chasing the gleam around the same wall */}
-        <svg
-          width={520 * s}
-          height={448 * s}
-          viewBox="0 0 520 448"
-          style={{ position: "absolute", left: lavLeft, top: lavTop }}
-        >
-          {[0, 1, 2].map((i) => (
+        {/* nothing sticks — drops hit the wall and slide off into the drain */}
+        {[0, 1, 2].map((i) => {
+          const t0 = 30 + i * 22;
+          const fall = interpolate(frame, [t0, t0 + 16], [0, 1], { ...clamp, easing: (t) => t * t });
+          const slide = interpolate(frame, [t0 + 16, t0 + 48], [0, 1], { ...clamp, easing: easeOut });
+          const gone = interpolate(frame, [t0 + 40, t0 + 52], [1, 0], clamp);
+          if (frame < t0 || gone <= 0.02) return null;
+          const hitX = BOWL.x - 90 + i * 90;
+          const hitY = BOWL.y - 46 + Math.abs(i - 1) * -22;
+          const x = hitX + (BOWL.x - hitX) * slide;
+          const y = (BOWL.y - 230) + (hitY - (BOWL.y - 230)) * fall + (BOWL.y + 56 - hitY) * slide;
+          return <Droplet key={i} size={44} style={{ left: x - 22, top: y - 22, opacity: gone }} />;
+        })}
+
+        {/* the BLUE ribbon laid around the wall on "rinses it clean" */}
+        {ribbon > 0.01 ? (
+          <svg
+            width={32 * UNIT}
+            height={32 * UNIT}
+            viewBox="0 0 32 32"
+            style={{ position: "absolute", left: LAVPOS.x, top: LAVPOS.y, overflow: "visible" }}
+          >
             <path
-              key={i}
-              d={BOWL_PATH}
-              fill="none"
-              stroke={RUSH}
-              strokeWidth={5}
-              strokeLinecap="round"
-              strokeDasharray="90 490"
-              strokeDashoffset={-(sweep * 580 + i * 193)}
-              opacity={0.62}
-            />
-          ))}
-          {/* one cup of blue, laid around the bowl */}
-          {ribbon > 0.01 ? (
-            <path
-              d={BOWL_PATH}
+              d={LAV.wall}
               fill="none"
               stroke={BLUE}
-              strokeWidth={7}
+              strokeWidth={1.3}
               strokeLinecap="round"
-              strokeDasharray={`${ribbon * 580} 580`}
-              opacity={0.9}
+              strokeDasharray={`${ribbon * 37} 37`}
+              opacity={0.95}
             />
-          ) : null}
-        </svg>
+          </svg>
+        ) : null}
 
-        {cupIn > 0.01 ? (
-          <div style={{ position: "absolute", left: 620, top: 700, opacity: cupIn }}>
-            <CupVsGallons cupIn={cupIn} collapse={collapse} />
+        {/* gallons — the bucket stack */}
+        {bucketsIn > 0.01 && collapse < 0.99 ? (
+          <div style={{ position: "absolute", left: 660, top: 600 }}>
+            <Buckets appear={bucketsIn} collapse={collapse} />
+          </div>
+        ) : null}
+        {gallonsLabel > 0.01 ? (
+          <div style={{ position: "absolute", left: 660, top: 836, width: 294, display: "flex", justifyContent: "center", opacity: gallonsLabel }}>
+            <Chip>GALLONS</Chip>
+          </div>
+        ) : null}
+
+        {/* one cup — pops where the buckets were, then carries over and pours */}
+        {cupIn > 0.01 && cupOut > 0.01 ? (
+          <div
+            style={{
+              position: "absolute",
+              left: cupPos.x,
+              top: cupPos.y,
+              opacity: Math.min(cupIn, cupOut),
+              transform: `scale(${0.7 + cupIn * 0.3})`,
+            }}
+          >
+            <PaperCup w={130} tilt={tilt} level={level} />
+          </div>
+        ) : null}
+        {stream > 0.01 ? (
+          <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, opacity: stream }}>
+            <path
+              d={`M${cupPos.x + 16} ${cupPos.y + 30} Q ${cupPos.x - 10} ${cupPos.y + 140} ${BOWL.x - 20} ${BOWL.y - 40}`}
+              stroke={BLUE}
+              strokeWidth={12}
+              strokeLinecap="round"
+              fill="none"
+            />
+          </svg>
+        ) : null}
+        {cupLabel > 0.01 ? (
+          <div style={{ position: "absolute", left: 660, top: 836, width: 294, display: "flex", justifyContent: "center", opacity: cupLabel }}>
+            <Chip color={BLUE_DEEP}>ONE CUP</Chip>
           </div>
         ) : null}
       </div>
-
-      {/* Top scrim: once the camera rides down the pipe, the run would otherwise
-          cross the header and stepper. Fades the stage out under the chrome. */}
-      <div
-        style={{
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: 0,
-          height: 560,
-          background: `linear-gradient(180deg, ${theme.bg} 0%, ${theme.bg} 78%, ${theme.bg}00 100%)`,
-          pointerEvents: "none",
-        }}
-      />
-
-      {/* the belly, arriving from below */}
-      <div style={{ position: "absolute", left: 160, top: 660, transform: `translateY(${1260 + cam}px)` }}>
-        <BellyTank w={760} fill={fill} slosh={slosh} flash={flash} sealed={sealed} />
-      </div>
+      )}
     </AbsoluteFill>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { interpolate, useCurrentFrame } from "remotion";
 import { FONTS } from "../../../theme";
 import { useTheme } from "../../../themes";
+import { Icon, IconPaths } from "../../../components/Icon";
 
 // Episode 012 kit — `papersky` cut-paper diorama (v3). The rendering law:
 // NO STROKES. Every shape is a flat paper fill; separation comes from layered
@@ -65,36 +66,6 @@ export const SkyStage: React.FC<{ opacity?: number }> = ({ opacity = 1 }) => {
   );
 };
 
-// ── PaperCloud — two stacked white cutouts on a raised pad ────────────────
-export const PaperCloud: React.FC<{ w?: number; drift?: number }> = ({
-  w = 220,
-  drift = 5,
-}) => {
-  const frame = useCurrentFrame();
-  const dx = Math.sin(frame / 70 + w) * drift;
-  return (
-    <svg
-      width={w}
-      height={w * 0.52}
-      viewBox="0 0 220 114"
-      style={{ position: "absolute", overflow: "visible", transform: `translateX(${dx}px)` }}
-    >
-      <g style={{ filter: paperShadow(1) }}>
-        <path
-          d="M18 84 Q0 84 2 66 Q4 48 26 48 Q30 26 56 26 Q66 8 92 12 Q118 -2 138 16 Q168 10 176 34 Q204 34 206 58 Q208 80 184 84 Z"
-          fill="#F3F9FC"
-        />
-      </g>
-      <g style={{ filter: paperShadow(2) }}>
-        <path
-          d="M52 96 Q34 96 36 80 Q38 66 56 66 Q62 48 84 50 Q96 36 116 42 Q140 38 146 58 Q168 60 168 78 Q168 94 148 96 Z"
-          fill="#FFFFFF"
-        />
-      </g>
-    </svg>
-  );
-};
-
 // ── PaperPlane — the red papercraft model ─────────────────────────────────
 // Same viewBox + lavatory-mark coordinates as v2 so the dive math holds.
 export const PLANE_VB = { w: 640, h: 260 } as const;
@@ -104,7 +75,12 @@ export const PaperPlane: React.FC<{
   markOn?: number;
   onGround?: boolean;
   bob?: boolean;
-}> = ({ w = 640, markOn = 0, onGround = false, bob = true }) => {
+  // half-cut mode: the near wall + near wing are removed and `cut` is drawn
+  // inside the fuselage (see PlaneCutaway)
+  nearWing?: boolean;
+  windows?: boolean;
+  cut?: React.ReactNode;
+}> = ({ w = 640, markOn = 0, onGround = false, bob = true, nearWing = true, windows = true, cut }) => {
   const frame = useCurrentFrame();
   const dy = bob ? Math.sin(frame / 26) * 3 : 0;
   return (
@@ -151,24 +127,34 @@ export const PaperPlane: React.FC<{
         </g>
 
         {/* white window strip, windows punched out in navy */}
-        <g style={{ filter: paperShadow(0) }}>
-          <rect x="108" y="106" width="404" height="34" rx="17" fill="#FFFFFF" />
-        </g>
-        {[0, 1, 2, 3, 4, 5, 6].map((i) => (
-          <circle key={i} cx={146 + i * 52} cy="123" r="8" fill={INK} />
-        ))}
+        {windows ? (
+          <>
+            <g style={{ filter: paperShadow(0) }}>
+              <rect x="108" y="106" width="404" height="34" rx="17" fill="#FFFFFF" />
+            </g>
+            {[0, 1, 2, 3, 4, 5, 6].map((i) => (
+              <circle key={i} cx={146 + i * 52} cy="123" r="8" fill={INK} />
+            ))}
+          </>
+        ) : null}
         {/* cockpit window */}
         <path d="M52 106 Q68 96 92 96 L88 118 L56 122 Z" fill={INK} />
 
-        {/* near wing, over the body — the highest paper layer */}
-        <g style={{ filter: paperShadow(2) }}>
-          <path d="M236 122 L142 216 L216 216 L318 128 Z" fill={RED} />
-        </g>
-        {/* engine nacelle hanging under the wing */}
-        <g style={{ filter: paperShadow(1) }}>
-          <rect x="196" y="172" width="74" height="30" rx="15" fill="#FFFFFF" />
-          <rect x="196" y="172" width="16" height="30" rx="8" fill={INK} />
-        </g>
+        {cut}
+
+        {nearWing ? (
+          <>
+            {/* near wing, over the body — the highest paper layer */}
+            <g style={{ filter: paperShadow(2) }}>
+              <path d="M236 122 L142 216 L216 216 L318 128 Z" fill={RED} />
+            </g>
+            {/* engine nacelle hanging under the wing */}
+            <g style={{ filter: paperShadow(1) }}>
+              <rect x="196" y="172" width="74" height="30" rx="15" fill="#FFFFFF" />
+              <rect x="196" y="172" width="16" height="30" rx="8" fill={INK} />
+            </g>
+          </>
+        ) : null}
 
         {/* the lavatory window, marked */}
         <g opacity={markOn}>
@@ -294,192 +280,43 @@ export const AirField: React.FC<{
   );
 };
 
-// ── ValveVoid — a window cut clean through the diorama to the thin sky ────
+// ── ValveVoid — the window onto the sky at altitude ───────────────────────
+// Navy overhead fading to sky blue below, one cloud far beneath, and only a
+// handful of air dots: the same confetti the cabin is packed with, nearly gone.
 export const ValveVoid: React.FC<{ w: number; h: number; reveal: number }> = ({ w, h, reveal }) => {
   const frame = useCurrentFrame();
   return (
-    <div style={{ position: "absolute", inset: 0 }}>
+    <div style={{ position: "absolute", inset: 0, opacity: reveal }}>
       <div
         style={{
           position: "absolute",
           inset: 0,
-          background: VOID,
           borderRadius: 18,
-          boxShadow: "inset 0 8px 22px rgba(0, 0, 0, 0.45)",
-          opacity: reveal,
+          background: `linear-gradient(180deg, ${VOID} 0%, #27486A 38%, #4F86B4 74%, #8EC0E0 100%)`,
+          boxShadow: "inset 0 8px 22px rgba(0, 0, 0, 0.35)",
+          overflow: "hidden",
         }}
-      />
-      <svg width={w} height={h} style={{ position: "absolute", inset: 0, opacity: reveal }}>
-        {[0, 1, 2, 3, 4].map((i) => (
+      >
+        <div style={{ position: "absolute", left: w * 0.12, top: h * 0.8 }}>
+          <PaperCloud w={w * 0.62} drift={4} />
+        </div>
+        <div style={{ position: "absolute", left: w * 0.6, top: h * 0.9 }}>
+          <PaperCloud w={w * 0.4} drift={3} />
+        </div>
+      </div>
+      <svg width={w} height={h} style={{ position: "absolute", inset: 0 }}>
+        {[0, 1, 2, 3, 4, 5].map((i) => (
           <circle
             key={i}
             cx={40 + rnd(i, 1, 9) * (w - 80) + Math.sin(frame / 47 + i * 2) * 9}
-            cy={40 + rnd(i, 2, 9) * (h - 80) + Math.cos(frame / 61 + i * 3) * 7}
-            r={2.6}
+            cy={40 + rnd(i, 2, 9) * (h - 120) + Math.cos(frame / 61 + i * 3) * 7}
+            r={2.8}
             fill={AIR_LIT}
-            opacity={0.6}
+            opacity={0.75}
           />
         ))}
       </svg>
     </div>
-  );
-};
-
-// The bowl interior profile, kept for the RUSH sweeps in scene 2.
-export const BOWL_PATH = "M120 92 H344 V196 Q344 322 232 322 Q120 322 120 196 Z";
-
-// ── LavCutaway — the lavatory as stacked paper pieces ─────────────────────
-export const LavCutaway: React.FC<{
-  w: number;
-  valveOpen: number;
-  press: number;
-  scrub?: number;
-  stub?: boolean;
-}> = ({ w, valveOpen, press, scrub = 0, stub = true }) => {
-  const h = w * 0.86;
-  return (
-    <svg width={w} height={h} viewBox="0 0 520 448" style={{ position: "absolute", overflow: "visible" }}>
-      {/* housing piece */}
-      <g style={{ filter: paperShadow(1) }}>
-        <path d="M40 60 H430 V150 H360 V196 Q360 340 232 340 Q104 340 104 196 V60 Z" fill="#FFFFFF" />
-      </g>
-      {/* seat rim strip */}
-      <g style={{ filter: paperShadow(0) }}>
-        <rect x="100" y="52" width="264" height="16" rx="8" fill={METAL_DARK} />
-      </g>
-      {/* bowl interior piece */}
-      <path d={BOWL_PATH} fill={INTERIOR} />
-      {scrub > 0 ? (
-        <path
-          d={BOWL_PATH}
-          fill="none"
-          stroke="#FFFFFF"
-          strokeWidth="8"
-          strokeDasharray="120 460"
-          strokeDashoffset={-scrub * 580}
-          opacity={0.95}
-        />
-      ) : null}
-      {/* flush button — orange paper dot on a pale plate */}
-      <g style={{ filter: paperShadow(1) }}>
-        <rect x="364" y={76 + press * 8} width="60" height="36" rx="12" fill={METAL_DARK} />
-      </g>
-      <rect x="376" y={86 + press * 8} width="36" height="16" rx="8" fill={RUSH} />
-      {/* drain throat + valve flap */}
-      <path d="M192 322 H272 V376 H192 Z" fill={INTERIOR} />
-      <g transform={`rotate(${-82 * valveOpen} 196 372)`} style={{ filter: paperShadow(1) }}>
-        <rect x="188" y="362" width="90" height="18" rx="9" fill={METAL} />
-      </g>
-      {/* pipe stub heading for the belly */}
-      {stub ? (
-        <g style={{ filter: paperShadow(0) }}>
-          <path d="M196 372 V420 H500" fill="none" stroke={METAL} strokeWidth="26" strokeLinecap="round" />
-          <path d="M196 372 V420 H500" fill="none" stroke={METAL_DARK} strokeWidth="14" strokeLinecap="round" />
-        </g>
-      ) : null}
-    </svg>
-  );
-};
-
-// ── CupVsGallons — paper cutouts ──────────────────────────────────────────
-export const CupVsGallons: React.FC<{ cupIn: number; collapse: number }> = ({
-  cupIn,
-  collapse,
-}) => {
-  const theme = useTheme();
-  return (
-    <svg width="300" height="360" viewBox="0 0 300 360" style={{ position: "absolute", overflow: "visible" }}>
-      {[0, 1, 2, 3, 4, 5].map((i) => {
-        const col = i % 2;
-        const row = Math.floor(i / 2);
-        const gone = interpolate(collapse, [i * 0.09, i * 0.09 + 0.4], [1, 0], clamp);
-        if (gone <= 0.01) return null;
-        return (
-          <g
-            key={i}
-            opacity={gone}
-            transform={`translate(${168 + col * 62} ${28 + row * 84 + (1 - gone) * 26})`}
-            style={{ filter: paperShadow(1) }}
-          >
-            <rect x="0" y="10" width="50" height="64" rx="10" fill={METAL_DARK} />
-            <rect x="17" y="0" width="16" height="14" rx="5" fill={METAL} />
-          </g>
-        );
-      })}
-      <g opacity={cupIn} transform={`translate(28 ${190 + (1 - cupIn) * 22})`} style={{ filter: paperShadow(2) }}>
-        <path d="M6 8 H84 L74 88 H16 Z" fill="#FFFFFF" />
-        <path d="M11 44 H79 L74 88 H16 Z" fill={BLUE} />
-      </g>
-      <text x="70" y="322" textAnchor="middle" fill={BLUE_DEEP} fontFamily={FONTS.sans} fontWeight="800" fontSize="27" letterSpacing="2">
-        ONE CUP
-      </text>
-      <text x="222" y="322" textAnchor="middle" fill={theme.textDim} fontFamily={FONTS.sans} fontWeight="800" fontSize="27" letterSpacing="2" opacity={1 - collapse}>
-        GALLONS
-      </text>
-    </svg>
-  );
-};
-
-// ── BellyTank — the red plane in cross-section, paper ring + paper waves ──
-export const BellyTank: React.FC<{
-  w: number;
-  fill: number;
-  slosh: number;
-  flash?: number;
-  sealed?: number;
-  passengers?: boolean;
-}> = ({ w, fill, slosh, flash = 0, sealed = 0, passengers = false }) => {
-  const h = w * 0.7;
-  const liquidTop = 372 - fill * 96;
-  return (
-    <svg width={w} height={h} viewBox="0 0 700 490" style={{ position: "absolute", overflow: "visible" }}>
-      {/* red hull ring: red ellipse with a white interior piece on top */}
-      <g style={{ filter: paperShadow(2) }}>
-        <ellipse cx="350" cy="250" rx="330" ry="228" fill={RED} />
-      </g>
-      <ellipse cx="350" cy="250" rx="296" ry="196" fill="#FFFFFF" />
-      {/* cabin floor strip */}
-      <g style={{ filter: paperShadow(0) }}>
-        <rect x="62" y="242" width="576" height="12" rx="6" fill={METAL} />
-      </g>
-      {passengers
-        ? [0, 1, 2, 3, 4].map((i) => (
-            <g key={i} transform={`translate(${152 + i * 100} 150)`} style={{ filter: paperShadow(0) }}>
-              <path d="M0 96 V46 Q0 30 16 30 H44 Q60 30 60 46 V96 Z" fill={METAL_DARK} />
-              <circle cx="30" cy="14" r="15" fill={INK} />
-            </g>
-          ))
-        : null}
-      {/* windows punched in the hull */}
-      {[0, 1, 2, 3].map((i) => (
-        <rect key={i} x={128 + i * 130} y="96" width="44" height="30" rx="14" fill={VOID} />
-      ))}
-      {/* the sealed tank */}
-      <g style={{ filter: paperShadow(1) }}>
-        <rect x="150" y="284" width="400" height="100" rx="24" fill={flash > 0.02 ? "#F6E8D8" : METAL_DARK} />
-      </g>
-      <rect x="162" y="294" width="376" height="82" rx="18" fill="#FFFFFF" />
-      {/* liquid: deep wave layer behind, bright layer in front — paper waves */}
-      <clipPath id="tankclip">
-        <rect x="162" y="294" width="376" height="82" rx="18" />
-      </clipPath>
-      <g clipPath="url(#tankclip)">
-        <g transform={`rotate(${slosh} 350 372)`}>
-          <path
-            d={`M60 ${liquidTop - 7} Q 170 ${liquidTop - 21} 280 ${liquidTop - 7} T 500 ${liquidTop - 7} T 700 ${liquidTop - 7} V 470 H 60 Z`}
-            fill={BLUE_DEEP}
-          />
-          <path
-            d={`M40 ${liquidTop} Q 150 ${liquidTop - 13} 260 ${liquidTop} T 480 ${liquidTop} T 700 ${liquidTop} V 470 H 40 Z`}
-            fill={BLUE}
-          />
-        </g>
-      </g>
-      {/* hatch, sealed */}
-      <g transform={`translate(0 ${-4 + sealed * 4})`} style={{ filter: paperShadow(1) }}>
-        <rect x="316" y="376" width="68" height="18" rx="8" fill={METAL} />
-      </g>
-    </svg>
   );
 };
 
@@ -534,44 +371,6 @@ export const PumpUnit: React.FC<{ spin: number; w?: number }> = ({ spin, w = 260
   );
 };
 
-// ── HandPress — a cut-paper hand: index piece under a palm piece ──────────
-// Fingertip at viewBox (34, 206); `press` drives the downward travel.
-export const HandPress: React.FC<{ size?: number; press?: number }> = ({
-  size = 190,
-  press = 1,
-}) => {
-  const w = size;
-  const h = size * 1.15;
-  return (
-    <svg
-      width={w}
-      height={h}
-      viewBox="0 0 200 230"
-      style={{ position: "absolute", overflow: "visible", transform: `translateY(${press * 12}px)` }}
-    >
-      {/* index finger — its own paper piece, lower layer */}
-      <g style={{ filter: paperShadow(1) }}>
-        <path d="M84 58 Q56 62 48 86 L26 172 Q21 193 34 201 Q48 210 60 191 L100 118 Z" fill={SKIN} />
-      </g>
-      {/* palm piece with curled-finger scallops cut into its lower edge */}
-      <g style={{ filter: paperShadow(2) }}>
-        <path
-          d="M206 4 Q158 -6 124 12 Q92 30 82 60 Q74 92 96 110
-             Q100 132 116 130 Q128 128 130 112
-             Q134 134 150 132 Q162 130 162 112
-             Q168 132 182 128 Q192 125 192 108
-             L206 92 Z"
-          fill={SKIN}
-        />
-      </g>
-      {/* thumb piece across the palm */}
-      <g style={{ filter: paperShadow(2) }}>
-        <path d="M96 42 Q64 48 58 76 Q54 98 74 104 Q92 108 100 92 Q106 78 100 62 Z" fill="#E9C6A4" />
-      </g>
-    </svg>
-  );
-};
-
 // ── SpeedTicker — the episode's one number, on a white paper card ─────────
 export const SpeedTicker: React.FC<{ value: number; opacity?: number }> = ({
   value,
@@ -607,4 +406,446 @@ export const SpeedTicker: React.FC<{ value: number; opacity?: number }> = ({
       </span>
     </div>
   );
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// OBJECTS — Fluent Emoji flat glyphs (MIT) from src/icons/registry.json,
+// recolored to the paper law and rigged per piece. Hand-drawn SVG below this
+// line is only for geometric things: pipes, arrows, liquid, the hull ring.
+// ═══════════════════════════════════════════════════════════════════════════
+
+// ── Chip / Stamp — white paper labels, bold sans (channel font) ───────────
+export const Chip: React.FC<{
+  children: React.ReactNode;
+  color?: string;
+  fontSize?: number;
+  style?: React.CSSProperties;
+}> = ({ children, color, fontSize = 28, style }) => {
+  const theme = useTheme();
+  return (
+    <div
+      style={{
+        display: "inline-block",
+        padding: "12px 26px 14px",
+        borderRadius: 12,
+        background: "#FFFFFF",
+        boxShadow: "0 10px 24px rgba(24, 56, 84, 0.26)",
+        fontFamily: FONTS.sans,
+        fontWeight: 800,
+        fontSize,
+        letterSpacing: "0.06em",
+        color: color ?? theme.textDim,
+        whiteSpace: "nowrap",
+        ...style,
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+// Two-line title card: the first line is the number (RUSH), the second the noun.
+export const Stamp: React.FC<{
+  top: string;
+  bottom: string;
+  pop: number; // 0→1 entrance
+  rotate?: number;
+}> = ({ top, bottom, pop, rotate = -2 }) => {
+  const theme = useTheme();
+  return (
+    <div
+      style={{
+        display: "inline-block",
+        padding: "18px 44px 22px",
+        borderRadius: 18,
+        background: "#FFFFFF",
+        boxShadow: "0 16px 40px rgba(24, 56, 84, 0.30)",
+        transform: `rotate(${rotate}deg) scale(${0.7 + pop * 0.3})`,
+        opacity: pop,
+        textAlign: "center",
+        fontFamily: FONTS.sans,
+        lineHeight: 1,
+      }}
+    >
+      <div style={{ fontSize: 108, fontWeight: 900, color: RUSH, letterSpacing: "-0.02em" }}>{top}</div>
+      <div style={{ fontSize: 54, fontWeight: 900, color: theme.text, letterSpacing: "0.16em", marginTop: 8 }}>
+        {bottom}
+      </div>
+    </div>
+  );
+};
+
+// ── PaperCloud — the "cloud" glyph as two white paper layers ──────────────
+export const PaperCloud: React.FC<{ w?: number; drift?: number }> = ({ w = 220, drift = 5 }) => {
+  const frame = useCurrentFrame();
+  const dx = Math.sin(frame / 70 + w) * drift;
+  return (
+    <div style={{ position: "absolute", transform: `translateX(${dx}px)` }}>
+      <Icon
+        name="fluent-emoji-flat:cloud"
+        size={w * 0.85}
+        recolor={{ "#B4ACBC": "#DCE9F2", "#F3EEF8": "#FFFFFF" }}
+        wrap={(node, i) => <g style={{ filter: paperShadow(i === 0 ? 1 : 2) }}>{node}</g>}
+      />
+    </div>
+  );
+};
+
+// ── Lavatory — the "toilet" glyph, rigged ─────────────────────────────────
+// Icon space is 32×32 units; `unit` px per unit. Landmarks (icon units):
+export const LAV = {
+  bowl: { x: 12.5, y: 19.5 }, // bowl cavity centre — the sink for the stampede
+  rim: { x: 12.5, y: 16 }, // rim line
+  drain: { x: 15.5, y: 30 }, // where the pedestal meets the pipe
+  button: { x: 24, y: 1.4 }, // flush pill on the tank top — the hand lands here
+  // the inner bowl wall, rim-left → bottom → rim-right (for gleam sweeps)
+  wall: "M4 17.2 Q5.5 23.6 12.5 23.8 Q19.5 23.6 21 17.2",
+} as const;
+export const Lavatory: React.FC<{
+  unit: number;
+  valveOpen?: number; // 0 shut … 1 open
+  press?: number; // 0…1 button travel
+  gleam?: number; // continuous phase — a white highlight chasing the wall
+  pipe?: { to: { x: number; y: number } } | null; // icon-unit endpoint of the stub
+  pulse?: number; // RUSH dash running down the stub
+}> = ({ unit, valveOpen = 0, press = 0, gleam, pipe = null, pulse = 0 }) => {
+  const frame = useCurrentFrame();
+  const U = unit;
+  const vb = `0 0 ${32} ${32}`;
+  return (
+    <svg
+      width={32 * U}
+      height={32 * U}
+      viewBox={vb}
+      style={{ position: "absolute", overflow: "visible" }}
+    >
+      {/* pipe stub, behind everything: drain → down → across to `pipe.to` */}
+      {pipe ? (
+        <g>
+          <path
+            d={`M${LAV.drain.x} ${LAV.drain.y} V${pipe.to.y} H${pipe.to.x}`}
+            fill="none"
+            stroke={METAL}
+            strokeWidth={2.2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ filter: paperShadow(0) }}
+          />
+          <path
+            d={`M${LAV.drain.x} ${LAV.drain.y} V${pipe.to.y} H${pipe.to.x}`}
+            fill="none"
+            stroke={METAL_DARK}
+            strokeWidth={1.3}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          {pulse > 0.01 ? (
+            <path
+              d={`M${LAV.drain.x} ${LAV.drain.y} V${pipe.to.y} H${pipe.to.x}`}
+              fill="none"
+              stroke={RUSH}
+              strokeWidth={1.1}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeDasharray="1.6 1.9"
+              strokeDashoffset={-frame * 0.5}
+              opacity={pulse * 0.95}
+            />
+          ) : null}
+        </g>
+      ) : null}
+      {/* the toilet: piece 0 = rim + pedestal (METAL paper), piece 1 = tank + bowl (white) */}
+      <IconPaths
+        name="fluent-emoji-flat:toilet"
+        recolor={{ "#B4ACBC": METAL, "#CDC4D6": "#FFFFFF" }}
+        wrap={(node, i) => <g style={{ filter: paperShadow(i === 0 ? 0 : 1) }}>{node}</g>}
+      />
+      {/* the bowl cavity — a pale paper piece inside the rim */}
+      <path d={`${LAV.wall} Z`} fill={INTERIOR} />
+      {gleam !== undefined ? (
+        <path
+          d={LAV.wall}
+          fill="none"
+          stroke="#FFFFFF"
+          strokeWidth={1.1}
+          strokeLinecap="round"
+          strokeDasharray="7 30"
+          strokeDashoffset={-((gleam * 37) % 37)}
+        />
+      ) : null}
+      {/* valve flap at the foot of the pedestal — rotates open into the pipe */}
+      <g
+        transform={`rotate(${-80 * valveOpen} ${LAV.drain.x - 1.6} ${LAV.drain.y + 0.2})`}
+        style={{ filter: paperShadow(1) }}
+      >
+        <rect x={LAV.drain.x - 2.2} y={LAV.drain.y - 0.55} width={5} height={1.2} rx={0.6} fill={INK} />
+      </g>
+      {/* flush button: pale plate + RUSH pill on the tank top */}
+      <g style={{ filter: paperShadow(1) }}>
+        <rect x={LAV.button.x - 2.6} y={LAV.button.y - 1.1 + press * 0.6} width={5.2} height={2.2} rx={0.8} fill={METAL_DARK} />
+      </g>
+      <rect x={LAV.button.x - 1.6} y={LAV.button.y - 0.45 + press * 0.6} width={3.2} height={0.9} rx={0.45} fill={RUSH} />
+    </svg>
+  );
+};
+
+// ── Droplet — the "droplet" glyph in liquid BLUE ──────────────────────────
+export const Droplet: React.FC<{ size?: number; style?: React.CSSProperties }> = ({ size = 40, style }) => (
+  <Icon
+    name="fluent-emoji-flat:droplet"
+    size={size}
+    recolor={{ "#26C9FC": BLUE }}
+    wrap={(node) => <g style={{ filter: paperShadow(1) }}>{node}</g>}
+    style={style}
+  />
+);
+
+// ── HandPress — "backhand index pointing down", paper skin ────────────────
+// Fingertip sits at HAND_TIP × size — scenes place the hand so that point
+// lands on whatever it presses.
+export const HAND_TIP = { x: 0.61, y: 0.95 } as const;
+export const HandPress: React.FC<{ size?: number; press?: number }> = ({ size = 190, press = 1 }) => (
+  <Icon
+    name="fluent-emoji-flat:backhand-index-pointing-down"
+    size={size}
+    recolor={{ "#FFC83D": SKIN, "#D67D00": "#E9C6A4" }}
+    wrap={(node, i) => (i === 0 ? <g style={{ filter: paperShadow(2) }}>{node}</g> : node)}
+    style={{ transform: `translateY(${press * 12}px)` }}
+  />
+);
+
+// ── Buckets — "gallons of water" as a stack of bucket glyphs ──────────────
+export const Buckets: React.FC<{ appear: number; collapse: number; size?: number }> = ({
+  appear,
+  collapse,
+  size = 104,
+}) => (
+  <div style={{ position: "absolute", width: size * 3, height: size * 2.2 }}>
+    {[0, 1, 2, 3, 4, 5].map((i) => {
+      const col = i % 3;
+      const row = Math.floor(i / 3);
+      const inn = interpolate(appear, [i * 0.1, i * 0.1 + 0.4], [0, 1], clamp);
+      const gone = interpolate(collapse, [i * 0.08, i * 0.08 + 0.45], [1, 0], clamp);
+      const o = inn * gone;
+      if (o <= 0.01) return null;
+      return (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            left: col * size * 1.02,
+            top: row * size * 1.04 + (1 - inn) * 20 + (1 - gone) * 60,
+            opacity: o,
+            transform: `rotate(${(1 - gone) * (col - 1) * 14}deg)`,
+          }}
+        >
+          <Icon
+            name="fluent-emoji-flat:bucket"
+            size={size}
+            recolor={{ "#0074BA": METAL, "#00A6ED": "#FFFFFF", "#D3D3D3": METAL }}
+            wrap={(node, j) => (j === 0 ? <g style={{ filter: paperShadow(1) }}>{node}</g> : node)}
+          />
+        </div>
+      );
+    })}
+  </div>
+);
+
+// ── PaperCup — one cup of BLUE, a paper cutout that can tip and pour ──────
+export const PaperCup: React.FC<{ w?: number; tilt?: number; level?: number }> = ({
+  w = 110,
+  tilt = 0,
+  level = 1,
+}) => (
+  <svg
+    width={w}
+    height={w * 1.05}
+    viewBox="0 0 90 95"
+    style={{ position: "absolute", overflow: "visible", transform: `rotate(${tilt}deg)`, transformOrigin: "20% 90%" }}
+  >
+    <g style={{ filter: paperShadow(2) }}>
+      <path d="M6 8 H84 L74 88 H16 Z" fill="#FFFFFF" />
+    </g>
+    <path d={`M${8 + (1 - level) * 3} ${12 + (1 - level) * 60} H${82 - (1 - level) * 3} L74 88 H16 Z`} fill={BLUE} />
+  </svg>
+);
+
+// ── Seat + passenger — "seat" glyph with a "bust" sat in it ───────────────
+export const SeatRow: React.FC<{ seat?: number; highlight?: number; lit?: number }> = ({
+  seat = 78,
+  highlight = -1,
+  lit = 0,
+}) => (
+  <g>
+    {[0, 1, 2, 3, 4].map((i) => {
+      const x = i * seat * 1.28;
+      const hi = i === highlight ? lit : 0;
+      return (
+        <g key={i} transform={`translate(${x} 0)`}>
+          {hi > 0.01 ? (
+            <rect
+              x={-8}
+              y={-10}
+              width={seat * 0.95}
+              height={seat * 1.05}
+              rx={14}
+              fill={RUSH}
+              opacity={hi * 0.22}
+            />
+          ) : null}
+          <g transform={`scale(${seat / 32})`}>
+            <IconPaths
+              name="fluent-emoji-flat:seat"
+              recolor={{ "#00A6ED": hi > 0.5 ? "#F6E3D6" : METAL_DARK, "#B4ACBC": METAL, "#000": INK }}
+              wrap={(node, j) => (j === 0 ? <g style={{ filter: paperShadow(1) }}>{node}</g> : node)}
+            />
+          </g>
+          {/* the passenger — a bust, scaled to the cushion */}
+          <g transform={`translate(${seat * 0.28} ${seat * 0.06}) scale(${(seat * 0.62) / 32})`}>
+            <IconPaths
+              name="fluent-emoji-flat:bust-in-silhouette"
+              recolor={{ "#321B41": INK, "#533566": "#2B4256" }}
+              wrap={(node) => <g style={{ filter: paperShadow(2) }}>{node}</g>}
+            />
+          </g>
+        </g>
+      );
+    })}
+  </g>
+);
+
+// ── ServiceTruck — the "delivery truck" glyph, facing left, paper colors ──
+// Box fills BLUE_DEEP as the tank drains (`load` 0…1).
+export const TRUCK_NOSE = { x: 0.08, y: 0.74 } as const; // hose port, × size
+export const ServiceTruck: React.FC<{ size?: number; load?: number }> = ({ size = 230, load = 0 }) => {
+  const U = size / 32;
+  return (
+    <div style={{ position: "absolute", width: size, height: size }}>
+      <Icon
+        name="fluent-emoji-flat:delivery-truck"
+        size={size}
+        flipX
+        recolor={{
+          "#FCD53F": "#FFFFFF",
+          "#FF822D": METAL_DARK,
+          "#CA0B4A": METAL,
+          "#26C9FC": "#BDDDF0",
+          "#321B41": INK,
+          "#E6E6E6": "#FFFFFF",
+          "#F4F4F4": METAL_DARK,
+        }}
+        wrap={(node, i) => (i < 3 ? <g style={{ filter: paperShadow(1) }}>{node}</g> : node)}
+      />
+      {/* the load, rising inside the box (box ≈ x13–29u, y9–24u after the flip) */}
+      {load > 0.01 ? (
+        <svg width={size} height={size} viewBox="0 0 32 32" style={{ position: "absolute", inset: 0 }}>
+          <rect x={13.2} y={24 - load * 14} width={15.6} height={load * 14} rx={0.6} fill={BLUE_DEEP} opacity={0.9} />
+        </svg>
+      ) : null}
+    </div>
+  );
+};
+
+// ── PlaneCutaway — the half-cut plane, seen from outside ──────────────────
+// PaperPlane with its near wall and near wing removed: the cabin floor, a
+// seat row with passengers, the lavatory at the back, and the sealed tank
+// under the floor with its pipe. One object carries the rehook (S1), the
+// belly zoom (S2) and the gate drain (S4). Landmarks in PLANE_VB units:
+export const CUT = {
+  tank: { x: 300, y: 145 }, // tank centre — zoom target
+  hatch: { x: 300, y: 156 }, // underside port the truck hose meets
+  seatArrow: (i: number) => 132 + i * 58 + 12, // x of seat i's centre
+} as const;
+export const PlaneCutaway: React.FC<{
+  w?: number;
+  fill: number;
+  slosh: number;
+  flash?: number;
+  sealed?: number;
+  highlightSeat?: number;
+  lit?: number;
+  glow?: number;
+  hatchOpen?: number;
+  pulse?: number; // RUSH dash running from the lavatory down to the tank
+  onGround?: boolean;
+  bob?: boolean;
+}> = ({
+  w = 640,
+  fill,
+  slosh,
+  flash = 0,
+  sealed = 1,
+  highlightSeat = -1,
+  lit = 0,
+  glow = 0,
+  hatchOpen = 0,
+  pulse = 0,
+  onGround = false,
+  bob = true,
+}) => {
+  const frame = useCurrentFrame();
+  const liquidTop = 153 - fill * 14;
+  const pipe = "M452 124 V141 H384";
+  const cut = (
+    <g>
+      {/* the opening in the near wall */}
+      <rect x="112" y="96" width="360" height="60" rx="10" fill="#FFFFFF" />
+      <rect x="112" y="96" width="360" height="60" rx="10" fill="none" stroke={RED_DEEP} strokeWidth="3" opacity="0.35" />
+      {/* floor */}
+      <rect x="116" y="128" width="352" height="4" rx="2" fill={METAL} />
+      {/* seat row with passengers */}
+      <g transform="translate(130 100)">
+        <SeatRow seat={22} highlight={highlightSeat} lit={lit} />
+      </g>
+      {/* the lavatory at the back, and its pipe down to the tank */}
+      <g transform="translate(436 101) scale(0.72)">
+        <IconPaths
+          name="fluent-emoji-flat:toilet"
+          recolor={{ "#B4ACBC": METAL, "#CDC4D6": "#F3F8FB" }}
+        />
+      </g>
+      <path d={pipe} fill="none" stroke={METAL} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d={pipe} fill="none" stroke={METAL_DARK} strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+      {pulse > 0.01 ? (
+        <path
+          d={pipe}
+          fill="none"
+          stroke={RUSH}
+          strokeWidth="2.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeDasharray="5 6"
+          strokeDashoffset={-frame * 1.4}
+          opacity={pulse}
+        />
+      ) : null}
+      {/* arrow from the lit seat down into the tank */}
+      {lit > 0.01 && highlightSeat >= 0 ? (
+        <g opacity={lit}>
+          <path d={`M${CUT.seatArrow(highlightSeat)} 118 V${130 + lit * 6}`} stroke={RUSH} strokeWidth="3.5" strokeLinecap="round" />
+          <path d={`M${CUT.seatArrow(highlightSeat) - 5} ${131 + lit * 6} l5 6 l5 -6 Z`} fill={RUSH} />
+        </g>
+      ) : null}
+      {/* the sealed tank under the floor */}
+      {glow > 0.01 ? <rect x="220" y="131" width="166" height="28" rx="9" fill={RUSH} opacity={glow * 0.3} /> : null}
+      <g style={{ filter: paperShadow(0) }}>
+        <rect x="226" y="136" width="154" height="19" rx="6" fill={flash > 0.02 ? "#F6E8D8" : METAL_DARK} />
+      </g>
+      <rect x="229" y="138.5" width="148" height="14" rx="4.5" fill="#FFFFFF" />
+      <clipPath id="cuttank">
+        <rect x="229" y="138.5" width="148" height="14" rx="4.5" />
+      </clipPath>
+      <g clipPath="url(#cuttank)">
+        <g transform={`rotate(${slosh} 303 152)`}>
+          <path d={`M200 ${liquidTop - 1.5} Q 240 ${liquidTop - 4.5} 280 ${liquidTop - 1.5} T 360 ${liquidTop - 1.5} T 440 ${liquidTop - 1.5} V 170 H 200 Z`} fill={BLUE_DEEP} />
+          <path d={`M190 ${liquidTop} Q 230 ${liquidTop - 3} 270 ${liquidTop} T 350 ${liquidTop} T 440 ${liquidTop} V 170 H 190 Z`} fill={BLUE} />
+        </g>
+      </g>
+      {/* hatch on the underside — shut, until the truck */}
+      <g transform={`translate(0 ${-1 + sealed}) rotate(${hatchOpen * 70} 292 157)`}>
+        <rect x="292" y="154" width="22" height="5" rx="2.5" fill={METAL} />
+      </g>
+    </g>
+  );
+  return <PaperPlane w={w} onGround={onGround} bob={bob} nearWing={false} windows={false} cut={cut} />;
 };

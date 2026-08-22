@@ -11,6 +11,7 @@ import { episode as noiseCancel } from "./009-noise-cancel";
 import { episode as elevator } from "./010-elevator";
 import { episode as shazam } from "./011-shazam";
 import { episode as airplaneToilet } from "./012-airplane-toilet";
+import { episode as netflixPapersky } from "./013-netflix-papersky";
 import type { Episode } from "./types";
 
 export const EPISODES: Episode[] = [
@@ -26,4 +27,5 @@ export const EPISODES: Episode[] = [
   elevator,
   shazam,
   airplaneToilet,
+  netflixPapersky,
 ];

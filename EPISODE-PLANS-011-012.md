@@ -262,10 +262,77 @@ CONSTELLATION"**. Badge EP.011 pattern per `Cover.tsx` convention.
 | Pillar | Everyday machine (CTA in **post caption** only — Z.4) |
 | Mode | **zack-style** (first machines-pillar attempt — log in ZACK-STYLE.md) |
 | Skin | **`flightlab` — reuse as-is** (006's aviation test-lab; zero theme work). |
-| Length | ~114 words ≈ **45–47s** |
+| Length | **v4: 150 words ≈ 55–58s** (v3 was 114w / 43.5s — see §012.1-v4) |
 | Stepper | `VALVE / BOWL / GROUND / TANK` |
 
-## 012.1 ElevenLabs script (copy-paste)
+## 012.1-v4 ElevenLabs script — **CURRENT** (comprehension rewrite, 2026-08-22)
+
+v3 (below, §012.1-v3) was produced but never published — it read as abstract: the mechanism word was
+never spoken, there was no home-toilet baseline to be surprised by, and no
+curiosity loop was ever opened. v4 keeps zack mode and fixes exactly that.
+
+> [confident] A plane toilet doesn't flush with water. It flushes with air.
+> Press flush, and a valve opens a pipe to the sky, where the air is far
+> thinner than in the cabin — so cabin air stampedes down that pipe, taking
+> everything with it at three hundred miles an hour. And none of it leaves
+> the plane. The bowl is coated so slick that nothing sticks, so instead of
+> gallons of water, one cup of blue disinfectant rinses it clean, and the
+> waste slams into a sealed tank in the plane's belly. [slower] But on the ground, the air
+> outside is just as thick as inside — nothing rushes, so a roaring pump
+> under the plane makes the suction instead. That tank never opens in flight.
+> Every flush from everyone on board rides under your feet, sloshing, and it
+> only leaves through a truck at the gate.
+
+146 words. **≈54s at the v3 take's 163 wpm; ≈58s if the take drifts to 150
+wpm** — this is the one risk in v4, so check the raw take's length before
+trimming gaps and use the trim list if it lands over ~54s.
+
+**Trim list (in order, worth 12 words / ~4.5s):** "from everyone on board" →
+"on board" · "roaring" · "far" (far thinner) · "blue" (blue disinfectant) · "And" (none of
+it leaves).
+
+### What changed and why (the script-optimising devices)
+
+| # | v3 | v4 | device |
+| --- | --- | --- | --- |
+| 1 | "The moment you press that flush button, a valve snaps open — and behind it is the sky, with barely any air." | "An airplane toilet flushes at three hundred miles an hour" | **Claim-first hook (option A).** Subject + surprise spoken inside 2s, matches the title, and spends the one number where it works hardest. The first v4 draft opened on a negation ("doesn't flush with water") — banned by the retention rules, replaced. Amends ZACK rule 3 the same way 011/012 v2 did: open ON the recognizable subject. |
+| 2 | thin sky implied to do the work | "the air is far thinner than in the cabin — so cabin air stampedes down that pipe" | **States the physics once, plainly.** Thick air moves toward thin air; that is the whole episode and v3 never said it. |
+| 3 | — | "and whatever goes down it rides right under your seat for the rest of the flight" | **REHOOK (option R3), front-loaded at ~6s** instead of the scene-1 tail (~19s was past the 8–12s cliff). Opens the loop everyone actually wonders about — *where does it go?* — and scene 4 pays it off with the truck. v3 answered a question it never asked. |
+| 4 | "That rushing air scrubs a bowl slicker than a nonstick pan — so one cup of blue liquid replaces gallons of water" | "The bowl is coated so slick that nothing sticks, so instead of gallons of water, one cup of blue disinfectant rinses it clean" | **Unmuddles the beat.** v3 fused air-scouring and the coating into one loose image, and "blue liquid" was never identified (the first v4 draft kept that — owner flagged it as confusing). Now: the coating is why no water is needed, the liquid is named, and its job (rinse) is stated. |
+| 5 | "a roaring pump fakes the sky" | "a roaring pump under the plane makes the suction instead" | **Says what the machine does.** "Fakes the sky" only parses if you already decoded "sky = vacuum". |
+| 6 | "every flush rides beneath your feet, sloshing, and lands when you do" | "It stays sealed under the floor, sloshing, until a truck pulls up at the gate and drains the whole flight's worth." | **Cold end is the rehook payoff:** "under your seat" moved up into the hook, so scene 4 spends its line on the lavatory truck — a thing viewers have seen from the window. |
+
+Unchanged from zack mode: one "but" pivot (**65%**, target 38–78%), **0
+questions**, **1 number**, cold ending, **no on-screen CTA** (Z.4 — the A/B is
+still running; CTA lives in the post caption).
+
+### Scene deltas this rewrite implies (not yet built)
+
+The four existing scenes still carry the narration — the beat tables in §012.5
+hold, but these need adding once the v4 take lands and boundaries realign:
+
+1. **`valve`** — grows 14.5s → ~22.5s. Add (a) a **title stamp at f0–9**:
+   "300 MPH" / "FLUSH" (v3 has no stamp per Z.1; comprehension overrides it
+   here — the `SpeedTicker` can now spool 0→300 under the stamp instead of
+   waiting for the pipe beat), (b) a **rehook beat at ~f120–220**: the paper
+   plane's cabin cutaway with a seat row, and the belly tank glowing under
+   it — chip "UNDER YOUR SEAT" / "ALL FLIGHT" — BEFORE the hand presses
+   flush on "Press flush", (c) the valve snap + stampede then run as v3 but
+   the ticker is already at 300, so the pipe beat is pure motion. Rescale by
+   % per §0.5.
+2. **`bowl`** — no new art. The slick-coating gleam sweep now has narration
+   pointing at it; keep `CupVsGallons` synced to "one cup … gallons".
+3. **`ground`** — no change. Narration now names the pump's job.
+4. **`tank`** — the **service truck at the gate** IS the scene now: the
+   descent/touchdown compresses into the first ~40%; on "until a truck" a
+   papercraft truck rolls in under the belly, hose to the tank on "drains",
+   BLUE level drops to empty over the last ~60f. Cold end holds on the
+   emptied tank + truck. The hook's seat-row/tank cutaway returns here (loop
+   closes visually, like 010's keyhole).
+
+---
+
+## 012.1-v3 ElevenLabs script (superseded 2026-08-22 — kept for reference)
 
 > [confident] The moment you press that flush button, a valve snaps open —
 > and behind it is the sky, with barely any air. The crowded cabin air rushes
@@ -283,19 +350,22 @@ thick" · "sloshing," (keep if at all possible — it's the texture word).
 
 ## 012.2 `script.ts` scene split
 
+**[v4 — 2026-08-22]**
+
 | id | label | step | ~sec | opener (first 3 words — align keys) |
 | --- | --- | --- | --- | --- |
-| `valve` | THE VALVE | 0 | ~15.5 | "The moment you" |
-| `bowl` | THE BOWL | 1 | ~13 | "That rushing air" |
+| `valve` | THE VALVE | 0 | ~22.5 | "An airplane toilet" |
+| `bowl` | THE BOWL | 1 | ~13 | "The bowl is" |
 | `ground` | THE GROUND | 2 | ~10 | "But on the" |
-| `tank` | THE TANK | 3 | ~7 + hold | "That tank never" |
+| `tank` | THE TANK | 3 | ~10 + hold | "That tank never" |
 
-Distinct openers ✓ ("That rushing…" / "That tank…" diverge at word 2 —
-verified against align.mjs's 3-word window). `HAS_NARRATION = false` until
-the take lands. Manifest: `theme: THEMES.flightlab`,
-`chrome: { headerTop: 280, stepperTop: 352 }`.
+All four openers now diverge at **word 1** ✓ (v3's "That rushing…" /
+"That tank…" only diverged at word 2). `HAS_NARRATION = false` until
+the take lands. Manifest: `theme: THEMES.papersky` (v3 re-skin — the
+`flightlab` line here is stale), `chrome: { headerTop: 280, stepperTop: 352,
+instantEnter: true }`.
 
-## 012.3 Design language
+## 012.3 Design language (v3 `papersky` law — unchanged in v4; the colour table below is the flightlab-era original, see `kit.tsx` for the live constants)
 
 `flightlab` skin **unchanged**. Semantic color law (kit consts):
 
@@ -315,59 +385,68 @@ is darker than `bg` — emptiness reads as a hole in the world.
 zack pace. The particle system is the one bold element (Z.6); diagrams around
 it are clean 3–4px line work on the blueprint grid, like 006.
 
-## 012.4 Episode kit — `scenes/kit.tsx`
+## 012.4 Episode kit — `scenes/kit.tsx` **[v4 — icon objects, 2026-08-22]**
 
-| Component | Props | Draws |
+Objects are Fluent Emoji flat glyphs from `src/icons/registry.json`,
+recolored to the paper law and rigged per piece (CLAUDE.md icon rule).
+Hand-drawn SVG survives only for geometry: pipes, arrows, liquid, the hull
+ring, and the side-view `PaperPlane` (its window row is the dive target).
+
+| Component | Source | Draws |
 | --- | --- | --- |
-| `AirField` | `w`, `h`, `density` (0–1), `flow` ({x,y} px/f), `drainTo?` ({x,y}) | THE component. Seeded particle field (2–3px AIR dots, count = density·N); `flow` drifts them; `drainTo` accelerates them toward a sink point with RUSH trail streaks as they speed up. Drives the stampede, the stillness, and the pump. Deterministic: positions = seeded hash + frame·flow, wrapped. |
-| `LavCutaway` | `w`, `valveOpen` (0–1) | Side cutaway: bowl profile, flush button, valve flap at the drain, pipe stub. 4px `line` strokes; bowl interior slightly lifted. |
-| `ValveVoid` | `w`, `h` | The VOID panel behind the valve — near-black, 4–5 lonely AIR dots drifting (the thin sky). |
-| `PipeRun` | `path`, `progress` | Pipe polyline from bowl to belly; `progress` sends a RUSH pulse down it. |
-| `CupVsGallons` | `phase` (0–1) | One small BLUE cup vs a stacked tower of grey gallon jugs; phase collapses/fades the tower, cup stays. |
-| `BellyTank` | `w`, `fill` (0–1), `slosh` (deg) | Fuselage cross-section: cabin floor line, seat glyphs above, sealed tank below; `fill` liquid level in BLUE, `slosh` tilts the liquid surface with a 2-lobe wave. |
-| `PumpUnit` | `spin` (0–1) | Ground vacuum pump: rotor circle with blur arcs, intake horn on the pipe; `spin` drives rotor speed + a 1px whole-unit shake (the roar). |
-| `SpeedTicker` | `value` | Small mono readout that spools 0→300 (the episode's one number, shown once, S1 only). |
+| `Lavatory` | `toilet` | The toilet: rim + pedestal in METAL, tank + bowl white, INTERIOR bowl cavity, RUSH flush pill on the tank top, INK valve flap at the pedestal foot, optional pipe stub (`pipe.to`, icon units) with a RUSH `pulse`. Landmarks in `LAV` (icon units): `bowl`, `drain`, `button`, `wall` (the gleam/ribbon path). |
+| `HandPress` | `backhand-index-pointing-down` | Paper-skin hand; fingertip at `HAND_TIP × size`. |
+| `Droplet` | `droplet` | BLUE drop — bowl contents in S1, "nothing sticks" in S2. |
+| `Buckets` | `bucket` ×6 | "Gallons" — white buckets, METAL rims, stack in / fall away. |
+| `PaperCup` | hand-drawn | One cup of BLUE; `tilt` + `level` for the pour. |
+| `SeatRow` | `seat` + `bust-in-silhouette` ×5 | Seat row with passengers; `highlight` rings one seat in RUSH. |
+| `PlaneCutaway` | `PaperPlane` (near wall + near wing removed) + `SeatRow` + `toilet` | **The half-cut plane seen from outside** — one object for the rehook (S1), the belly zoom (S2) and the gate drain (S4): opening in the fuselage side, cabin floor, seat row with passengers, the lavatory at the back with its pipe down to the sealed tank under the floor (paper-wave liquid, hatch on the underside). `highlightSeat`/`lit` (arrow into the tank), `glow`, `flash`, `sealed`, `hatchOpen`, `pulse` (RUSH dash lav → tank), `onGround`. Landmarks in `CUT` (PLANE_VB units). Owner direction 2026-08-22: show the whole plane and zoom into the belly rather than a ring cross-section. |
+| `ServiceTruck` | `delivery-truck` (flipped) | The lavatory truck: white box, METAL_DARK cab, INK wheels; `load` fills the box BLUE_DEEP. `TRUCK_NOSE` = hose port. |
+| `PaperCloud` | `cloud` | Two white paper layers. |
+| `Chip` / `Stamp` | — | White paper labels, bold sans. `Stamp` = the f0 title card (RUSH number + noun). |
+| `ValveVoid` | hand-drawn + `cloud` | The window onto the sky at altitude: navy overhead → sky blue below, a cloud far beneath, six lonely air dots (owner: the plain navy panel did not read as "outside"). |
+| `AirField`, `PumpUnit`, `SkyStage`, `SetPanel`, `PaperPlane` (now with `nearWing` / `windows` / `cut` props) | hand-drawn | unchanged from v3. |
 
-## 012.5 Scene direction
+## 012.5 Scene direction **[v4 — retimed to the 2026-08-22 take; timing.json sceneSeconds 20.62 / 13.30 / 10.64 / 11.41]**
 
-### valve — THE VALVE · ~465f
+Frame numbers are scene-local and keyed to whisper word starts (see
+`timing.json`). Hard cuts only (Z.2).
+
+### valve — THE VALVE · 619f
 | f | % | Beat |
 | --- | --- | --- |
-| 0 | 0 | **Cold open, mid-action (Z.1):** finger glyph already ON the flush button, press landing AT f0 (like 010's press-at-f0); `LavCutaway` center-stage, `AirField` at density 0.9 filling the cabin side, already drifting. |
-| 0–25 | 0–5% | `valveOpen` 0→1, spring d10 — the flap SNAPS. Behind it, `ValveVoid` revealed: near-black, almost no dots. Dense here, empty there — the whole physics in one frame. |
-| 30–140 | 6–30% | Beat of imbalance: cabin dots crowd against the valve mouth; the void's 4 dots drift alone. A thin `line` divider labels nothing — the contrast IS the label. |
-| 140–330 | 30–71% | ★ **SIGNATURE — the stampede.** `AirField` gets `drainTo` = valve mouth: every particle accelerates toward it, RUSH streaks growing with speed, funneling down the pipe stub. Bowl contents (3 abstract shapes) get dragged along. `SpeedTicker` spools 0→300 near the pipe, synced to hit 300 on "three hundred". |
-| 330–465 | 71–100% | Full river: particles + RUSH streaks pouring through the pipe in a continuous laminar band. Density in the cabin visibly drops. **Cut to `bowl` ON "That rushing"** — mid-river, no settle. |
+| 0–124 | 0–20% | **EXT.** `SkyStage` + four `PaperCloud`s, `PaperPlane` in cruise (nose left). `Stamp` "300 MPH / FLUSH" pops f0–9 at y440 — the claim is on screen before it is spoken. On "300" (f61): three RUSH speed lines trail the tail, gone by f124. |
+| 125–275 | 20–44% | **REHOOK — hard cut.** `PlaneCutaway` w900 (the half-cut plane from outside), camera eases in 1→1.4 on the opening f125–190. f158–176 seat #3 lights (`highlightSeat=2`, `lit`) with a RUSH arrow down through the floor into the tank; f186–206 the tank `glow`s. Chip "UNDER YOUR SEAT" (RUSH) f182 at y1138; chip "FOR THE WHOLE FLIGHT" f226 at y1222. |
+| 276–619 | 45–100% | **INT — hard cut on "Press"** with a 10f punch-in (0.86→1). INTERIOR `SetPanel`; `AirField` cabin (left, dense), METAL hull strip, `ValveVoid` (right). `Lavatory` (unit 13) with its pipe stub running through the hull into the void. `HandPress` already descending at the cut; press lands f290 on "flush", releases to 0.3, leaves f332–356. Valve snaps f314–336 ("valve opens"). Void reveals f346–392 ("to the sky"). Chips "THICK AIR" (f401, over the cabin) / "THIN AIR" (f411, over the void) on "far thinner"; fade f530–548. ★ **Stampede** from f478 ("stampedes"): `AirField` sink = bowl, streaks ramp to f540, pipe RUSH pulse f500+, cabin density 0.92→0.55 over f560–619. Three `Droplet`s in the bowl are dragged down the drain f556–606 ("everything in the bowl goes with it"). |
 
-QA stills: **f0** (press must read instantly), **f45** (dense/void contrast), **f230** (stampede), **f420**.
-
-### bowl — THE BOWL · ~385f
+### bowl — THE BOWL · 399f
 | f | % | Beat |
 | --- | --- | --- |
-| 0–110 | 0–29% | Zoom state: bowl interior fills the stage. RUSH streaks sweep the bowl wall in an arc; a white gleam highlight chases each sweep (the "slicker than nonstick" shine). Match cut: the river from S1 continues into this scene's streaks. |
-| 110–230 | 29–60% | `CupVsGallons` at stage right: tower of grey jugs vs one BLUE cup. On "one cup": the cup tips a BLUE ribbon around the bowl; on "gallons of water": the jug tower collapses/fades (phase 0→1, staggered 4f). |
-| 230–385 | 60–100% | The stage slides DOWN the `PipeRun` (camera translate, ~90f) into the belly: `BellyTank` reveals, RUSH pulse arrives via `progress`, contents slam in (impact: tank border flashes `bgLifted`→`line`, 4f), hatch glyph seals with a 2-frame clunk-drop. **Cut to `ground` ON "But"** — and Z.3 fires: |
+| 0–100 | 0–25% | INTERIOR panel, `Lavatory` big (unit 17, x110 y600), valve open, white gleam chasing `LAV.wall` continuously. f30/52/74 three `Droplet`s fall onto the bowl wall and slide straight off into the bottom ("nothing sticks"). |
+| 108–170 | 27–43% | `Buckets` stack in (f108–140) at x660 y600, chip "GALLONS" y836; they tumble away f131–170 ("instead of gallons of water"). |
+| 168–272 | 42–68% | `PaperCup` pops where the buckets were (f168), chip "ONE CUP" (BLUE_DEEP); carries over to the bowl f186–214, tilts to −62° f205–232, BLUE stream into the bowl f212–254; BLUE ribbon laid around the wall f224–262 ("rinses it clean"); cup fades f256–272. |
+| 272–399 | 68–100% | **Hard cut to the WHOLE plane** (`PlaneCutaway` w880 at (100, 720), sky + clouds). A RUSH `pulse` runs from the lavatory down its pipe into the tank f276–350 while the camera zooms 1→3.6 into the belly (origin = tank centre) f284–336. Slam flash f333–352, fill 0→0.55 f334–372, hatch seals f348–356, slosh from f338. Hold on the full-frame tank. |
 
-QA stills: **f60** (gleam sweep), **f170** (cup vs jugs margins), **f350** (tank slam).
-
-### ground — THE GROUND · ~295f
+### ground — THE GROUND · 319f
 | f | % | Beat |
 | --- | --- | --- |
-| 0–6 | 0–2% | **Pivot snap (Z.3):** hard cut. Plane silhouette AT THE GATE (ground line, jet bridge glyph). Cutaway shows `AirField` BOTH sides of the hull at equal density 0.9 — and zero flow. **No orange anywhere.** After 90 seconds of rushing, stillness is the shock. |
-| 6–90 | 2–31% | Hold the broken rule: both fields idle-drift only (±1px). Dots near the open valve do nothing — nowhere to go. |
-| 90–210 | 31–71% | `PumpUnit` spins up (spin 0→1 over 30f): rotor blurs, unit shakes, and a `drainTo` sink at the pump intake **hollows out the pipe section only** — a man-made pocket of VOID grows inside the pipe, RUSH streaks reappearing at the intake. The sky, faked. |
-| 210–295 | 71–100% | Pump holds at full roar (continuous shake + rotor blur — no rest); the fake-void pocket holds empty against the dense field. **Cut to `tank` ON "That tank"**. |
+| 0–96 | 0–30% | **Pivot — hard cut on "But."** `PaperPlane` `onGround` at the gate (y478), tarmac band y640–700, jet bridge. INTERIOR cutaway panel y720–1260: cabin `AirField` left / hull / outside `AirField` right at EQUAL density, idle drift only. Small `Lavatory` (unit 5.5) at the left end of a 46px pipe that runs along the panel floor to the `PumpUnit` (x690 y1060 w280). **No orange anywhere.** |
+| 96–123 | 30–39% | Chips "THICK AIR" over both sides (f96 left, f114 right) on "just as thick as inside" — scene 1's pair, now identical. |
+| 186–268 | 58–84% | `PumpUnit` spins up f186–216 ("roaring pump"), shakes; a VOID pocket grows back along the pipe from the pump f198–268, RUSH streaks inside the pipe only (f196+). |
+| 246–319 | 77–100% | Chip "PUMP-MADE SUCTION" (RUSH) y1282 on "makes the suction". Pump holds at full roar to the cut. |
 
-QA stills: **f3** (pivot snap — verify the no-orange read), **f150** (pump + fake void).
-
-### tank — THE TANK · ~265f (cold end)
+### tank — THE TANK · 342f (cold end)
 | f | % | Beat |
 | --- | --- | --- |
-| 0–90 | 0–34% | Wide `BellyTank` cross-section: seat glyphs + passenger dots above the floor line, filled tank below (fill ~0.6). The plane pitches down 2° (whole-stage rotate) — descent. `slosh` swings gently (±4°, 50f period). |
-| 90–190 | 34–72% | Ground line rises outside the hull windows; slosh continues — BLUE surface wave is the only bold motion. On "sloshing": one slightly bigger swell (+2°). |
-| 190–265 | 72–100% | **Cold end (Z.4):** touchdown — 3px vertical bump, slosh settles over ~30f to near-still. Hold ~35f on the peak image: passengers above, tank below their feet, both arrived. Stepper `allDone`. NO CTA chip. Loop seam: still cross-section smash-cuts into f0's button press ✓. |
+| 0–95 | 0–28% | `PlaneCutaway` w760 at (40, 660) in descent (pitch −2°, bob), fill 0.6, slosh; two clouds. Chip "NEVER OPENS IN FLIGHT" y470 f22–31 (on "never"), holds to f176. Tank flash f104–124 ("sealed"). |
+| 95–180 | 28–53% | Ground rises f95–168 to the wheel line (y≈913); gear out from f130; one bigger swell on "sloshing" (f146–180); touchdown f168 (3px bump, bob stops), pitch levels f150–170, slosh settles f170–210. |
+| 185–262 | 54–77% | `ServiceTruck` (170px, facing left) rolls in from x1150 to x740 — behind the tail, clear of the opening — on "a truck pulls up at the gate". Chip fades f176–188. Camera (ground + plane + truck in one group) eases in 1→1.4 around (600, 880) f236–262. |
+| 244–342 | 71–100% | Hose draws from `TRUCK_NOSE` to the underside hatch (`CUT.hatch`) f244–258; hatch swings open f246–258 — the one time it does; tank drains 0.6→0.02 and the truck box fills BLUE_DEEP f258–306, BLUE_DEEP dashes running down the hose. **Cold end (Z.4):** hold f306–342 on the half-cut plane, emptied tank, full truck. No CTA chip. |
 
-QA stills: **f100** (slosh + descent), **f245** (cold-end margins — nothing below y1370).
+QA sweep 2026-08-22: full-timeline sequence at 0.25 (pre-cutaway build) +
+0.5/0.6-scale stills at f200 / f300 / f430 / f520 / f969 / f1560 / f1660, then
+a frame sweep of the delivered final.mp4. Chips/stamps all inside
+x65–940, nothing below y1330; captions clear.
 
 ## 012.6 Cover idea
 Flightlab blueprint grid; big lavatory cutaway with the valve open onto a
@@ -388,3 +467,55 @@ Badge EP.012.
    interleave with default-style episodes (003/004/005/006 are produced and
    waiting) so the retention comparison has a control next to it. 011 is
    tech, 012 is machine — they slot into the pillar rotation as-is.
+
+---
+
+## 013 — Netflix Is a Delivery Company · zack mode (`013-netflix-papersky`)
+
+Papersky re-skin of 004, re-scripted 2026-08-22 as zack-style A/B entry #3.
+Scenes are already built and re-timed; only the take is missing. Full spec
+and experiment row in `ZACK-STYLE.md`; v1 (004's 94s narration) preserved in
+the episode folder as `*.v1.*`.
+
+### 013.1 ElevenLabs v3 script — **RECORDED 2026-08-22** (take `netflix-new-v2`)
+
+Voice Brian · v3 · speed 92 · stability ~26 · similarity 75. Paste as ONE
+paragraph — a line break is a pause in v3. No `[pause]` anywhere; the em dash
+and colon are gone from the text for the same reason.
+
+> [curious] Netflix runs a warehouse at the end of your street, and tonight's
+> show is already on its shelf. [intrigued] That shelf gets stocked like any
+> parcel, one enormous file, repacked into every box size, from glorious 4K
+> [amused] down to potato. [eager] Each box is chopped into four-second parcels,
+> and your TV orders them one at a time, picking a smaller box whenever your
+> wifi gets busy. [leaning in] But those parcels never travel far, because
+> Netflix hands that warehouse to your internet provider for free, and every
+> night it fills up with what your neighborhood will watch tomorrow.
+> [delighted] So the show you pressed play on was stocked before you even knew
+> you wanted it.
+
+110 words · target 37–43s · curious → intrigued → amused → eager → leaning
+in → delighted. The arc rises through the mechanism and drops to a
+conspiratorial register on the "but" pivot, then lifts for the cold end — the
+same shape 012 v4 used (excited → curious → whisper → mischievous), tuned
+curious-first because this episode's hook is a discovery, not a stunt.
+
+**Reading notes for the take**
+- Zero silence target (0–2% on `analyze`). The chain words carry the
+  continuity: land "shelf." straight into "That shelf", "potato." straight
+  into "Each box", "busy." straight into "But".
+- If v3 still breathes at the sentence ends, generate 2–3 takes and pick the
+  one with the fewest gaps rather than re-tagging — the gap-trim pass caps
+  every pause at 120ms anyway.
+- Tags are hints, not guarantees, in v3. If a tag is spoken aloud (it
+  happens on the free-form ones), swap it for the closest stock tag:
+  `[intrigued]`→`[curious]`, `[eager]`→`[excited]`, `[leaning in]`→`[whispers]`,
+  `[delighted]`→`[laughs]` (tagged before "So", not after).
+- Save the raw take as `narration-untrimmed.mp3`, the trimmed one as
+  `narration.mp3`, both in `public/episodes/013-netflix-papersky/`.
+
+**Take result:** raw 41.8s with 6 pauses ≥250ms (biggest 0.66s after
+"shelf" and "potato" — v3 still breathes at full stops even with the tags);
+capped at 120ms → 39.8s, 0 pauses. `analyze`: 168 wpm, 0% silence, 1 beat,
+pivot 61%, claim opener. All four boundaries aligned first pass; sceneSeconds
+[6.18, 9.64, 8.37, 11.1, 5.8]. None of the free-form tags were spoken aloud.

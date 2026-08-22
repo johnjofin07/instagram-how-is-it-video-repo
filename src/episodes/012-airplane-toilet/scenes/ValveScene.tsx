@@ -1,121 +1,207 @@
 import React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
-import { FONTS } from "../../../theme";
 import { useTheme } from "../../../themes";
 import {
   AirField,
-  BLUE,
+  PlaneCutaway,
+  Chip,
+  Droplet,
+  HAND_TIP,
   HandPress,
-  LAV_MARK,
-  LavCutaway,
+  LAV,
+  Lavatory,
   METAL,
-  PLANE_VB,
   PaperCloud,
-  PlaneExterior,
-  RED,
+  PaperPlane,
   RUSH,
   SetPanel,
   SkyStage,
-  SpeedTicker,
+  Stamp,
+  INTERIOR,
   ValveVoid,
-  paperShadow,
 } from "./kit";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
-const easeIn = (t: number) => t * t;
+const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
 
-// ── Interior layout, comp space. Dense on the left, empty on the right. ──
+// valve — THE VALVE · 619f (v4 take, timing.json 2026-08-22)
+//
+// Three hard-cut phases, each on a narration landmark:
+//   EXT    f0–124   "An airplane toilet flushes at 300 miles an hour"
+//                   — the plane in cruise, title stamp at f0, speed lines on "300"
+//   REHOOK f125–275 "…rides right under your seat for the rest of the flight"
+//                   — the half-cut plane from outside: seat row, the viewer's
+//                   seat lit, arrow down into the glowing tank under the floor,
+//                   chips UNDER YOUR SEAT / WHOLE FLIGHT
+//   INT    f276–619 "Press flush (289) … valve opens (314) … pipe to the sky (342)
+//                   … far thinner (408) … stampedes (484) … bowl goes with it (579)"
+// ★ SIGNATURE — the stampede, from f478.
+
+// ── interior layout (comp px) ──
+const PANEL = { x: 70, y: 520, w: 940, h: 720 };
 const CABIN = { x: 100, y: 560, w: 490, h: 640 };
 const HULL_X = 590;
 const VOIDP = { x: 630, y: 560, w: 350, h: 640 };
-const LAV = { x: 100, y: 690, w: 500, s: 500 / 520 };
-const DRAIN = { x: LAV.x + 196 * LAV.s, y: LAV.y + 372 * LAV.s }; // the valve mouth
-const SINK = { x: DRAIN.x - CABIN.x, y: DRAIN.y - CABIN.y }; // in AirField-local px
-const PIPE_X0 = LAV.x + 452 * LAV.s;
-const PIPE_Y = LAV.y + 408 * LAV.s;
+const UNIT = 13; // px per toilet-icon unit
+const LAVPOS = { x: 96, y: 745 };
+const lavPt = (p: { x: number; y: number }) => ({ x: LAVPOS.x + p.x * UNIT, y: LAVPOS.y + p.y * UNIT });
+const BOWL = lavPt(LAV.bowl);
+const DRAIN = lavPt(LAV.drain);
+const BTN = lavPt(LAV.button);
+const SINK = { x: BOWL.x - CABIN.x, y: BOWL.y - CABIN.y }; // AirField-local
+const PIPE_TO = { x: (VOIDP.x + 40 - LAVPOS.x) / UNIT, y: 33.2 }; // icon units
+const HAND_SIZE = 190;
+const HAND_POS = { x: BTN.x - HAND_TIP.x * HAND_SIZE, y: BTN.y - HAND_TIP.y * HAND_SIZE };
 
-// ── Exterior layout. The camera dives into the marked lavatory window. ──
-const PLANE_W = 760;
-const PLANE_POS = { x: (1080 - PLANE_W) / 2, y: 640 };
-const PLANE_S = PLANE_W / PLANE_VB.w;
-// the lav mark's comp-space position — the zoom's fixed point
-const MARK = {
-  x: PLANE_POS.x + LAV_MARK.x * PLANE_S,
-  y: PLANE_POS.y + LAV_MARK.y * PLANE_S,
-};
-
-// The sink loop is driven by a monotonic "travel" integral so every frame stays
-// a pure function of `frame` (deterministic-render rule). pull ramps over
-// f236–300 and then holds.
+// stampede travel — monotonic so each frame is pure in `frame`
 const K = 0.03;
 const travelAt = (f: number) => {
-  if (f < 236) return 0;
-  if (f < 300) return (K * (f - 236) * (f - 236)) / 128;
-  return K * 32 + K * (f - 300);
+  if (f < 478) return 0;
+  if (f < 540) return (K * (f - 478) * (f - 478)) / 124;
+  return K * 31 + K * (f - 540);
 };
 
-// valve — THE VALVE · 434f
-// Opens on the PLANE, not the toilet: a safety-card aircraft in cruise with
-// one window ringed in orange and labelled TOILET, and the camera dives
-// through that window (f14–56) into the lavatory cutaway. The hand presses on
-// "flush button" (f52–60), the flap snaps on "a valve snaps open" (f73–106),
-// and the whole physics is one frame of dense-here / empty-there.
-// ★ SIGNATURE — the stampede begins on "rushes toward that emptiness" (f258).
 export const ValveScene: React.FC = () => {
   const theme = useTheme();
   const frame = useCurrentFrame();
 
-  // ── the dive ──
-  const zoom = interpolate(frame, [14, 56], [1, 9], { ...clamp, easing: easeIn });
-  const exteriorOut = interpolate(frame, [42, 58], [1, 0], clamp);
-  const interiorIn = interpolate(frame, [42, 58], [0, 1], clamp);
-  const interiorScale = interpolate(frame, [42, 62], [0.62, 1], {
-    ...clamp,
-    easing: (t) => 1 - Math.pow(1 - t, 3),
-  });
-  const labelIn = interpolate(frame, [4, 16, 34, 46], [0, 1, 1, 0], clamp);
+  const phase = frame < 125 ? "ext" : frame < 276 ? "rehook" : "int";
 
-  // ── the press (lands on "flush button") ──
-  const press = interpolate(frame, [46, 58, 88], [0, 1, 0.35], clamp);
-  const handIn = interpolate(frame, [44, 52], [0, 1], clamp);
-  const handOut = interpolate(frame, [92, 120], [1, 0], clamp);
+  // ── EXT ──
+  const stampPop = interpolate(frame, [0, 9], [0, 1], { ...clamp, easing: easeOut });
+  const speedIn = interpolate(frame, [61, 72, 112, 124], [0, 1, 1, 0], clamp);
 
-  // the flap SNAPS — a hard, fast open, not a spring settle
-  const valveOpen = interpolate(frame, [70, 94], [0, 1], {
-    ...clamp,
-    easing: (t) => 1 - Math.pow(1 - t, 4),
-  });
-  const voidReveal = interpolate(frame, [78, 116], [0, 1], clamp);
+  // ── REHOOK ──
+  const lit = interpolate(frame, [158, 176], [0, 1], clamp);
+  const glow = interpolate(frame, [186, 206], [0, 1], clamp);
+  const chip1 = interpolate(frame, [182, 190], [0, 1], { ...clamp, easing: easeOut });
+  const chip2 = interpolate(frame, [226, 234], [0, 1], { ...clamp, easing: easeOut });
+  const rehookSlosh = 2.2 * Math.sin(frame / 14);
+  const rehookZoom = interpolate(frame, [125, 180], [1, 1.2], { ...clamp, easing: easeOut });
 
+  // ── INT ──
+  const punch = interpolate(frame, [276, 286], [0.86, 1], { ...clamp, easing: easeOut });
+  const handIn = interpolate(frame, [276, 284], [0, 1], clamp);
+  const handOut = interpolate(frame, [332, 356], [1, 0], clamp);
+  const press = interpolate(frame, [283, 290, 302, 322], [0, 1, 1, 0.3], clamp);
+  const valveOpen = interpolate(frame, [314, 336], [0, 1], { ...clamp, easing: (t) => 1 - Math.pow(1 - t, 4) });
+  const voidReveal = interpolate(frame, [346, 392], [0, 1], clamp);
+  const thick = interpolate(frame, [401, 410], [0, 1], { ...clamp, easing: easeOut });
+  const thin = interpolate(frame, [411, 420], [0, 1], { ...clamp, easing: easeOut });
+  const labelsOut = interpolate(frame, [530, 548], [1, 0], clamp);
+  const rushing = frame >= 478;
   const travel = travelAt(frame);
-  const rushing = frame >= 236;
-  const streak = interpolate(frame, [240, 306], [0, 1], clamp);
-  // "The CROWDED cabin air" has to read as crowded from the reveal — the whole
-  // physics is dense-here / empty-there, and it only lands if the left is full.
-  const density = interpolate(frame, [0, 330, 430], [0.92, 0.92, 0.46], clamp);
-
-  // the blue liquid in the bowl gets dragged along with everything else
-  const dragged = interpolate(frame, [248, 312], [0, 1], { ...clamp, easing: easeIn });
-
-  const pipePulse = interpolate(frame, [262, 300], [0, 1], clamp);
-  const tickerIn = interpolate(frame, [322, 340], [0, 1], clamp);
-  const mph = interpolate(frame, [330, 377], [0, 300], clamp);
+  const streak = interpolate(frame, [482, 540], [0, 1], clamp);
+  const density = interpolate(frame, [0, 560, 619], [0.92, 0.92, 0.55], clamp);
+  const pulse = interpolate(frame, [500, 520], [0, 1], clamp);
+  const dragged = interpolate(frame, [556, 606], [0, 1], { ...clamp, easing: (t) => t * t });
 
   return (
     <AbsoluteFill>
-      {/* ── INTERIOR — revealed as the dive lands ── */}
-      {interiorIn > 0.001 ? (
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            opacity: interiorIn,
-            transformOrigin: "540px 880px",
-            transform: `scale(${interiorScale})`,
-          }}
-        >
-          {/* the diorama box the interior sits in */}
-          <SetPanel x={70} y={520} w={940} h={720} />
+      {phase === "ext" ? (
+        <>
+          <SkyStage />
+          <div style={{ position: "absolute", left: 90, top: 600 }}>
+            <PaperCloud w={230} />
+          </div>
+          <div style={{ position: "absolute", left: 770, top: 560 }}>
+            <PaperCloud w={200} drift={7} />
+          </div>
+          <div style={{ position: "absolute", left: 640, top: 1080 }}>
+            <PaperCloud w={270} drift={4} />
+          </div>
+          <div style={{ position: "absolute", left: 110, top: 1150 }}>
+            <PaperCloud w={180} drift={6} />
+          </div>
+
+          <div style={{ position: "absolute", left: 180, top: 740 }}>
+            <PaperPlane w={720} />
+          </div>
+
+          {/* speed lines trailing the tail, on "300 miles an hour" */}
+          {speedIn > 0.01 ? (
+            <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, opacity: speedIn }}>
+              {[0, 1, 2].map((i) => (
+                <line
+                  key={i}
+                  x1={905 + i * 12}
+                  y1={836 + i * 34}
+                  x2={905 + i * 12 + 90 + ((frame * 9 + i * 40) % 70)}
+                  y2={836 + i * 34}
+                  stroke={RUSH}
+                  strokeWidth={8}
+                  strokeLinecap="round"
+                  opacity={0.85 - i * 0.2}
+                />
+              ))}
+            </svg>
+          ) : null}
+
+          {/* title stamp — the claim, on screen before it is spoken */}
+          <div style={{ position: "absolute", left: 0, right: 0, top: 440, display: "flex", justifyContent: "center" }}>
+            <Stamp top="300 MPH" bottom="FLUSH" pop={stampPop} />
+          </div>
+        </>
+      ) : null}
+
+      {phase === "rehook" ? (
+        <>
+          <SkyStage />
+          <div style={{ position: "absolute", left: 640, top: 1120 }}>
+            <PaperCloud w={240} drift={4} />
+          </div>
+          <div style={{ position: "absolute", inset: 0, transformOrigin: "540px 840px", transform: `scale(${rehookZoom})` }}>
+            <div style={{ position: "absolute", left: 90, top: 640 }}>
+              <PlaneCutaway
+                w={900}
+                fill={0.5}
+                slosh={rehookSlosh}
+                highlightSeat={2}
+                lit={lit}
+                glow={glow}
+              />
+            </div>
+          </div>
+          {chip1 > 0.01 ? (
+            <div
+              style={{
+                position: "absolute",
+                left: 0,
+                right: 0,
+                top: 1138,
+                display: "flex",
+                justifyContent: "center",
+                opacity: chip1,
+                transform: `scale(${0.8 + chip1 * 0.2})`,
+              }}
+            >
+              <Chip color={RUSH} fontSize={34}>
+                UNDER YOUR SEAT
+              </Chip>
+            </div>
+          ) : null}
+          {chip2 > 0.01 ? (
+            <div
+              style={{
+                position: "absolute",
+                left: 0,
+                right: 0,
+                top: 1222,
+                display: "flex",
+                justifyContent: "center",
+                opacity: chip2,
+                transform: `scale(${0.8 + chip2 * 0.2})`,
+              }}
+            >
+              <Chip fontSize={28}>FOR THE WHOLE FLIGHT</Chip>
+            </div>
+          ) : null}
+        </>
+      ) : null}
+
+      {phase === "int" ? (
+        <div style={{ position: "absolute", inset: 0, transformOrigin: "540px 880px", transform: `scale(${punch})` }}>
+          <SetPanel x={PANEL.x} y={PANEL.y} w={PANEL.w} h={PANEL.h} fill={INTERIOR} />
 
           {/* the cabin side: crowded air */}
           <div style={{ position: "absolute", left: CABIN.x, top: CABIN.y, width: CABIN.w, height: CABIN.h }}>
@@ -149,126 +235,54 @@ export const ValveScene: React.FC = () => {
             <ValveVoid w={VOIDP.w} h={VOIDP.h} reveal={voidReveal} />
           </div>
 
-          {/* the pipe through the hull, into the emptiness */}
-          <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
-            <path d={`M${PIPE_X0} ${PIPE_Y} H${VOIDP.x + 46}`} stroke={METAL} strokeWidth={46} strokeLinecap="round" opacity={0.55} />
-            <path d={`M${PIPE_X0} ${PIPE_Y} H${VOIDP.x + 46}`} stroke={theme.bgLifted} strokeWidth={34} strokeLinecap="round" />
-            {pipePulse > 0 ? (
-              <path
-                d={`M${PIPE_X0} ${PIPE_Y} H${VOIDP.x + 46}`}
-                stroke={RUSH}
-                strokeWidth={26}
-                strokeLinecap="round"
-                strokeDasharray="30 34"
-                strokeDashoffset={-frame * 11}
-                opacity={pipePulse * 0.9}
-              />
-            ) : null}
-          </svg>
-
-          {/* the lavatory itself */}
-          <div style={{ position: "absolute", left: LAV.x, top: LAV.y }}>
-            <LavCutaway w={LAV.w} valveOpen={valveOpen} press={press} />
+          {/* the toilet, its pipe running through the hull into the void */}
+          <div style={{ position: "absolute", left: LAVPOS.x, top: LAVPOS.y }}>
+            <Lavatory unit={UNIT} valveOpen={valveOpen} press={press} pipe={{ to: PIPE_TO }} pulse={pulse} />
           </div>
 
-          {/* bowl contents — three drops of blue, dragged down the drain */}
-          <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
-            {[0, 1, 2].map((i) => {
-              const sx = LAV.x + (168 + i * 62) * LAV.s;
-              const sy = LAV.y + (272 + (i % 2) * 22) * LAV.s;
-              const e = interpolate(dragged, [i * 0.12, i * 0.12 + 0.6], [0, 1], clamp);
-              const o = 1 - Math.pow(e, 4);
-              if (o <= 0.02) return null;
-              return (
-                <ellipse
-                  key={i}
-                  cx={sx + (DRAIN.x - sx) * e}
-                  cy={sy + (DRAIN.y - sy) * e}
-                  rx={13 - e * 6}
-                  ry={9 + e * 10}
-                  fill={BLUE}
-                  opacity={0.75 * o}
-                />
-              );
-            })}
-          </svg>
-
-          {/* the hand — reaches in with the reveal, presses on "flush button".
-              Fingertip rests on the button at comp (479, 772). */}
-          {handIn > 0.01 && handOut > 0.01 ? (
-            <div style={{ position: "absolute", left: 447, top: 576, opacity: handIn * handOut }}>
-              <HandPress size={190} press={press} />
-            </div>
-          ) : null}
-
-          {/* the episode's one number */}
-          {tickerIn > 0.01 ? (
-            <div style={{ position: "absolute", left: 0, right: 0, top: 1252, display: "flex", justifyContent: "center", opacity: tickerIn }}>
-              <SpeedTicker value={mph} />
-            </div>
-          ) : null}
-        </div>
-      ) : null}
-
-      {/* ── EXTERIOR — the plane, and the dive into its marked window ── */}
-      {exteriorOut > 0.001 ? (
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            opacity: exteriorOut,
-            transformOrigin: `${MARK.x}px ${MARK.y}px`,
-            transform: `scale(${zoom})`,
-          }}
-        >
-          {/* layered paper sky + white cloud cutouts */}
-          <SkyStage />
-          <div style={{ position: "absolute", left: 140, top: 500 }}>
-            <PaperCloud w={250} />
-          </div>
-          <div style={{ position: "absolute", left: 720, top: 1080 }}>
-            <PaperCloud w={300} drift={7} />
-          </div>
-          <div style={{ position: "absolute", left: 300, top: 1290 }}>
-            <PaperCloud w={190} drift={4} />
-          </div>
-
-          <div style={{ position: "absolute", left: PLANE_POS.x, top: PLANE_POS.y }}>
-            <PlaneExterior w={PLANE_W} />
-          </div>
-
-          {/* TOILET — a paper luggage tag strung to the marked window */}
-          {labelIn > 0.01 ? (
-            <div style={{ position: "absolute", inset: 0, opacity: labelIn }}>
-              <svg width={1080} height={1920} style={{ position: "absolute", inset: 0 }}>
-                <path
-                  d={`M${MARK.x} ${MARK.y - 20} Q ${MARK.x + 14} ${MARK.y - 58} ${MARK.x - 4} ${MARK.y - 96}`}
-                  fill="none"
-                  stroke={theme.text}
-                  strokeWidth={3.5}
-                />
-              </svg>
-              <div
+          {/* bowl contents — three drops, dragged down the drain with the air */}
+          {[0, 1, 2].map((i) => {
+            const sx = BOWL.x - 46 + i * 44;
+            const sy = BOWL.y - 30 + (i % 2) * 10;
+            const e = interpolate(dragged, [i * 0.12, i * 0.12 + 0.62], [0, 1], clamp);
+            const o = 1 - Math.pow(e, 5);
+            if (o <= 0.02) return null;
+            return (
+              <Droplet
+                key={i}
+                size={34 - e * 10}
                 style={{
-                  position: "absolute",
-                  left: MARK.x - 118,
-                  top: MARK.y - 168,
-                  width: 236,
-                  textAlign: "center",
-                  padding: "13px 0",
-                  borderRadius: 12,
-                  background: "#FFFFFF",
-                  boxShadow: "0 12px 28px rgba(24, 56, 84, 0.32)",
-                  transform: "rotate(-4deg)",
-                  fontFamily: FONTS.sans,
-                  fontSize: 34,
-                  fontWeight: 900,
-                  letterSpacing: "0.16em",
-                  color: RED,
+                  left: sx + (DRAIN.x - sx) * e - 17,
+                  top: sy + (DRAIN.y - 10 - sy) * e - 17,
+                  opacity: o,
                 }}
-              >
-                TOILET
-              </div>
+              />
+            );
+          })}
+
+          {/* the hand — already descending at the cut, press lands on "flush" */}
+          {handIn > 0.01 && handOut > 0.01 ? (
+            <div
+              style={{
+                position: "absolute",
+                left: HAND_POS.x,
+                top: HAND_POS.y - (1 - handIn) * 50,
+                opacity: Math.min(handIn, handOut),
+              }}
+            >
+              <HandPress size={HAND_SIZE} press={press} />
+            </div>
+          ) : null}
+
+          {/* THICK / THIN — the physics, named once, on "far thinner" */}
+          {thick > 0.01 ? (
+            <div style={{ position: "absolute", left: 130, top: 548, opacity: thick * labelsOut, transform: `scale(${0.8 + thick * 0.2})` }}>
+              <Chip color={theme.text}>THICK AIR</Chip>
+            </div>
+          ) : null}
+          {thin > 0.01 ? (
+            <div style={{ position: "absolute", left: 690, top: 548, opacity: thin * labelsOut, transform: `scale(${0.8 + thin * 0.2})` }}>
+              <Chip color={theme.text}>THIN AIR</Chip>
             </div>
           ) : null}
         </div>

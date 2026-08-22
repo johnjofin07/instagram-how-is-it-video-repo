@@ -6,65 +6,70 @@ _our episode · public/episodes/012-airplane-toilet/narration.mp3 · whisper bas
 
 | metric | value |
 | --- | --- |
-| runtime | 42.1s |
-| words | 114 |
-| average pace | **163 wpm** |
-| pace swing (fastest 5s vs slowest) | 72 wpm |
-| sentences | 7 (6s each) |
-| sentence length | median 14w, p90 32w, longest 32w |
-| speech beats | 1 (42.1s each) |
-| silence | 0.9s across 3 pauses (2% of runtime) |
-| "you" per 100 words | 2.6 |
-| numbers per 100 words | 1.8 |
+| runtime | 54.5s |
+| words | 149 |
+| average pace | **164 wpm** |
+| pace swing (fastest 5s vs slowest) | 96 wpm |
+| sentences | 6 (9.1s each) |
+| sentence length | median 25.5w, p90 36w, longest 36w |
+| speech beats | 1 (54.5s each) |
+| silence | 1.6s across 5 pauses (3% of runtime) |
+| "you" per 100 words | 0.7 |
+| numbers per 100 words | 1.3 |
 | questions per 100 words | 0 |
 
 ## Hook (first 3s)
 
-> The moment you press that flush button, a valve snaps
+> An airplane toilet flushes at 300 miles
 
-- opening type: **claim**
-- 10 words in 3s (200 wpm)
-- first breath at 14.4s
+- opening type: **stat**
+- 7 words in 3s (140 wpm)
+- first breath at 9.9s
 
 ## Pacing curve (5s buckets)
 
 ```
-   0s  180 wpm █████████████████████████
-   5s  168 wpm ███████████████████████
-  10s  144 wpm ████████████████████
-  15s  168 wpm ███████████████████████
-  20s  156 wpm █████████████████████
-  25s  204 wpm ████████████████████████████
-  30s  132 wpm ██████████████████
-  35s  156 wpm █████████████████████
-  40s  144 wpm ████████████████████
+   0s  156 wpm ███████████████████
+   5s  168 wpm █████████████████████
+  10s  228 wpm ████████████████████████████
+  15s  156 wpm ███████████████████
+  20s  180 wpm ██████████████████████
+  25s  156 wpm ███████████████████
+  30s  156 wpm ███████████████████
+  35s  144 wpm ██████████████████
+  40s  144 wpm ██████████████████
+  45s  132 wpm ████████████████
+  50s  186 wpm ███████████████████████
 ```
 
-Fastest at 25s (204), slowest at 30s (132).
+Fastest at 10s (228), slowest at 45s (132).
 
 ## Beat map
 
 Every run of speech between real breaths — the structural skeleton.
 
-- **0–42.1s** (114w, 163 wpm) — The moment you press that flush button, a valve snaps open and behind it is the sky, with barely any air. The crowded cabin air rushes toward that emptiness, dragging everything down the pipe at 300 miles per hour. That rushing air scrubs a bowl slicker than a non-stick pan, so one cup of blue liquid replaces gallons of water, and everything slams into a sealed tank in the plane's belly. But on the ground, the outside air is just as thick as the inside. Nothing rushes, so a roaring pump fakes the sky until takeoff. That tank never opens in flight. Every flush rides beneath your feet, sloshing, and lands when you do.
+- **0–54.5s** (149w, 164 wpm) — An airplane toilet flushes at 300 miles an hour, and whatever goes down it rides right under your seat for the rest of the flight. Press flush and a valve opens a pipe to the sky, where the air is far thinner than in the cabin, so cabin air stampedes down that pipe and everything in the bowl goes with it. The bowl is coated so slick that nothing sticks, so instead of gallons of water, one cup of blue disinfectant rinses it clean, and the waste slams into a sealed tank in the plane's belly. But on the ground, the air outside is just as thick as inside, nothing rushes, so a roaring pump under the plane makes the suction instead. That tank never opens in flight. It stays sealed under the floor, sloshing until a truck pulls up at the gate and drains the whole flight's worth.
 
 ## Turn markers
 
 Where the script re-hooks (curiosity gaps, reversals, payoffs).
 
-- 26.7s (63% in) — "but"
-- 34s (81% in) — "until"
+- 24.2s (44% in) — "so instead"
+- 34s (62% in) — "but"
+- 43.4s (80% in) — "instead"
+- 50.2s (92% in) — "until"
 
 ## Claim density (per 10s)
 
 ```
-   0s  2 █████████████
-  10s  1 ███████
-  20s  1 ███████
-  30s  3 ████████████████████
-  40s  0 
+   0s  2 ████████████████████
+  10s  0 
+  20s  1 ██████████
+  30s  1 ██████████
+  40s  2 ████████████████████
+  50s  0 
 ```
 
 ## Transcript
 
-The moment you press that flush button, a valve snaps open and behind it is the sky, with barely any air. The crowded cabin air rushes toward that emptiness, dragging everything down the pipe at 300 miles per hour. That rushing air scrubs a bowl slicker than a non-stick pan, so one cup of blue liquid replaces gallons of water, and everything slams into a sealed tank in the plane's belly. But on the ground, the outside air is just as thick as the inside. Nothing rushes, so a roaring pump fakes the sky until takeoff. That tank never opens in flight. Every flush rides beneath your feet, sloshing, and lands when you do.
+An airplane toilet flushes at 300 miles an hour, and whatever goes down it rides right under your seat for the rest of the flight. Press flush and a valve opens a pipe to the sky, where the air is far thinner than in the cabin, so cabin air stampedes down that pipe and everything in the bowl goes with it. The bowl is coated so slick that nothing sticks, so instead of gallons of water, one cup of blue disinfectant rinses it clean, and the waste slams into a sealed tank in the plane's belly. But on the ground, the air outside is just as thick as inside, nothing rushes, so a roaring pump under the plane makes the suction instead. That tank never opens in flight. It stays sealed under the floor, sloshing until a truck pulls up at the gate and drains the whole flight's worth.

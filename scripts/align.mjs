@@ -84,15 +84,24 @@ for (let k = 0; k < sceneWordCounts.length - 1; k++) {
   const lead = narrations[k + 1].split(/\s+/).slice(0, 3).map(norm);
   let best = est;
   let found = false;
-  for (let i = Math.max(1, est - 10); i <= Math.min(words.length - 3, est + 10); i++) {
-    if (
-      norm(words[i].text) === lead[0] &&
-      (norm(words[i + 1].text) === lead[1] || norm(words[i + 2].text) === lead[2])
-    ) {
-      best = i;
-      found = true;
-      break;
+  // Two passes: an exact 3-word match wins over a looser 2-of-3 one, so an
+  // earlier phrase that merely shares the first two words ("the bowl goes…"
+  // vs "The bowl is…") can't steal the boundary.
+  const lo = Math.max(1, est - 10);
+  const hi = Math.min(words.length - 3, est + 10);
+  const hit = (i, strict) =>
+    norm(words[i].text) === lead[0] &&
+    (strict
+      ? norm(words[i + 1].text) === lead[1] && norm(words[i + 2].text) === lead[2]
+      : norm(words[i + 1].text) === lead[1] || norm(words[i + 2].text) === lead[2]);
+  for (const strict of [true, false]) {
+    for (let i = lo; i <= hi && !found; i++) {
+      if (hit(i, strict)) {
+        best = i;
+        found = true;
+      }
     }
+    if (found) break;
   }
   boundaries.push({ index: best, matched: found, firstWord: words[best].text });
 }

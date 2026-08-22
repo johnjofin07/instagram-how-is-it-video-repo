@@ -8,7 +8,8 @@
     "still": "remotion still src/index.ts",
     "tts": "node scripts/tts.mjs",
     "produce": "node scripts/produce.mjs",
-    "analyze": "node scripts/analyze.mjs"
+    "analyze": "node scripts/analyze.mjs",
+    "icon": "node scripts/icons.mjs"
   },
   "dependencies": {
     "@remotion/captions": "^4.0.512",
@@ -19,6 +20,8 @@
     "remotion": "^4.0.0"
   },
   "devDependencies": {
+    "@iconify-json/fluent-emoji-flat": "^1.2.5",
+    "@iconify/utils": "^3.1.4",
     "@types/react": "^18.3.0",
     "typescript": "^5.5.0"
   }
